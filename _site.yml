@@ -11,5 +11,7 @@ navbar:
       href: about.html
     - icon: fab fa-github
       href: https://github.com/stevelinberg/distill-blog
+    - icon: fab fa-twitter
+      href: https://twitter.com/stevelinberg
 base_url: https://slinberg.net
 output: distill::distill_article
