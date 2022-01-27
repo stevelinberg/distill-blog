@@ -9,11 +9,11 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
-    - icon: fab fa-github
-      href: https://github.com/stevelinberg/distill-blog
     - icon: fab fa-twitter
       href: https://twitter.com/stevelinberg
     - icon: far fa-envelope
       href: mailto:steve@slinberg.net
+  source_url: true
+repository_url: https://github.com/stevelinberg/distill-blog
 base_url: https://slinberg.net
 output: distill::distill_article
