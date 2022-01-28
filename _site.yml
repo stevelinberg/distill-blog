@@ -12,9 +12,16 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
+    - icon: fab fa-github
+      href: https://github.com/stevelinberg
+    - icon: fab fa-twitter
+      href: https://twitter.com/stevelinberg
+    - icon: fab fa-linkedin
+      href: https://www.linkedin.com/in/slinberg/
+    - icon: fab fa-stack-overflow
+      href: https://stackoverflow.com/users/13603796/stevelinberg
     - icon: far fa-envelope
       href: mailto:steve@slinberg.net
-  source_url: true
 repository_url: https://github.com/stevelinberg/distill-blog
 base_url: https://slinberg.net
 creative_commons: CC BY-NC
