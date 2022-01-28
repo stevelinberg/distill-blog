@@ -1,13 +1,12 @@
 ---
-title: "Welcome to Steve Linberg"
+title: "New blog under construction"
 description: |
-  Welcome to our new blog, Steve Linberg. We hope you enjoy 
-  reading what we have to say!
+  We're re-launching slinberg.net using Distill. Stand by!
 author:
-  - name: Nora Jones 
-    url: https://example.com/norajones
-    affiliation: Spacely Sprockets
-    affiliation_url: https://example.com/spacelysprokets
+  - name: Steve Linberg
+    url: https://slinberg.net
+    # affiliation: Spacely Sprockets
+    # affiliation_url: https://example.com/spacelysprokets
 date: 01-27-2022
 output:
   distill::distill_article:
@@ -22,5 +21,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
+This is a re-launch of slinberg.net, using the [Distill](https://rstudio.github.io/distill) platform to align with the UMASS DACSS program I am presently enrolled in.
 
 
