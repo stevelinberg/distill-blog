@@ -23,5 +23,5 @@ knitr::opts_chunk$set(echo = FALSE)
 
 This is a re-launch of slinberg.net, using the [distill](https://rstudio.github.io/distill) platform to align with the [UMASS DACSS program](https://www.umass.edu/sbs/data-analytics-and-computational-social-science-program/ms) I am presently enrolled in.
 
-Pardon the dust while we redecorate. First up will be a soup-to-nuts, zero-to-hero walkthrough of how this site was built and deployed.
+Pardon the dust while we redecorate. First up will be a soup-to-nuts, zero-to-hero walkthrough of how this site was built and deployed on a custom domain with GitHub.
 
