@@ -30,7 +30,7 @@ html {
   --heading-font:    'Alata', sans-serif;        /* edited */
   --mono-font:       monospace;
   /* --body-font:       'Cardo', serif;    */         /* edited */
-  --body-font:       'Alata', serif;             /* edited */
+  --body-font:       'Alata', sans-serif;             /* edited */
   --navbar-font:     'Alata', sans-serif;        /* edited */
 }
 
