@@ -30,6 +30,6 @@ output: distill::distill_article
 collections:
   posts:
     disqus: 
-      shortname: slinberg-net.disqus.com
+      shortname: slinberg-net
       hidden: false
     share: [twitter, linkedin]
