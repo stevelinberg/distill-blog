@@ -1,8 +1,9 @@
 name: "."
-title: "Steve Linberg"
+title: "slinberg.net"
 description: |
   Steve Linberg
 output_dir: "docs"
+theme: slinberg.css
 twitter:
   site: "@stevelinberg"
   creator: "@stevelinberg"
