@@ -1,19 +1,19 @@
 [
   {
     "path": "posts/welcome/",
-    "title": "Welcome to Steve Linberg",
-    "description": "Welcome to our new blog, Steve Linberg. We hope you enjoy \nreading what we have to say!",
+    "title": "New blog under construction",
+    "description": "We're re-launching slinberg.net using Distill. Stand by!",
     "author": [
       {
-        "name": "Nora Jones",
-        "url": "https://example.com/norajones"
+        "name": "Steve Linberg",
+        "url": "https://slinberg.net"
       }
     ],
     "date": "2022-01-27",
     "categories": [],
-    "contents": "\n\n\n\n",
+    "contents": "\nThis is a re-launch of slinberg.net, using the Distill platform to align with the UMASS DACSS program I am presently enrolled in.\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-01-27T15:55:19-05:00",
+    "last_modified": "2022-01-28T14:44:15-05:00",
     "input_file": {}
   }
 ]

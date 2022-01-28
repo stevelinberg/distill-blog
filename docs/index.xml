@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
-    <title>Steve Linberg</title>
+    <title>slinberg.net</title>
     <link>https://slinberg.net</link>
     <atom:link href="https://slinberg.net/index.xml" rel="self" type="application/rss+xml"/>
     <description>Steve Linberg
@@ -9,11 +9,10 @@
     <generator>Distill</generator>
     <lastBuildDate>Thu, 27 Jan 2022 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Welcome to Steve Linberg</title>
-      <dc:creator>Nora Jones</dc:creator>
+      <title>New blog under construction</title>
+      <dc:creator>Steve Linberg</dc:creator>
       <link>https://slinberg.net/posts/welcome</link>
-      <description>Welcome to our new blog, Steve Linberg. We hope you enjoy 
-reading what we have to say!</description>
+      <description>We're re-launching slinberg.net using Distill. Stand by!</description>
       <guid>https://slinberg.net/posts/welcome</guid>
       <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
     </item>
