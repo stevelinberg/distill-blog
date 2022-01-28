@@ -3,17 +3,19 @@ title: "Steve Linberg"
 description: |
   Steve Linberg
 output_dir: "docs"
+twitter:
+  site: "@stevelinberg"
+  creator: "@stevelinberg"
 navbar:
   right:
     - text: "Home"
       href: index.html
     - text: "About"
       href: about.html
-    - icon: fab fa-twitter
-      href: https://twitter.com/stevelinberg
     - icon: far fa-envelope
       href: mailto:steve@slinberg.net
   source_url: true
 repository_url: https://github.com/stevelinberg/distill-blog
 base_url: https://slinberg.net
+creative_commons: CC BY-NC
 output: distill::distill_article
