@@ -30,4 +30,5 @@ output: distill::distill_article
 collections:
   posts:
     disqus: slinberg-net.disqus.com
+    hidden: false
     share: [twitter, linkedin]
