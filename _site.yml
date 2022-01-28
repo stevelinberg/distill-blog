@@ -33,3 +33,4 @@ collections:
       shortname: slinberg-net
       hidden: false
     share: [twitter, linkedin]
+    subscribe: _subscribe.html
