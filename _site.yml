@@ -31,6 +31,6 @@ collections:
   posts:
     disqus: 
       shortname: slinberg-net
-      hidden: false
+      hidden: true
     share: [twitter, linkedin]
     subscribe: _subscribe.html
