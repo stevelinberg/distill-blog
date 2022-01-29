@@ -13,6 +13,10 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
+    - text: "Meta"
+      menu:
+        - text: "Distill and Github Pages Setup"
+          href: meta/distill-and-github-pages-setup/index.html
     - icon: fab fa-github
       href: https://github.com/stevelinberg
     - icon: fab fa-twitter
@@ -38,4 +42,8 @@ collections:
     subscribe: _subscribe.html
     categories: true
   meta:
+    disqus:
+      shortname: slinberg-net
+      hidden: true
+    share: [twitter, linkedin]
     categories: true
