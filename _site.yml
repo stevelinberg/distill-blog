@@ -12,7 +12,7 @@ navbar:
     - text: "Home"
       href: index.html
     - text: "About"
-      href: about.html
+      href: steve.html
     - text: "Meta"
       menu:
         - text: "Article listing"
