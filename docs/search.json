@@ -6,15 +6,15 @@
       "description": "Some additional details about the blog",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-01-29T11:21:06-05:00"
+      "last_modified": "2022-01-29T12:32:49-05:00"
     },
     {
       "path": "index.html",
       "title": "Steve Linberg",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-01-29T11:21:06-05:00"
+      "last_modified": "2022-01-29T12:32:50-05:00"
     }
   ],
-  "collections": ["posts/posts.json"]
+  "collections": ["posts/posts.json", "meta/meta.json"]
 }

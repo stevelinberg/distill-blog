@@ -1,0 +1,19 @@
+[
+  {
+    "path": "meta/distill-and-github-pages-setup/",
+    "title": "Distill and Github Pages Setup",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Steve Linberg",
+        "url": {}
+      }
+    ],
+    "date": "2022-01-29",
+    "categories": [],
+    "contents": "\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-01-29T12:36:40-05:00",
+    "input_file": "distill-and-github-pages-setup.knit.md"
+  }
+]
