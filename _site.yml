@@ -36,3 +36,6 @@ collections:
       hidden: true
     share: [twitter, linkedin]
     subscribe: _subscribe.html
+    categories: true
+  meta:
+    categories: true
