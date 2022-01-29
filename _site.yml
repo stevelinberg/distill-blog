@@ -19,6 +19,12 @@ navbar:
           href: meta_index.html
         - text: "Distill and Github Pages Setup"
           href: meta/distill-and-github-pages-setup/index.html
+    - text: "Academics"
+      menu:
+        - text: "PS753 - Political and Social Networks, Spring 2022"
+          href: academics/PS753/index.html
+        # - text: "MS797 - Machine Learning, Spring 2022"
+        #   href: academics/MS797.html
     - icon: fab fa-github
       href: https://github.com/stevelinberg
     - icon: fab fa-twitter
@@ -44,6 +50,12 @@ collections:
     subscribe: _subscribe.html
     categories: true
   meta:
+    disqus:
+      shortname: slinberg-net
+      hidden: true
+    share: [twitter, linkedin]
+    categories: true
+  academics:
     disqus:
       shortname: slinberg-net
       hidden: true

@@ -1,0 +1,20 @@
+---
+title: "PS753"
+description: |
+  Front page for PS753 coursework, Spring 2022.
+author:
+  - name: Steve Linberg
+date: 2022-01-29
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# PS753: Political and Social Networks, Spring 2022
+
+From this index page, we will magically link to the glossary page.

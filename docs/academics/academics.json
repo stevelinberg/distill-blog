@@ -1,0 +1,19 @@
+[
+  {
+    "path": "academics/ps753/",
+    "title": "PS753",
+    "description": "Front page for PS753 coursework, Spring 2022.",
+    "author": [
+      {
+        "name": "Steve Linberg",
+        "url": {}
+      }
+    ],
+    "date": "2022-01-29",
+    "categories": [],
+    "contents": "\nPS753: Political and Social Networks, Spring 2022\nFrom this index page, we will magically link to the glossary page.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-01-29T17:17:44-05:00",
+    "input_file": {}
+  }
+]
