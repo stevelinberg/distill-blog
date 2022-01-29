@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2022-01-29-distill-setup-article-added/",
+    "title": "Distill setup article added",
+    "description": "The first Distill how-to article is up.",
+    "author": [
+      {
+        "name": "Steve Linberg",
+        "url": "https://slinberg.net"
+      }
+    ],
+    "date": "2022-01-29",
+    "categories": [],
+    "contents": "\nThe first article about using Distill to build a website like this one is now up in the Meta section. More articles are coming!\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-01-29T14:45:44-05:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/welcome/",
     "title": "New blog under construction",
     "description": "We're re-launching slinberg.net using Distill. Stand by!",

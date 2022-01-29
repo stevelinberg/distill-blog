@@ -1,0 +1,19 @@
+---
+title: "Distill setup article added"
+description: |
+  The first Distill how-to article is up.
+author:
+  - name: Steve Linberg
+    url: https://slinberg.net
+date: 2022-01-29
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+[The first article about using Distill to build a website like this one](../../meta/distill-and-github-pages-setup/index.html) is now up in the [Meta](../../meta_index.html) section. More articles are coming!
