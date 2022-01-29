@@ -101,3 +101,12 @@ ul > li::marker {
     font-weight: 700;
     font-size: 1.125em;
 }
+
+/* https://github.com/rstudio/distill/issues/92#issuecomment-899886295 */
+.thumbnail {
+    padding: 0px!important;
+    margin: 0px!important;
+    max-width: 10%!important;
+    height: auto!important;
+    vertical-align: text-top!important;
+}
