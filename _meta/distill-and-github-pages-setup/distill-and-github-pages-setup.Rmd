@@ -1,13 +1,18 @@
 ---
 title: "Distill and Github Pages Setup"
 description: |
-  A short description of the post.
+  A walkthrough of setting up a new Distill site on GitHub Pages
 author:
   - name: Steve Linberg
 date: 2022-01-29
 output:
   distill::distill_article:
     self_contained: false
+categories:
+  - distill
+  - github pages
+  - git
+  - rstudio
 ---
 
 

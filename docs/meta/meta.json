@@ -2,7 +2,7 @@
   {
     "path": "meta/distill-and-github-pages-setup/",
     "title": "Distill and Github Pages Setup",
-    "description": "A short description of the post.",
+    "description": "A walkthrough of setting up a new Distill site on GitHub Pages",
     "author": [
       {
         "name": "Steve Linberg",
@@ -10,10 +10,15 @@
       }
     ],
     "date": "2022-01-29",
-    "categories": [],
+    "categories": [
+      "distill",
+      "github pages",
+      "git",
+      "rstudio"
+    ],
     "contents": "\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-01-29T12:36:40-05:00",
-    "input_file": "distill-and-github-pages-setup.knit.md"
+    "last_modified": "2022-01-29T12:39:57-05:00",
+    "input_file": {}
   }
 ]

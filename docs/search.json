@@ -6,14 +6,21 @@
       "description": "Some additional details about the blog",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-01-29T12:32:49-05:00"
+      "last_modified": "2022-01-29T12:37:55-05:00"
     },
     {
       "path": "index.html",
-      "title": "Steve Linberg",
+      "title": "Blog posts",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-01-29T12:32:50-05:00"
+      "last_modified": "2022-01-29T12:37:56-05:00"
+    },
+    {
+      "path": "meta_index.html",
+      "title": "Meta",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2022-01-29T12:50:36-05:00"
     }
   ],
   "collections": ["posts/posts.json", "meta/meta.json"]

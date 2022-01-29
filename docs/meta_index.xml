@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>slinberg.net</title>
+    <link>https://slinberg.net</link>
+    <atom:link href="https://slinberg.net/meta_index.xml" rel="self" type="application/rss+xml"/>
+    <description>Steve Linberg's blog
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Distill and Github Pages Setup</title>
+      <dc:creator>Steve Linberg</dc:creator>
+      <link>https://slinberg.net/meta/distill-and-github-pages-setup</link>
+      <description>A walkthrough of setting up a new Distill site on GitHub Pages</description>
+      <category>distill</category>
+      <category>github pages</category>
+      <category>git</category>
+      <category>rstudio</category>
+      <guid>https://slinberg.net/meta/distill-and-github-pages-setup</guid>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
