@@ -1,0 +1,52 @@
+---
+title: "Steve Linberg"
+image: "2021-sfl-photo-fadedbg-256.png"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/slinberg"
+  - label: Twitter
+    url: "https://twitter.com/stevelinberg"
+  - label: GitHub
+    url: "https://github.com/stevelinberg"
+  - label: SO
+    url: "https://stackoverflow.com/users/13603796/stevelinberg"
+  - label: Email
+    url: "mailto:steve@slinberg.net"
+output:
+  postcards::trestles
+---
+ 
+## Bio
+
+I am a Masters student in the [DACSS program](https://www.umass.edu/sbs/data-analytics-and-computational-social-science-program) at the University of Massachusetts, Amherst; anticipated graduation Summer 2022. The day job is Senior Systems and Analytics Engineer at the [Gandara Center](https://www.gandaracenter.org/) in West Springfield, MA.
+
+This site contains my academic [blog](index.html) with ruminations on computational social science, my own learning processes and discoveries, and related technical topics and snippets. 
+
+## Education
+
+**Hampshire College** | Amherst, MA
+
+BA, Social Science, 1990-3
+
+**University of Massachusetts, Amherst** | Amherst, MA
+
+M.S, Data Analytics and Computational Social Science | Anticipated graduation summer 2022
+
+## Experience
+
+**Gandara Center** | Senior Systems and Analytics Engineer / CIO / IT Director | 2005 - Present
+
+**Silicon Goblin Technologies** | Owner / Programmer | 1999 - 2015
+
+**National Center on Adult Literacy**, University of Pennsylvania Graduate School of Education | Systems Programmer | 1997-1999
+
+**Holyoke Public Schools** | Literacy and GED Instructor | 1994-1997
+
+**Unicom, Inc.** | Systems Programmer and Technical Writer | 1983-1997
+
+## Interests
+
+- Data analytics and statistics
+- Programming languages
+- The state of the world
+- Drawing, painting, guitar, motorcycles, baking, gaming
