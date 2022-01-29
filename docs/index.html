@@ -2217,6 +2217,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   ul > li::marker {
       font-weight: 700;
       font-size: 1.125em;
+  }
+
+  /* https://github.com/rstudio/distill/issues/92#issuecomment-899886295 */
+  .thumbnail {
+      padding: 0px!important;
+      margin: 0px!important;
+      max-width: 10%!important;
+      height: auto!important;
+      vertical-align: text-top!important;
   }</style>
   <style type="text/css">
   /* base style */
@@ -2577,7 +2586,7 @@ function init_posts_list() {
 </div>
 </div>
 <div class="thumbnail">
-<img/>
+<img src="posts/welcome/construction.png"/>
 </div>
 <div class="description">
 <h2>New blog under construction</h2>
