@@ -11,6 +11,7 @@ date: 01-27-2022
 output:
   distill::distill_article:
     self_contained: false
+preview: construction.png
 ---
 
 ```{r setup, include=FALSE}
