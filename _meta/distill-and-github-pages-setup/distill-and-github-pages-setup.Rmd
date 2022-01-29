@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 This document contains a walkthrough of setting up a new [Distill](https://rstudio.github.io/distill/) blog using [RStudio](https://www.rstudio.com/products/rstudio/) and [GitHub pages.](https://pages.github.com/) It's the first in a series of articles for social scientists showing how to create, publish and update a website using these packages. This is a relatively easy way to set up a lightweight website that's well-suited for blogging and writing articles, especially about and using R. Once it's built, you maintain it using RStudio just like your other projects.
 
-Although it's intended to be complete, and not overly technical where avoidable, it does assume a modest level of comfort using basic tools like RStudio and GitHub. If you're on Mac or Linux, you probably have [git](https://git-scm.com/) built in already, but you might need to install it if you're on Windows. That's outside the scope of this article, but you can find information about it on the main Git page.
+Although it's intended to be complete, and not overly technical where avoidable, it does assume a modest level of comfort using basic tools like RStudio and GitHub. If you're on Mac or Linux, you probably have [git](https://git-scm.com/) built in already, but you might need to install it if you're on Windows. That's outside the scope of this article, but you can find information about it on the [Git for Windows download page](https://git-scm.com/download/win).
 
 Assuming you have git and RStudio installed, and a GitHub account created, you're ready to proceed!
 
@@ -95,7 +95,8 @@ git push
 [main 6c67d2d] Add RStudio project skeleton
  1 file changed, 13 insertions(+)
  create mode 100644 distill-blog.Rproj
-[slinbergdistill-blog] (main)$ git push Enter passphrase for key '/Users/slinberg/.ssh/sfl_id_rsa': 
+[slinbergdistill-blog] (main)$ git push 
+Enter passphrase for key '/Users/slinberg/.ssh/sfl_id_rsa': 
 Enumerating objects: 4, done.
 Counting objects: 100% (4/4), done.
 Delta compression using up to 8 threads

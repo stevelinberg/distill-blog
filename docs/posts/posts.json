@@ -2,7 +2,7 @@
   {
     "path": "posts/2022-01-29-distill-setup-article-added/",
     "title": "Distill setup article added",
-    "description": "The first Distill how-to article is up.",
+    "description": "The first Distill how-to article is up in the Meta section.",
     "author": [
       {
         "name": "Steve Linberg",
@@ -11,9 +11,9 @@
     ],
     "date": "2022-01-29",
     "categories": [],
-    "contents": "\nThe first article about using Distill to build a website like this one is now up in the Meta section. More articles are coming!\n\n\n\n",
+    "contents": "\nThe first article about using Distill to build a website like this one is now up in the Meta section. More articles are coming!\nNote: the source for this site can be found on github.\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-01-29T14:45:44-05:00",
+    "last_modified": "2022-01-29T15:09:49-05:00",
     "input_file": {}
   },
   {
