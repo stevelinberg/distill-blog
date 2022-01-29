@@ -1,7 +1,7 @@
 name: "."
 title: "slinberg.net"
 description: |
-  Steve Linberg
+  Steve Linberg's blog
 output_dir: "docs"
 theme: slinberg.css
 twitter:
@@ -23,7 +23,9 @@ navbar:
       href: https://stackoverflow.com/users/13603796/stevelinberg
     - icon: far fa-envelope
       href: mailto:steve@slinberg.net
-repository_url: https://github.com/stevelinberg/distill-blog
+    - icon: fa fa-rss
+      href: index.xml
+      repository_url: https://github.com/stevelinberg/distill-blog
 base_url: https://slinberg.net
 creative_commons: CC BY-NC
 output: distill::distill_article
