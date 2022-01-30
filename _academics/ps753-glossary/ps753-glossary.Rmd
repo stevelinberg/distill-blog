@@ -9,6 +9,7 @@ date: 2022-01-29
 output:
  distill::distill_article:
    self_contained: false
+bibliography: PS753.bib
 ---
 
 
@@ -25,13 +26,15 @@ Academics &gt; [PS 753](../ps753/index.html)
 
 **From lecture 1a: [Nodes, Edges and Network Samples](https://www.loom.com/share/efc5252bb75b463481b93e55be6e4d67)**
 
-node / vertex
-: a junction in a network where two or more lines (edges) intersect; a dot connecting lines.<br>
+(Note: some terms overlap somewhat or have context-dependent synonyms.)
 
-edge / link
+node / vertex
+: a junction in a network where two or more lines (edges) intersect; a dot connecting lines.
+
+tie / edge / link
 : lines connecting nodes, which indicate some sort of connection or relationship.
 
-node or ego
+node / ego / actor
 : $i$ - the node being discussed or focused on
 
 alter
@@ -50,7 +53,7 @@ interaction threshold
 : a measure to determine whether two entities have a sufficient connection to be considered to have a link between them
 
 snowball sample
-: an entity group formed by starting with one node and "rolling outwards" to its connections until all nodes or actors (in a limited set) are located
+: an entity group formed by starting with "a focal actor or set of actors"^[@hanneman] and "rolling outwards" to its connections until all nodes or actors (in a limited set) are located
 
 egocentric name generator
 : a mode of building an entity group (an egocentric network) defined by connection to a single central node; like a snowball sample that doesn't expand past the first set of connections
@@ -96,3 +99,9 @@ edgelist
 |C|A|-4|
 
 Edgelists are more efficient in sparse networks, as they only list actual connections rather than being a matrix of all possible connections
+
+---
+
+https://retorque.re/zotero-better-bibtex/
+
+

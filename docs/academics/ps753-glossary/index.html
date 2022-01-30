@@ -85,6 +85,27 @@ code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
+<style>
+  div.csl-bib-body { }
+  div.csl-entry {
+    clear: both;
+    }
+  .hanging div.csl-entry {
+    margin-left:2em;
+    text-indent:-2em;
+  }
+  div.csl-left-margin {
+    min-width:2em;
+    float:left;
+  }
+  div.csl-right-inline {
+    margin-left:2em;
+    padding-left:1em;
+  }
+  div.csl-indent {
+    margin-left: 2em;
+  }
+</style>
 
   <!--radix_placeholder_meta_tags-->
 <title>slinberg.net: PS753 Glossary</title>
@@ -123,15 +144,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta name="citation_publication_date" content="2022/01/29"/>
 <meta name="citation_author" content="Steve Linberg"/>
 <!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Introduction to Social Network Methods;citation_publication_date=2005;citation_publisher=http://faculty.ucr.edu/~hanneman/nettext/;citation_author=Introduction to Social Network Methods;citation_author=2005"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY-NC"]},{"type":"character","attributes":{},"value":["PS753 Glossary"]},{"type":"character","attributes":{},"value":["Glossary page for PS753 coursework"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Steve Linberg"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2022-01-29"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://slinberg.net/academics/ps753-glossary/"]},{"type":"character","attributes":{},"value":["https://slinberg.net/academics/ps753-glossary/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","bibliography","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY-NC"]},{"type":"character","attributes":{},"value":["PS753 Glossary"]},{"type":"character","attributes":{},"value":["Glossary page for PS753 coursework"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Steve Linberg"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2022-01-29"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["PS753.bib"]},{"type":"character","attributes":{},"value":["https://slinberg.net/academics/ps753-glossary/"]},{"type":"character","attributes":{},"value":["https://slinberg.net/academics/ps753-glossary/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["ps753-glossary_files/anchor-4.2.2/anchor.min.js","ps753-glossary_files/bowser-1.9.3/bowser.min.js","ps753-glossary_files/distill-2.2.21/template.v2.js","ps753-glossary_files/header-attrs-2.11/header-attrs.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min.map","ps753-glossary_files/popper-2.6.0/popper.min.js","ps753-glossary_files/tippy-6.2.7/tippy-bundle.umd.min.js","ps753-glossary_files/tippy-6.2.7/tippy-light-border.css","ps753-glossary_files/tippy-6.2.7/tippy.css","ps753-glossary_files/tippy-6.2.7/tippy.umd.min.js","ps753-glossary_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["ps753-glossary_files/anchor-4.2.2/anchor.min.js","ps753-glossary_files/bowser-1.9.3/bowser.min.js","ps753-glossary_files/distill-2.2.21/template.v2.js","ps753-glossary_files/header-attrs-2.11/header-attrs.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min.map","ps753-glossary_files/popper-2.6.0/popper.min.js","ps753-glossary_files/tippy-6.2.7/tippy-bundle.umd.min.js","ps753-glossary_files/tippy-6.2.7/tippy-light-border.css","ps753-glossary_files/tippy-6.2.7/tippy.css","ps753-glossary_files/tippy-6.2.7/tippy.umd.min.js","ps753-glossary_files/webcomponents-2.0.0/webcomponents.js","PS753.bib","PS753.yaml"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2545,14 +2568,15 @@ Academics &gt; <a href="../ps753/index.html">PS 753</a> &gt; Glossary
 </p>
 <h1 id="week-1">Week 1</h1>
 <p><strong>From lecture 1a: <a href="https://www.loom.com/share/efc5252bb75b463481b93e55be6e4d67">Nodes, Edges and Network Samples</a></strong></p>
+<p>(Note: some terms overlap somewhat or have context-dependent synonyms.)</p>
 <dl>
 <dt>node / vertex</dt>
-<dd>a junction in a network where two or more lines (edges) intersect; a dot connecting lines.<br>
+<dd>a junction in a network where two or more lines (edges) intersect; a dot connecting lines.
 </dd>
-<dt>edge / link</dt>
+<dt>tie / edge / link</dt>
 <dd>lines connecting nodes, which indicate some sort of connection or relationship.
 </dd>
-<dt>node or ego</dt>
+<dt>node / ego / actor</dt>
 <dd><span class="math inline">\(i\)</span> - the node being discussed or focused on
 </dd>
 <dt>alter</dt>
@@ -2569,7 +2593,7 @@ Academics &gt; <a href="../ps753/index.html">PS 753</a> &gt; Glossary
 <dd>a measure to determine whether two entities have a sufficient connection to be considered to have a link between them
 </dd>
 <dt>snowball sample</dt>
-<dd>an entity group formed by starting with one node and “rolling outwards” to its connections until all nodes or actors (in a limited set) are located
+<dd>an entity group formed by starting with “a focal actor or set of actors”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and “rolling outwards” to its connections until all nodes or actors (in a limited set) are located
 </dd>
 <dt>egocentric name generator</dt>
 <dd>a mode of building an entity group (an egocentric network) defined by connection to a single central node; like a snowball sample that doesn’t expand past the first set of connections
@@ -2685,7 +2709,20 @@ Academics &gt; <a href="../ps753/index.html">PS 753</a> &gt; Glossary
 </tbody>
 </table>
 <p>Edgelists are more efficient in sparse networks, as they only list actual connections rather than being a matrix of all possible connections</p>
+<hr />
+<p><a href="https://retorque.re/zotero-better-bibtex/" class="uri">https://retorque.re/zotero-better-bibtex/</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-hanneman" class="csl-entry" role="doc-biblioentry">
+Hanneman, Robert A., and Riddle, Mark. 2005. <span>“Introduction to <span>Social Network Methods</span>.”</span> <em>Introduction to Social Network Methods</em>. http://faculty.ucr.edu/~hanneman/nettext/.
+</div>
+</div>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><span class="citation" data-cites="hanneman"><a href="#ref-hanneman" role="doc-biblioref">Hanneman, Robert A. and Riddle, Mark</a> (<a href="#ref-hanneman" role="doc-biblioref">2005</a>)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
@@ -2739,6 +2776,8 @@ var disqus_config = function () {
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
 <div class="appendix-bottom">
+  <h3 id="references">References</h3>
+  <div id="references-listing"></div>
   <h3 id="updates-and-corrections">Corrections</h3>
   <p>If you see mistakes or want to suggest changes, please <a href="https://github.com/stevelinberg/distill-blog/issues/new">create an issue</a> on the source repository.</p>
   <h3 id="reuse">Reuse</h3>
