@@ -43,7 +43,7 @@ network population
 With set notation, we define $i$ as a set of $n$ elements:
 $$i \in 1, 2, 3 \dots n$$
 
-and $j$ similarly as a set of $n$ elements, except that $j$ cannot equal $i (a node cannot connect to itself):
+and $j$ similarly as a set of $n$ elements, except that $j$ cannot equal $i$ (a node cannot connect to itself):
 $$j \in 1, 2, 3 \dots n, i \ne j$$
 
 interaction threshold
