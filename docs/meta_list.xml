@@ -3,7 +3,7 @@
   <channel>
     <title>slinberg.net</title>
     <link>https://slinberg.net</link>
-    <atom:link href="https://slinberg.net/meta_index.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://slinberg.net/meta_list.xml" rel="self" type="application/rss+xml"/>
     <description>Steve Linberg's blog
 </description>
     <generator>Distill</generator>
