@@ -16,13 +16,13 @@ navbar:
     - text: "Meta"
       menu:
         - text: "Article listing"
-          href: meta_index.html
+          href: meta_list.html
         - text: "Distill and Github Pages Setup"
           href: meta/distill-and-github-pages-setup/index.html
     - text: "Academics"
       menu:
         - text: "PS753 - Political and Social Networks, Spring 2022"
-          href: academics/PS753/index.html
+          href: academics/PS753/
         # - text: "MS797 - Machine Learning, Spring 2022"
         #   href: academics/MS797.html
     - icon: fab fa-github
