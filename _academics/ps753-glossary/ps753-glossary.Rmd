@@ -1,0 +1,98 @@
+---
+title: "PS753 Glossary"
+description: |
+  Glossary page for PS753 coursework
+author:
+  - name: Steve Linberg
+    url: {}
+date: 2022-01-29
+output:
+ distill::distill_article:
+   self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<p style="background: #eee">
+[PS 753](../PS753/index.html)
+&gt; Glossary
+</p>
+
+# Week 1
+
+**From lecture 1a: [Nodes, Edges and Network Samples](https://www.loom.com/share/efc5252bb75b463481b93e55be6e4d67)**
+
+node / vertex
+: a junction in a network where two or more lines (edges) intersect; a dot connecting lines.<br>
+
+edge / link
+: lines connecting nodes, which indicate some sort of connection or relationship.
+
+node or ego
+: $i$ - the node being discussed or focused on
+
+alter
+: $j$ - the node that $i$ connects to
+
+network population
+: $n$ - the size of the population or count of nodes
+
+With set notation, we define $i$ as a set of $n$ elements:
+$$i \in 1, 2, 3 \dots n$$
+
+and $j$ similarly as a set of $n$ elements, except that $j$ cannot equal $i (a node cannot connect to itself):
+$$j \in 1, 2, 3 \dots n, i \ne j$$
+
+interaction threshold
+: a measure to determine whether two entities have a sufficient connection to be considered to have a link between them
+
+snowball sample
+: an entity group formed by starting with one node and "rolling outwards" to its connections until all nodes or actors (in a limited set) are located
+
+egocentric name generator
+: a mode of building an entity group (an egocentric network) defined by connection to a single central node; like a snowball sample that doesn't expand past the first set of connections
+
+**From lecture 1b: [Ties and Adjacency Matrices](https://www.loom.com/share/a64c3a975e7147b9bb06bf921325bd96)**
+
+adjacency matrix
+: an $n \times n$ matrix depicting connections between $n$ nodes as 0 or 1, where 1 is a connection (or vertex/edge) and 0 is the absence of one:
+
+||A|B|C|D|
+|---|---|---|---|---|
+|A|-|0|1|0|
+|B|0|-|1|0|
+|C|1|1|-|0|
+|D|0|0|0|-|
+
+directed tie
+: a relationship where $W_{i,j} \ne W_{j,i}$, as might be used to represent a transfer of resources from one node to another; graphed with arrows
+
+symmetric tie
+: a relationship where $W_{i,j} = W_{j,i}$, with no direction; graphed with lines
+
+binary tie
+: a tie where $W_{i,j}$ is 0 or 1, as in the example above, indicating the absence or presence of a tie (also *dichotomous*)
+
+valued tie
+: a tie where $W_{i,j}$ is a value $v$, indicating a weight or magnitude of the connection; may be graphed with line attributes such as weight, color, etc
+
+Ties are symmetric or directed, and binary or valued.
+
+**From lecture 1c: [Edgelists](https://www.loom.com/share/9232d0ffe78d4ea4affc543bf4e353af)**
+
+edgelist
+: a table indicating edges in a network, with at least "from" and "to" columns, and possibly additional columns for attributes or values
+
+|From|To|Value|
+|---|---|---
+|A|B|5|
+|A|E|2|
+|B|A|-1|
+|B|C|4|
+|B|D|2|
+|C|A|-4|
+
+Edgelists are more efficient in sparse networks, as they only list actual connections rather than being a matrix of all possible connections

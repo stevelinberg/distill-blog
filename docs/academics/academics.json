@@ -1,8 +1,8 @@
 [
   {
-    "path": "academics/ps753/",
-    "title": "PS753",
-    "description": "Front page for PS753 coursework, Spring 2022.",
+    "path": "academics/ps753-glossary/",
+    "title": "PS753 Glossary",
+    "description": "Glossary page for PS753 coursework",
     "author": [
       {
         "name": "Steve Linberg",
@@ -11,9 +11,21 @@
     ],
     "date": "2022-01-29",
     "categories": [],
-    "contents": "\nPS753: Political and Social Networks, Spring 2022\nFrom this index page, we will magically link to the glossary page.\n\n\n\n",
+    "contents": "\n\nPS 753 > Glossary\n\nWeek 1\nFrom lecture 1a: Nodes, Edges and Network Samples\nnode / vertex\na junction in a network where two or more lines (edges) intersect; a dot connecting lines.\nedge / link\nlines connecting nodes, which indicate some sort of connection or relationship.\n\nnode or ego\n\\(i\\) - the node being discussed or focused on\n\nalter\n\\(j\\) - the node that \\(i\\) connects to\n\nnetwork population\n\\(n\\) - the size of the population or count of nodes\n\nWith set notation, we define \\(i\\) as a set of \\(n\\) elements: \\[i \\in 1, 2, 3 \\dots n\\]\nand \\(j\\) similarly as a set of \\(n\\) elements, except that \\(j\\) cannot equal $i (a node cannot connect to itself): \\[j \\in 1, 2, 3 \\dots n, i \\ne j\\]\ninteraction threshold\na measure to determine whether two entities have a sufficient connection to be considered to have a link between them\n\nsnowball sample\nan entity group formed by starting with one node and “rolling outwards” to its connections until all nodes or actors (in a limited set) are located\n\negocentric name generator\na mode of building an entity group (an egocentric network) defined by connection to a single central node; like a snowball sample that doesn’t expand past the first set of connections\n\nFrom lecture 1b: Ties and Adjacency Matrices\nadjacency matrix\nan \\(n \\times n\\) matrix depicting connections between \\(n\\) nodes as 0 or 1, where 1 is a connection (or vertex/edge) and 0 is the absence of one:\n\n\nA\nB\nC\nD\nA\n-\n0\n1\n0\nB\n0\n-\n1\n0\nC\n1\n1\n-\n0\nD\n0\n0\n0\n-\ndirected tie\na relationship where \\(W_{i,j} \\ne W_{j,i}\\), as might be used to represent a transfer of resources from one node to another; graphed with arrows\n\nsymmetric tie\na relationship where \\(W_{i,j} = W_{j,i}\\), with no direction; graphed with lines\n\nbinary tie\na tie where \\(W_{i,j}\\) is 0 or 1, as in the example above, indicating the absence or presence of a tie (also dichotomous)\n\nvalued tie\na tie where \\(W_{i,j}\\) is a value \\(v\\), indicating a weight or magnitude of the connection; may be graphed with line attributes such as weight, color, etc\n\nTies are symmetric or directed, and binary or valued.\nFrom lecture 1c: Edgelists\nedgelist\na table indicating edges in a network, with at least “from” and “to” columns, and possibly additional columns for attributes or values\n\nFrom\nTo\nValue\nA\nB\n5\nA\nE\n2\nB\nA\n-1\nB\nC\n4\nB\nD\n2\nC\nA\n-4\nEdgelists are more efficient in sparse networks, as they only list actual connections rather than being a matrix of all possible connections\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-01-29T17:17:44-05:00",
-    "input_file": {}
+    "last_modified": "2022-01-29T19:38:35-05:00",
+    "input_file": "ps753-glossary.knit.md"
+  },
+  {
+    "path": "academics/ps753/",
+    "title": "PS753",
+    "description": "Political and Social Networks, Spring 2022.",
+    "author": [],
+    "date": "2022-01-29",
+    "categories": [],
+    "contents": "\n\nPS 753\n\nClass work from this class will be listed here as we go. This part has to be done by hand in Distill, unfortunately.\nMy ongoing glossary page; feel free to comment, or make additions or corrections via comments or github.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-01-29T18:38:13-05:00",
+    "input_file": "ps753.knit.md"
   }
 ]
