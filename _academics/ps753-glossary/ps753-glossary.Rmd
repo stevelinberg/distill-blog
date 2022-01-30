@@ -40,7 +40,7 @@ tie / edge / link / relation
 : lines connecting nodes, which indicate some sort of connection or relationship.
 
 node / ego / actor
-: $i$ - the node being discussed or focused on; @hanneman also note "Actors are described by their relations, not by their attributes."
+: $i$ - the node being discussed or focused on; also note "Actors are described by their relations, not by their attributes."^[@hanneman]
 
 alter
 : $j$ - the node that $i$ connects to
@@ -122,3 +122,22 @@ full-rank ordinal measures of relations
 interval measures of relations
 : continuous measures that express the strength of connections by comparison with others, to be able to say "this tie is twice as strong as that tie"; the "most advanced" level of measurement
 
+### @lazer2011
+
+homophily
+: the idea that individuals who are similar to one another are more likely to form ties
+
+whole network data
+: relational information about a whole set (or subset) of data, with all of the actors' relations to each other considered
+
+egocentric data
+: relational information about a set of nodes connected to one particular node and not to each other
+
+diameter
+: the maximum degree of separation between any two nodes in the network
+
+one-mode data
+: ties among one set (or category) of agent, such as nations in the context of trade
+
+two-mode data
+: ties between different sets (or categories) of agents, such as ties between nations and international organizations
