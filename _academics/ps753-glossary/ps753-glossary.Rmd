@@ -1,7 +1,7 @@
 ---
 title: "PS753 Glossary"
 description: |
-  Glossary page for PS753 coursework
+  Glossary for PS753 coursework
 author:
   - name: Steve Linberg
     url: {}
@@ -9,6 +9,7 @@ date: 2022-01-29
 output:
  distill::distill_article:
    self_contained: false
+   toc: true
 bibliography: PS753.bib
 ---
 
@@ -22,20 +23,24 @@ Academics &gt; [PS 753](../ps753/index.html)
 &gt; Glossary
 </p>
 
-# Week 1
+> **A social network** is a set of actors (or points, or nodes, or agents) that may have relationships (or edges, or ties) with one another. Networks can have few or many actors, and one or more kinds of relations between pairs of actors.
+>
+>-- <cite>[@hanneman, chapter 2]</cite>
 
-**From lecture 1a: [Nodes, Edges and Network Samples](https://www.loom.com/share/efc5252bb75b463481b93e55be6e4d67)**
+## Week 1
+
+### Class lecture 1a: [Nodes, Edges and Network Samples](https://www.loom.com/share/efc5252bb75b463481b93e55be6e4d67)
 
 (Note: some terms overlap somewhat or have context-dependent synonyms.)
 
 node / vertex
-: a junction in a network where two or more lines (edges) intersect; a dot connecting lines.
+: a junction in a network where two or more lines (edges) intersect; a dot connecting lines. 
 
-tie / edge / link
+tie / edge / link / relation
 : lines connecting nodes, which indicate some sort of connection or relationship.
 
 node / ego / actor
-: $i$ - the node being discussed or focused on
+: $i$ - the node being discussed or focused on; @hanneman also note "Actors are described by their relations, not by their attributes."
 
 alter
 : $j$ - the node that $i$ connects to
@@ -53,12 +58,12 @@ interaction threshold
 : a measure to determine whether two entities have a sufficient connection to be considered to have a link between them
 
 snowball sample
-: an entity group formed by starting with "a focal actor or set of actors"^[@hanneman] and "rolling outwards" to its connections until all nodes or actors (in a limited set) are located
+: an entity group formed by starting with "a focal actor or set of actors"^[@hanneman] and "rolling outwards" to its connections until all nodes or actors (in a limited set) are located, or a decision to stop is made
 
 egocentric name generator
 : a mode of building an entity group (an egocentric network) defined by connection to a single central node; like a snowball sample that doesn't expand past the first set of connections
 
-**From lecture 1b: [Ties and Adjacency Matrices](https://www.loom.com/share/a64c3a975e7147b9bb06bf921325bd96)**
+### Class lecture 1b: [Ties and Adjacency Matrices](https://www.loom.com/share/a64c3a975e7147b9bb06bf921325bd96)
 
 adjacency matrix
 : an $n \times n$ matrix depicting connections between $n$ nodes as 0 or 1, where 1 is a connection (or vertex/edge) and 0 is the absence of one:
@@ -84,7 +89,7 @@ valued tie
 
 Ties are symmetric or directed, and binary or valued.
 
-**From lecture 1c: [Edgelists](https://www.loom.com/share/9232d0ffe78d4ea4affc543bf4e353af)**
+### Class lecture 1c: [Edgelists](https://www.loom.com/share/9232d0ffe78d4ea4affc543bf4e353af)
 
 edgelist
 : a table indicating edges in a network, with at least "from" and "to" columns, and possibly additional columns for attributes or values
@@ -100,8 +105,20 @@ edgelist
 
 Edgelists are more efficient in sparse networks, as they only list actual connections rather than being a matrix of all possible connections
 
----
+### @hanneman, chapter 1 (Social network data):
 
-https://retorque.re/zotero-better-bibtex/
+binary measures of relations
+: undirected relations, 0 or 1 for the absence or presence of a connection
 
+multiple-category nominal measures of relations
+: directed relations with categories (like "friend, lover, business relationship, kin, or no relationship")
+
+grouped ordinal measures of relations
+: measures that reflect a level of intensity or degree; often turned into binary measures by means of a threshold or cut-off
+
+full-rank ordinal measures of relations
+: an ordering from 1 to $n$ of an actor's relations (uncommon in social networks)
+
+interval measures of relations
+: continuous measures that express the strength of connections by comparison with others, to be able to say "this tie is twice as strong as that tie"; the "most advanced" level of measurement
 
