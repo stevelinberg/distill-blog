@@ -30,8 +30,8 @@
     "categories": [],
     "contents": "\nOne of the things I want to have in the Academics section of the site is glossaries of terms from some of my classes, with the hope that they will be useful to others (as well as myself), and to also make it possible for people to add/correct/amend them. The latter is now possible via GitHub, where the complete source for this site can be found (hit the GitHub icon in the menu in the top right).\nThe glossary for PS753, Political and Social Networks, is underway with terms from week 1.\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-01-29T21:04:48-05:00",
-    "input_file": "ps753-glossary-underway.knit.md"
+    "last_modified": "2022-01-29T21:04:49-05:00",
+    "input_file": {}
   },
   {
     "path": "posts/welcome/",
