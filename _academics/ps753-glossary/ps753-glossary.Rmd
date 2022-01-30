@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <p style="background: #eee">
-[PS 753](../PS753/index.html)
+[PS 753](../ps753/index.html)
 &gt; Glossary
 </p>
 

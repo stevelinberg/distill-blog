@@ -22,7 +22,7 @@ navbar:
     - text: "Academics"
       menu:
         - text: "PS753 - Political and Social Networks, Spring 2022"
-          href: academics/PS753/
+          href: academics/ps753/
         # - text: "MS797 - Machine Learning, Spring 2022"
         #   href: academics/MS797.html
     - icon: fab fa-github
