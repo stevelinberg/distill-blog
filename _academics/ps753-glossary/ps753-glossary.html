@@ -132,6 +132,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_meta_tags-->
   
   <meta name="citation_reference" content="citation_title=Introduction to Social Network Methods;citation_publication_date=2005;citation_publisher=http://faculty.ucr.edu/~hanneman/nettext/;citation_author=Introduction to Social Network Methods;citation_author=2005"/>
+  <meta name="citation_reference" content="citation_title=Networks in Political Science: Back to the Future;citation_publication_date=2011;citation_publisher=Cambridge University Press;citation_volume=44;citation_doi=10.1017/S1049096510001873;citation_issn=1537-5935, 1049-0965;citation_author=David Lazer"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
@@ -1515,6 +1516,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#class-lecture-1b-ties-and-adjacency-matrices">Class lecture 1b: <span>Ties and Adjacency Matrices</span></a></li>
 <li><a href="#class-lecture-1c-edgelists">Class lecture 1c: <span>Edgelists</span></a></li>
 <li><a href="#hanneman-chapter-1-social-network-data"><span class="citation" data-cites="hanneman"><span>Hanneman, Robert A. and Riddle, Mark</span> (<span>2005</span>)</span>, chapter 1 (Social network data):</a></li>
+<li><a href="#lazer2011"><span class="citation" data-cites="lazer2011"><span>Lazer</span> (<span>2011</span>)</span></a></li>
 </ul></li>
 </ul>
 </nav>
@@ -1537,7 +1539,7 @@ Academics &gt; <a href="../ps753/index.html">PS 753</a> &gt; Glossary
 <dd>lines connecting nodes, which indicate some sort of connection or relationship.
 </dd>
 <dt>node / ego / actor</dt>
-<dd><span class="math inline">\(i\)</span> - the node being discussed or focused on; <span class="citation" data-cites="hanneman"><a href="#ref-hanneman" role="doc-biblioref">Hanneman, Robert A. and Riddle, Mark</a> (<a href="#ref-hanneman" role="doc-biblioref">2005</a>)</span> also note “Actors are described by their relations, not by their attributes.”
+<dd><span class="math inline">\(i\)</span> - the node being discussed or focused on; also note “Actors are described by their relations, not by their attributes.”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
 </dd>
 <dt>alter</dt>
 <dd><span class="math inline">\(j\)</span> - the node that <span class="math inline">\(i\)</span> connects to
@@ -1553,7 +1555,7 @@ Academics &gt; <a href="../ps753/index.html">PS 753</a> &gt; Glossary
 <dd>a measure to determine whether two entities have a sufficient connection to be considered to have a link between them
 </dd>
 <dt>snowball sample</dt>
-<dd>an entity group formed by starting with “a focal actor or set of actors”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and “rolling outwards” to its connections until all nodes or actors (in a limited set) are located, or a decision to stop is made
+<dd>an entity group formed by starting with “a focal actor or set of actors”<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and “rolling outwards” to its connections until all nodes or actors (in a limited set) are located, or a decision to stop is made
 </dd>
 <dt>egocentric name generator</dt>
 <dd>a mode of building an entity group (an egocentric network) defined by connection to a single central node; like a snowball sample that doesn’t expand past the first set of connections
@@ -1687,16 +1689,41 @@ Academics &gt; <a href="../ps753/index.html">PS 753</a> &gt; Glossary
 <dd>continuous measures that express the strength of connections by comparison with others, to be able to say “this tie is twice as strong as that tie”; the “most advanced” level of measurement
 </dd>
 </dl>
+<h3 id="lazer2011"><span class="citation" data-cites="lazer2011"><a href="#ref-lazer2011" role="doc-biblioref">Lazer</a> (<a href="#ref-lazer2011" role="doc-biblioref">2011</a>)</span></h3>
+<dl>
+<dt>homophily</dt>
+<dd>the idea that individuals who are similar to one another are more likely to form ties
+</dd>
+<dt>whole network data</dt>
+<dd>relational information about a whole set (or subset) of data, with all of the actors’ relations to each other considered
+</dd>
+<dt>egocentric data</dt>
+<dd>relational information about a set of nodes connected to one particular node and not to each other
+</dd>
+<dt>diameter</dt>
+<dd>the maximum degree of separation between any two nodes in the network
+</dd>
+<dt>one-mode data</dt>
+<dd>ties among one set (or category) of agent, such as nations in the context of trade
+</dd>
+<dt>two-mode data</dt>
+<dd><p>ties between different sets (or categories) of agents, such as ties between nations and international organizations</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+</dd>
+</dl>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-hanneman" class="csl-entry" role="doc-biblioentry">
 Hanneman, Robert A., and Riddle, Mark. 2005. <span>“Introduction to <span>Social Network Methods</span>.”</span> <em>Introduction to Social Network Methods</em>. http://faculty.ucr.edu/~hanneman/nettext/.
+</div>
+<div id="ref-lazer2011" class="csl-entry" role="doc-biblioentry">
+Lazer, David. 2011. <span>“Networks in <span>Political Science</span>: <span>Back</span> to the <span>Future</span>.”</span> <em>PS: Political Science &amp; Politics</em> 44 (1): 61–68. <a href="https://doi.org/10.1017/S1049096510001873">https://doi.org/10.1017/S1049096510001873</a>.
 </div>
 </div>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
 <li id="fn1" role="doc-endnote"><p><span class="citation" data-cites="hanneman"><a href="#ref-hanneman" role="doc-biblioref">Hanneman, Robert A. and Riddle, Mark</a> (<a href="#ref-hanneman" role="doc-biblioref">2005</a>)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><span class="citation" data-cites="hanneman"><a href="#ref-hanneman" role="doc-biblioref">Hanneman, Robert A. and Riddle, Mark</a> (<a href="#ref-hanneman" role="doc-biblioref">2005</a>)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 <!--radix_placeholder_article_footer-->
