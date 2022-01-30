@@ -20,6 +20,6 @@ knitr::opts_chunk$set(echo = FALSE)
 PS 753
 </p>
 
-Class work from this class will be listed here as we go. This part has to be done by hand in Distill, unfortunately.
+Work and assignments from this class will be added here as we go. (This part has to be done by hand in Distill, unfortunately.)
 
 - My ongoing [glossary](../ps753-glossary/index.html) page; feel free to comment, or make additions or corrections via comments or github.
