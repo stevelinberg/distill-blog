@@ -1,0 +1,21 @@
+---
+title: "PS753 Glossary underway"
+description: |
+  Starting a section I've been planning for a while
+author:
+  - name: Steve Linberg
+    url: https://slinberg.net
+date: 2022-01-29
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+One of the things I want to have in the `Academics` section of the site is glossaries of terms from some of my classes, with the hope that they will be useful to others (as well as myself), and to also make it possible for people to add/correct/amend them. The latter is now possible via GitHub, where the complete source for this site can be found (hit the GitHub icon in the menu in the top right).
+
+The [glossary](../../academics/ps753-glossary/) for [PS753, Political and Social Networks](../../academics/ps753), is underway with terms from week 1.
