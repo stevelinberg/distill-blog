@@ -1,0 +1,21 @@
+---
+title: "MS797 Glossary underway"
+description: |
+  The other big glossary for this semester is underway.
+author:
+  - name: Steve Linberg
+    url: https://slinberg.net
+date: 2022-01-30
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+The term's other major [glossary](../../academics/ms797-glossary/), for [MS797, Machine Learning for Social Science](../../academics/ms797), is up. At this point it's about halfway through chapter 3... lots to go. This was initially in a standalone repo, but I think it makes more sense to migrate it here.
+
+Again, comments, clarifications or corrections are all welcome.
