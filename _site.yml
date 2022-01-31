@@ -23,8 +23,8 @@ navbar:
       menu:
         - text: "PS753 - Political and Social Networks, Spring 2022"
           href: academics/ps753/
-        # - text: "MS797 - Machine Learning, Spring 2022"
-        #   href: academics/MS797.html
+        - text: "MS797 - Machine Learning for Social Sciences, Spring 2022"
+          href: academics/ms797/
     # - icon: fab fa-github
     #   href: https://github.com/stevelinberg
     - icon: fab fa-twitter
