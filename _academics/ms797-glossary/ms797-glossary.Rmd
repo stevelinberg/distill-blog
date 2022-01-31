@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <p style="background: #eee">
-Academics &gt; [MS 797](../ms797/index.html)
+Academics &gt; [MS797](../ms797/index.html)
 &gt; Glossary
 </p>
 
