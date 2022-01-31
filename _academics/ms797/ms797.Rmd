@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <p style="background: #eee">
-Academics &gt; ML797
+Academics &gt; MS797
 </p>
 
 Work and assignments from this class will be added here as we go. (This part has to be done by hand in Distill, unfortunately.)
