@@ -141,3 +141,30 @@ one-mode data
 
 two-mode data
 : ties between different sets (or categories) of agents, such as ties between nations and international organizations
+
+### @borgatti2009
+
+sociometry
+: "a technique for eliciting and graphically representing individuals' subjective feelings toward one another"
+
+strength of weak ties (SWT) theory
+: the theory that one is likelier to hear new information from people they aren't closely connected to in a network (c.f. homiphily)
+
+centrality
+: a family of positional properties of nodes in a network
+
+Freeman's betweenness
+: a type of centrality where a node is frequently along the shortest path between pairs of nodes, giving control over flow or power
+
+opportunity-based antecedents
+: "the likelihood that two nodes will come into contact" - when considering the formation of ties
+
+benefit-based antecedents
+: "some kind of utility maximization or discomfort minimization that leads to tie formation"
+
+node homogeneity
+: a category of node outcomes referring to the similarity of nodes
+
+performance
+: a category of node outcomes referring to some good (such as strong performance)
+
