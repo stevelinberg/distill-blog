@@ -25,6 +25,16 @@ This document contains a walkthrough of setting up a new [Distill](https://rstud
 
 Although it's intended to be complete, and not overly technical where avoidable, it does assume a modest level of comfort using basic tools like RStudio and GitHub. If you're on Mac or Linux, you probably have [git](https://git-scm.com/) built in already, but you might need to install it if you're on Windows. That's outside the scope of this article, but you can find information about it on the [Git for Windows download page](https://git-scm.com/download/win).
 
+The very high-level overview of the process here is:
+
+1. Create a new, empty GitHub repository that will contain your site
+2. Create a new, empty RStudio project using the repository you just created
+3. Install the Distill framework into this project
+4. Configure and build the bare-bones, empty site and push it up to GitHub
+5. Configure GitHub Pages to publish the site
+
+Once you've done that, you can begin writing content and publishing blogs, and spend time fine-tuning and tweaking your site. (You can also do that before setting up GitHub Pages if you want to wait to unveil it until it has more content and polish - as you prefer.)
+
 Assuming you have git and RStudio installed, and a GitHub account created, you're ready to proceed!
 
 ## Create new GitHub repository
@@ -132,7 +142,7 @@ The downloaded binary packages are in
 	/var/folders/jw/rmjpk2xj7z7_8txfqrjz0jhr0000gn/T//RtmpjDcuEY/downloaded_packages
 ```
 
-Then load the library, which you should also do any time you want to work on your site in the future after opening the project:
+Then load the library, which you should also do as your first step (after opening the project) any time you work on it in the future:
 
 ```r
 > library(distill)
@@ -215,6 +225,7 @@ Note the "Custom domain" section at the bottom; we'll return to that if/when we 
 This means it's live!
 
 You could just go from here, if you're content with the URL GitHub chose for you. Your basic workflow will be:
+
 - Work on content in RStudio
 - Commit changes with git as you go
 - Build the site when you're ready (or as often as you like)

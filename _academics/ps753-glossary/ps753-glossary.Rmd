@@ -249,13 +249,13 @@ global transitivity index
 There is a vocabulary for triads in directed networks describing the 16 possible permutations of ties (or the absence thereof) among 3 nodes, counting the number of mutual, asymmetric and null dyads, with direction indicators, like `003` or `120D` - see the slide at 3:45
 
 vacuously transitive triad
-: a triad where (5 of 16 possibilities)
+: a triad where (...) (5 of 16 possibilities)
 
 intransitive triad
-: a triad where (7 of 16 possibilities)
+: a triad where (...) (7 of 16 possibilities)
 
 transitive triad
-: a triad where (4 of 16 possibilities)
+: a triad where (...) (4 of 16 possibilities)
 
 (See @alhazmiUnderstandingSocialEffects2015)
 

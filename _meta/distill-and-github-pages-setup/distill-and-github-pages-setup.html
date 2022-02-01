@@ -1502,6 +1502,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <p>This document contains a walkthrough of setting up a new <a href="https://rstudio.github.io/distill/">Distill</a> blog using <a href="https://www.rstudio.com/products/rstudio/">RStudio</a> and <a href="https://pages.github.com/">GitHub pages.</a> It’s the first in a series of articles for social scientists showing how to create, publish and update a website using these packages. This is a relatively easy way to set up a lightweight website that’s well-suited for blogging and writing articles, especially about and using R. Once it’s built, you maintain it using RStudio just like your other projects.</p>
 <p>Although it’s intended to be complete, and not overly technical where avoidable, it does assume a modest level of comfort using basic tools like RStudio and GitHub. If you’re on Mac or Linux, you probably have <a href="https://git-scm.com/">git</a> built in already, but you might need to install it if you’re on Windows. That’s outside the scope of this article, but you can find information about it on the <a href="https://git-scm.com/download/win">Git for Windows download page</a>.</p>
+<p>The very high-level overview of the process here is:</p>
+<ol type="1">
+<li>Create a new, empty GitHub repository that will contain your site</li>
+<li>Create a new, empty RStudio project using the repository you just created</li>
+<li>Install the Distill framework into this project</li>
+<li>Configure and build the bare-bones, empty site and push it up to GitHub</li>
+<li>Configure GitHub Pages to publish the site</li>
+</ol>
+<p>Once you’ve done that, you can begin writing content and publishing blogs, and spend time fine-tuning and tweaking your site. (You can also do that before setting up GitHub Pages if you want to wait to unveil it until it has more content and polish - as you prefer.)</p>
 <p>Assuming you have git and RStudio installed, and a GitHub account created, you’re ready to proceed!</p>
 <h2 id="create-new-github-repository">Create new GitHub repository</h2>
 <p>The first step is to create a new repository for the site. Log into GitHub and create a new repo:</p>
@@ -1566,7 +1575,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>The downloaded binary packages are <span class="cf">in</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="sc">/</span>var<span class="sc">/</span>folders<span class="sc">/</span>jw<span class="sc">/</span>rmjpk2xj7z7_8txfqrjz0jhr0000gn<span class="sc">/</span>T<span class="sc">/</span><span class="er">/</span>RtmpjDcuEY<span class="sc">/</span>downloaded_packages</span></code></pre></div>
-<p>Then load the library, which you should also do any time you want to work on your site in the future after opening the project:</p>
+<p>Then load the library, which you should also do as your first step (after opening the project) any time you work on it in the future:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(distill)</span></code></pre></div>
 <p>With the <code>distill</code> library loaded, we’re ready to create the site. One important point is that we’re going to create the site in the root of our project, rather than inside a subdirectory. There’s no need to bury it one level down, since it won’t be a subcomponent of another project. The first argument in the command below, <code>"."</code>, means to work in the current directory, which is set by default as the directory containing the <code>distill-blog.Rproj</code> file. The argument is the blog title (which can be changed later if needed, but if you can avoid needing to do that it saves a few braincells), and the final argument causes it to be built with support for GitHub Pages, which is where our blog will ultimately end up.</p>
 <p>Here’s the command I ran for this blog:</p>
@@ -1610,7 +1619,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Note the “Custom domain” section at the bottom; we’ll return to that if/when we want to move the site to a custom domain. As it is, GitHub generates a URL for the site based on your GitHub username and the repo name. In this case, the address is <a href="https://stevelinberg.github.io/distill-blog/">https://stevelinberg.github.io/distill-blog/</a>. Click the link, and you should see your site:</p>
 <p><img src="Pasted%20image%2020220127163306.png" /></p>
 <p>This means it’s live!</p>
-<p>You could just go from here, if you’re content with the URL GitHub chose for you. Your basic workflow will be: - Work on content in RStudio - Commit changes with git as you go - Build the site when you’re ready (or as often as you like) - Push the changes to GitHub, which publishes them to your site.</p>
+<p>You could just go from here, if you’re content with the URL GitHub chose for you. Your basic workflow will be:</p>
+<ul>
+<li>Work on content in RStudio</li>
+<li>Commit changes with git as you go</li>
+<li>Build the site when you’re ready (or as often as you like)</li>
+<li>Push the changes to GitHub, which publishes them to your site.</li>
+</ul>
 <p>If you want to brand a little more strongly and put the site on your own domain, continue with “Using a Custom Domain”, the next article in this series, coming soon.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
