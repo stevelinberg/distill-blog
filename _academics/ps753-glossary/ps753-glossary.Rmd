@@ -257,9 +257,7 @@ intransitive triad
 transitive triad
 : a triad where (4 of 16 possibilities)
 
-xxx see https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=2427&context=knoesis
-
-
+(See @alhazmiUnderstandingSocialEffects2015)
 
 ### Class lecture 2d: [Transitivity and Clustering Coefficient](https://www.loom.com/share/ff29331e900741dd8634d921e4abafdc)
 
