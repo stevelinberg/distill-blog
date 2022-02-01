@@ -168,3 +168,103 @@ node homogeneity
 performance
 : a category of node outcomes referring to some good (such as strong performance)
 
+## Week 2
+
+### Class lecture 2a: [Network Structure - Walks, Paths, and Distance](https://www.loom.com/share/a8a7949244f04ed5995d572340c20aa0)
+
+Connections between nodes:
+
+adjacent
+: a direct connection between nodes; not necessarily bilateral in directed networks. A leading to B ("A adj B") does not mean that B leads to A ("B adj A)
+
+reachable
+: whether a node is reachable from another node, regardless of distance
+
+distance
+: the number of ties (steps, edges) that must be traversed to reach a target node
+
+walk
+: sequence (not *path*, see below) that connects two nodes, consisting of the nodes and edges
+
+trail
+: a walk that can only go through each edge / tie once, but can hit the same node more than once
+
+path
+: a trail that only hits each node and edge once; the start and end node may be the same
+
+geodesic distance
+: the shortest path between two nodes; by definition, not a trail or walk because repeated segments wouldn't be the shortest; with binary data, the number of steps; with weighted data, might be a sum or some other calculation of "effort"
+
+### Class lecture 2b: [Graph Substructures and Components](https://www.loom.com/share/515068ae6dc641be984c0ef974fb8e52)
+
+Network substructures
+
+dyad, triad, clique
+: two, three, or four-or-more connected nodes
+
+complete graph
+: a network where every node is directly connected to every other node
+
+connected graph
+: a network where every node is indirectly connected to every other node
+
+unconnected graph
+: a network where at least one node is unreachable
+
+component
+: the set of all points that constitutes a connected subgraph within a network
+
+main component
+: the largest component within a network
+
+minor component
+: a smaller one, possibly one of many
+
+pendant
+: a node with only one link or edge to a network, "dangling"
+
+isolate
+: an unconnected node
+
+### Class lecture 2c: [Dyad and Triad Census](https://www.loom.com/share/96aaf1d2982d427c83564c338d2e0b83)
+
+mutual dyad
+: a dyad where both nodes connect to each other, as in an undirected network
+
+asymmetric dyad
+: a dyad (in a directed network) where one node connects to another, but non-reciprocally (one way only)
+
+null
+: a dyad of two unconnected nodes
+
+(empty / one edge / two path / triangle) triad
+: a triad with zero, one, two or three edges between three nodes (all four possible permutations)
+
+balance theory
+: the theory that two nodes connected to a common node will also develop connections to each other
+
+global transitivity index
+: the proportion of triads in a network that are complete (with 3 connections between them)
+
+There is a vocabulary for triads in directed networks describing the 16 possible permutations of ties (or the absence thereof) among 3 nodes, counting the number of mutual, asymmetric and null dyads, with direction indicators, like `003` or `120D` - see the slide at 3:45
+
+vacuously transitive triad
+: a triad where (5 of 16 possibilities)
+
+intransitive triad
+: a triad where (7 of 16 possibilities)
+
+transitive triad
+: a triad where (4 of 16 possibilities)
+
+xxx see https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=2427&context=knoesis
+
+
+
+### Class lecture 2d: [Transitivity and Clustering Coefficient](https://www.loom.com/share/ff29331e900741dd8634d921e4abafdc)
+
+local transitivity / local clustering coefficient
+: the likelihood that the neighbors of a node are also connected to each other; the number of connections that *do* exist over the number of connections that *could* exist
+
+
+
