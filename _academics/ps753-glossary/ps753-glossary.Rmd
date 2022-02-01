@@ -265,7 +265,7 @@ local transitivity / local clustering coefficient
 : the likelihood that the neighbors of a node are also connected to each other; the number of connections that *do* exist over the number of connections that *could* exist
 
 ![homer](homer.png)
-In the example above, there are 8 nodes that Homer (center) could connect to; among those 8 nodes, there are 7 + 6 + 5 + 4 + 3 + 2 + 1 = 28 possible undirected connections (not connecting to Homer), and 9 of those 28 do exist, for a local clustering coefficient of 9/28 = 0.32.
+In the example above, there are 8 nodes that Homer (center) could connect to; among those 8 nodes, there are $7 + 6 + 5 + 4 + 3 + 2 + 1 = 28$ possible undirected connections (not connecting to Homer), and 9 of those 28 do exist, for a local clustering coefficient of $9/28 \approx 0.32$.
 
 
 
