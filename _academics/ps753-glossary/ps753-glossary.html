@@ -142,7 +142,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["ps753-glossary_files/anchor-4.2.2/anchor.min.js","ps753-glossary_files/bowser-1.9.3/bowser.min.js","ps753-glossary_files/DiagrammeR-styles-0.2/styles.css","ps753-glossary_files/distill-2.2.21/template.v2.js","ps753-glossary_files/grViz-binding-1.0.8/grViz.js","ps753-glossary_files/header-attrs-2.11/header-attrs.js","ps753-glossary_files/htmlwidgets-1.5.4/htmlwidgets.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min.map","ps753-glossary_files/popper-2.6.0/popper.min.js","ps753-glossary_files/tippy-6.2.7/tippy-bundle.umd.min.js","ps753-glossary_files/tippy-6.2.7/tippy-light-border.css","ps753-glossary_files/tippy-6.2.7/tippy.css","ps753-glossary_files/tippy-6.2.7/tippy.umd.min.js","ps753-glossary_files/viz-1.8.2/viz.js","ps753-glossary_files/webcomponents-2.0.0/webcomponents.js","PS753.bib","PS753.yaml"]}
+  {"type":"character","attributes":{},"value":["homer.png","ps753-glossary_files/anchor-4.2.2/anchor.min.js","ps753-glossary_files/bowser-1.9.3/bowser.min.js","ps753-glossary_files/DiagrammeR-styles-0.2/styles.css","ps753-glossary_files/distill-2.2.21/template.v2.js","ps753-glossary_files/grViz-binding-1.0.8/grViz.js","ps753-glossary_files/header-attrs-2.11/header-attrs.js","ps753-glossary_files/htmlwidgets-1.5.4/htmlwidgets.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min.map","ps753-glossary_files/popper-2.6.0/popper.min.js","ps753-glossary_files/tippy-6.2.7/tippy-bundle.umd.min.js","ps753-glossary_files/tippy-6.2.7/tippy-light-border.css","ps753-glossary_files/tippy-6.2.7/tippy.css","ps753-glossary_files/tippy-6.2.7/tippy.umd.min.js","ps753-glossary_files/viz-1.8.2/viz.js","ps753-glossary_files/webcomponents-2.0.0/webcomponents.js","PS753.bib","PS753.yaml"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1520,6 +1520,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#lazer2011"><span class="citation" data-cites="lazer2011"><span>Lazer</span> (<span>2011</span>)</span></a></li>
 <li><a href="#borgatti2009"><span class="citation" data-cites="borgatti2009"><span>Borgatti et al.</span> (<span>2009</span>)</span></a></li>
 </ul></li>
+<li><a href="#week-2">Week 2</a>
+<ul>
+<li><a href="#class-lecture-2a-network-structure---walks-paths-and-distance">Class lecture 2a: <span>Network Structure - Walks, Paths, and Distance</span></a></li>
+<li><a href="#class-lecture-2b-graph-substructures-and-components">Class lecture 2b: <span>Graph Substructures and Components</span></a></li>
+<li><a href="#class-lecture-2c-dyad-and-triad-census">Class lecture 2c: <span>Dyad and Triad Census</span></a></li>
+<li><a href="#class-lecture-2d-transitivity-and-clustering-coefficient">Class lecture 2d: <span>Transitivity and Clustering Coefficient</span></a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -1739,6 +1746,104 @@ Academics &gt; <a href="../ps753/index.html">PS 753</a> &gt; Glossary
 <dd>a category of node outcomes referring to some good (such as strong performance)
 </dd>
 </dl>
+<h2 id="week-2">Week 2</h2>
+<h3 id="class-lecture-2a-network-structure---walks-paths-and-distance">Class lecture 2a: <a href="https://www.loom.com/share/a8a7949244f04ed5995d572340c20aa0">Network Structure - Walks, Paths, and Distance</a></h3>
+<p>Connections between nodes:</p>
+<dl>
+<dt>adjacent</dt>
+<dd>a direct connection between nodes; not necessarily bilateral in directed networks. A leading to B (“A adj B”) does not mean that B leads to A ("B adj A)
+</dd>
+<dt>reachable</dt>
+<dd>whether a node is reachable from another node, regardless of distance
+</dd>
+<dt>distance</dt>
+<dd>the number of ties (steps, edges) that must be traversed to reach a target node
+</dd>
+<dt>walk</dt>
+<dd>sequence (not <em>path</em>, see below) that connects two nodes, consisting of the nodes and edges
+</dd>
+<dt>trail</dt>
+<dd>a walk that can only go through each edge / tie once, but can hit the same node more than once
+</dd>
+<dt>path</dt>
+<dd>a trail that only hits each node and edge once; the start and end node may be the same
+</dd>
+<dt>geodesic distance</dt>
+<dd>the shortest path between two nodes; by definition, not a trail or walk because repeated segments wouldn’t be the shortest; with binary data, the number of steps; with weighted data, might be a sum or some other calculation of “effort”
+</dd>
+</dl>
+<h3 id="class-lecture-2b-graph-substructures-and-components">Class lecture 2b: <a href="https://www.loom.com/share/515068ae6dc641be984c0ef974fb8e52">Graph Substructures and Components</a></h3>
+<p>Network substructures</p>
+<dl>
+<dt>dyad, triad, clique</dt>
+<dd>two, three, or four-or-more connected nodes
+</dd>
+<dt>complete graph</dt>
+<dd>a network where every node is directly connected to every other node
+</dd>
+<dt>connected graph</dt>
+<dd>a network where every node is indirectly connected to every other node
+</dd>
+<dt>unconnected graph</dt>
+<dd>a network where at least one node is unreachable
+</dd>
+<dt>component</dt>
+<dd>the set of all points that constitutes a connected subgraph within a network
+</dd>
+<dt>main component</dt>
+<dd>the largest component within a network
+</dd>
+<dt>minor component</dt>
+<dd>a smaller one, possibly one of many
+</dd>
+<dt>pendant</dt>
+<dd>a node with only one link or edge to a network, “dangling”
+</dd>
+<dt>isolate</dt>
+<dd>an unconnected node
+</dd>
+</dl>
+<h3 id="class-lecture-2c-dyad-and-triad-census">Class lecture 2c: <a href="https://www.loom.com/share/96aaf1d2982d427c83564c338d2e0b83">Dyad and Triad Census</a></h3>
+<dl>
+<dt>mutual dyad</dt>
+<dd>a dyad where both nodes connect to each other, as in an undirected network
+</dd>
+<dt>asymmetric dyad</dt>
+<dd>a dyad (in a directed network) where one node connects to another, but non-reciprocally (one way only)
+</dd>
+<dt>null</dt>
+<dd>a dyad of two unconnected nodes
+</dd>
+<dt>(empty / one edge / two path / triangle) triad</dt>
+<dd>a triad with zero, one, two or three edges between three nodes (all four possible permutations)
+</dd>
+<dt>balance theory</dt>
+<dd>the theory that two nodes connected to a common node will also develop connections to each other
+</dd>
+<dt>global transitivity index</dt>
+<dd>the proportion of triads in a network that are complete (with 3 connections between them)
+</dd>
+</dl>
+<p>There is a vocabulary for triads in directed networks describing the 16 possible permutations of ties (or the absence thereof) among 3 nodes, counting the number of mutual, asymmetric and null dyads, with direction indicators, like <code>003</code> or <code>120D</code> - see the slide at 3:45</p>
+<dl>
+<dt>vacuously transitive triad</dt>
+<dd>a triad where (5 of 16 possibilities)
+</dd>
+<dt>intransitive triad</dt>
+<dd>a triad where (7 of 16 possibilities)
+</dd>
+<dt>transitive triad</dt>
+<dd>a triad where (4 of 16 possibilities)
+</dd>
+</dl>
+<p>xxx see <a href="https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=2427&amp;context=knoesis" class="uri">https://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=2427&amp;context=knoesis</a></p>
+<h3 id="class-lecture-2d-transitivity-and-clustering-coefficient">Class lecture 2d: <a href="https://www.loom.com/share/ff29331e900741dd8634d921e4abafdc">Transitivity and Clustering Coefficient</a></h3>
+<dl>
+<dt>local transitivity / local clustering coefficient</dt>
+<dd>the likelihood that the neighbors of a node are also connected to each other; the number of connections that <em>do</em> exist over the number of connections that <em>could</em> exist
+</dd>
+</dl>
+<p><img src="homer.png" alt="homer" /> In the example above, there are 8 nodes that Homer (center) could connect to; among those 8 nodes, there are 7 + 6 + 5 + 4 + 3 + 2 + 1 = 28 possible undirected connections (not connecting to Homer), and 9 of those 28 do exist, for a local clustering coefficient of 9/28 = 0.32.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-borgatti2009" class="csl-entry" role="doc-biblioentry">
