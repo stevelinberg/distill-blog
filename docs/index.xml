@@ -7,7 +7,15 @@
     <description>Steve Linberg's blog
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 30 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Pythagorean Theorem</title>
+      <dc:creator>Steve Linberg</dc:creator>
+      <link>https://slinberg.net/posts/2022-02-02-pythagorean-theorem</link>
+      <description>How did I not know this</description>
+      <guid>https://slinberg.net/posts/2022-02-02-pythagorean-theorem</guid>
+      <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>MS797 Glossary underway</title>
       <dc:creator>Steve Linberg</dc:creator>
