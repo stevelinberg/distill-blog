@@ -13,9 +13,9 @@
     "categories": [
       "math"
     ],
-    "contents": "\nHow did I make it to $adulthood * 2 without knowing that our old friend, the Pythagorean Theorem (\\(a^2 + b^2 = c^2\\)), works in any number of dimensions?\nThe Euclidean distance \\(d\\) between the origin (\\(0, 0, \\dots 0\\)) is just\n\\[d = \\sqrt{x_1^2 + x_2^2 + \\dots + x_n^2}\\]\nAdd up all of the squares and take the square root. Dope-smack for me.\n\n\n\n",
+    "contents": "\nHow did I make it to $adulthood * 2 without knowing that our old friend, the Pythagorean Theorem (\\(a^2 + b^2 = c^2\\)), works in any number of dimensions?\nThe Euclidean distance \\(d\\) between the origin (\\(0, 0, \\dots 0\\)) and a point defined by \\(n\\) coordinates \\(x\\) is just\n\\[d = \\sqrt{x_1^2 + x_2^2 + \\dots + x_n^2}\\]\nAdd up all of the squares and take the square root. Dope-smack for me.\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-02-02T12:31:36-05:00",
+    "last_modified": "2022-02-02T15:51:23-05:00",
     "input_file": {}
   },
   {

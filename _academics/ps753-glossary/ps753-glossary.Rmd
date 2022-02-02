@@ -139,7 +139,7 @@ diameter
 one-mode data
 : ties among one set (or category) of agent, such as nations in the context of trade
 
-two-mode data
+two-mode data / bipartite data
 : ties between different sets (or categories) of agents, such as ties between nations and international organizations
 
 ### @borgatti2009
