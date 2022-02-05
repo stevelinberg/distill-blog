@@ -300,7 +300,7 @@ outlier (97)
 : an observation whose value is very far from its predicted value
 
 studentized residual (98)
-: a residual divided by its estimated standard error; observations with student errors higher than 3 (indicating 3 standard deviations) are likely outliers
+: a residual divided by its estimated standard error; observations with student residuals higher than 3 (indicating 3 standard deviations) are likely outliers
 
 high leverage (98)
 : observations with an unusual $x_i$ value, far from other / expected $x$ values
