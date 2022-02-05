@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["ms797-glossary_files/anchor-4.2.2/anchor.min.js","ms797-glossary_files/bowser-1.9.3/bowser.min.js","ms797-glossary_files/distill-2.2.21/template.v2.js","ms797-glossary_files/header-attrs-2.11/header-attrs.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.min.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.min.map","ms797-glossary_files/popper-2.6.0/popper.min.js","ms797-glossary_files/tippy-6.2.7/tippy-bundle.umd.min.js","ms797-glossary_files/tippy-6.2.7/tippy-light-border.css","ms797-glossary_files/tippy-6.2.7/tippy.css","ms797-glossary_files/tippy-6.2.7/tippy.umd.min.js","ms797-glossary_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["MS797_glossary.bib","ms797-glossary_files/anchor-4.2.2/anchor.min.js","ms797-glossary_files/bowser-1.9.3/bowser.min.js","ms797-glossary_files/distill-2.2.21/template.v2.js","ms797-glossary_files/header-attrs-2.11/header-attrs.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.min.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.min.map","ms797-glossary_files/popper-2.6.0/popper.min.js","ms797-glossary_files/tippy-6.2.7/tippy-bundle.umd.min.js","ms797-glossary_files/tippy-6.2.7/tippy-light-border.css","ms797-glossary_files/tippy-6.2.7/tippy.css","ms797-glossary_files/tippy-6.2.7/tippy.umd.min.js","ms797-glossary_files/webcomponents-2.0.0/webcomponents.js","regression_errors.png","stackexchange.bib"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1494,7 +1494,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p style="background: #eee">
 Academics &gt; <a href="../ms797/index.html">MS797</a> &gt; Glossary
 </p>
-<p>Page numbers in parenthesis after terms, from <a href="https://www.statlearning.com/">ISLR</a> 2nd edition.</p>
+<p>Page numbers in parenthesis after terms, from <a href="https://www.statlearning.com/">ISLR</a> 2nd edition. Non-page numbers indicate other sources; “biostats” references material from Biostatistics 690Z (Health Data Science: Statistical Modeling), fall 2021.</p>
 <h2 id="chapter-2">Chapter 2</h2>
 <dl>
 <dt>input variable (15)</dt>
@@ -1639,14 +1639,119 @@ Academics &gt; <a href="../ms797/index.html">MS797</a> &gt; Glossary
 <dt>p-value (67)</dt>
 <dd>the probability of observing a value greater than <span class="math inline">\(|t|\)</span> by chance.
 </dd>
-<dt>total sum of squares (TSS) (70)</dt>
-<dd>the total variance in the response <span class="math inline">\(Y\)</span> <span class="math display">\[\text{TSS} = \sum(y_i - \bar{y})^2\]</span> compare with RSS, the amount of variability left unexplained after the regression. TSS - RSS is the amount of variability (or error) explained by the regression.
+<dt>model sum of squares (MSS) (biostats)</dt>
+<dd>Also sometimes <strong>ESS</strong>, “explained sum of squares”: the total variance in the response <span class="math inline">\(Y\)</span> that can be accounted for by the model <span class="math display">\[\text{MSS} = \sum(\hat{y_i} - \bar{y})^2\]</span>
 </dd>
+<dt>residual sum of squares (RSS) (biostats)</dt>
+<dd>the total variance in the response <span class="math inline">\(Y\)</span> that cannot be accounted for by the model <span class="math display">\[\text{RSS} = \sum(y_i - \hat{y_i})^2\]</span> also <span class="math display">\[\text{RSS} = e_i^2 + e_2^2 + \dots + e_n^2\]</span> or <span class="math display">\[\text{RSS} = (y_1 - \hat{\beta_0} - {\hat{\beta_1}x_1})^2 + (y_2 - \hat{\beta_0} - {\hat{\beta_1}x_2})^ + \dots + (y_n - \hat{\beta_0} - {\hat{\beta_1}x_n})^2\]</span>
+</dd>
+<dt>total sum of squares (TSS) (70)</dt>
+<dd>the total variance in the response <span class="math inline">\(Y\)</span>; the total variability of the response about its mean <span class="math display">\[\text{TSS} = \sum(y_i - \bar{y})^2\]</span> compare with RSS, the amount of variability left unexplained after the regression. TSS - RSS is the amount of variability (or error) explained by the regression (MSS).
+</dd>
+</dl>
+<p><strong>NOTE</strong>: there is a nice visual <a href="https://stats.stackexchange.com/a/512216/338749">here on stackexchange</a>; if anybody knows how to tell Zotero to use a custom bibtex citation entry over the ones it generates, please let me know so I can integrate it better here :frown:</p>
+<dl>
 <dt><span class="math inline">\(R^2\)</span> statistic (70)</dt>
 <dd>the proportion of variance in <span class="math inline">\(Y\)</span> explained by <span class="math inline">\(X\)</span>, a range from 0 to 1 <span class="math display">\[R^2 = \frac{\text{TSS - RSS}}{\text{TSS}} = 1 - \frac{\text{RSS}}{\text{TSS}}\]</span> <span class="math inline">\(R^2\)</span> values close to 1 indicate a regression that explains a lot of the variability in the response, and a stronger model. A value close to 0 indicates that the regression doesn’t explain much of the variability.
 </dd>
 <dt>correlation (70)</dt>
-<dd><p>a measure of the linearity of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>; values close to 0 indicate weak-to-no relationship, values near 1 or -1 indicate strong positive or negative correlation (horrible formula on p.70)</p>
+<dd>a measure of the linearity of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>; values close to 0 indicate weak-to-no relationship, values near 1 or -1 indicate strong positive or negative correlation (horrible formula on p.70 I don’t have time to LaTeX at the moment)
+</dd>
+<dt>standard linear regression model (72)</dt>
+<dd>The modal used for standard linear models, used to interpret the the effect on <span class="math inline">\(Y\)</span> of a one-unit increase in any predictor <span class="math inline">\(\beta_j\)</span> while holding all other predictors constant <span class="math display">\[Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \dots + \beta_pX_p + \epsilon\]</span>
+</dd>
+<dt>variable selection (78)</dt>
+<dd>the task of refining a model to include only the variables associated with the response
+</dd>
+<dt>null model (79)</dt>
+<dd>a model that conatins an intercept, but no predictors; used as a first stage in forward selection
+</dd>
+<dt>forward selection (79)</dt>
+<dd>a variable selection method that starts with a null model, and then runs simple linear regressions on all predictors <span class="math inline">\(p\)</span> and adding the one that results in the lowest RSS; repeated until some threshold is reached
+</dd>
+<dt>backwards selection (79)</dt>
+<dd>a variable selection method that starts with a model with all predictors, and removing the one with the lowest <span class="math inline">\(p\)</span>-value until all remaining predictors are significant, whether by <span class="math inline">\(p\)</span>-value or some other criterion
+</dd>
+<dt>mixed selection (79)</dt>
+<dd>a hybrid approach starting with a null model, adding predictors one at a time that produce the best fit, and removing any that acquire a larger <span class="math inline">\(p\)</span>-value in the process until all predictors are added or eliminated
+</dd>
+<dt>interaction (81)</dt>
+<dd>when predictors affect each other, in addition to providing their own effect on the model
+</dd>
+<dt>confidence interval (82)</dt>
+<dd>a range with a percentage component in which there is that percentage chance that the true value of an estimated parameter lies; a 95% confidence interval is a range in which we can be 95% certain <span class="math inline">\(f(X)\)</span> will be found
+</dd>
+<dt>prediction interval (82)</dt>
+<dd>similar to confidence interval, but a prediction range within which we are <span class="math inline">\(X\)</span>% certain that any singular future observation will fall, rather than a statistic like an overall mean; a 95% prediction interval is a range in which we are confident that 95% of future observations will fall. Prediction ranges are substantially wider than confidence intervals.
+</dd>
+<dt>qualitative predictor / factor (83)</dt>
+<dd>a categorical predictor with a fixed number of factors, like “yes” / “no” or “red” / “yellow” / “green”
+</dd>
+<dt>dummy variable (83)</dt>
+<dd>a numeric representation of a factor to use in a model, as in representing “yes” / “no” factor variables as 1 / 0 in a regression
+</dd>
+<dt>baseline (86)</dt>
+<dd>the factor level where there is no dummy variable; a factor with 3 levels will use 2 dummy variables, with the factor’s absence signifying the 3rd value (usually 0)
+</dd>
+<dt>additivity assumption (87)</dt>
+<dd>the assumption that the association between a predictor <span class="math inline">\(X\)</span> and the response <span class="math inline">\(Y\)</span> does not depend on the value of other predictors; used by the standard linear regression model
+</dd>
+<dt>linearity assumption (87)</dt>
+<dd>the assumption, also used by the standard linear regression model, that unit changes in <span class="math inline">\(X_j\)</span> result in the same change to Y regardless of its value
+</dd>
+<dt>interaction term (88)</dt>
+<dd>the product of two predictors in a multiple regression model, quantifying their effect on each other
+</dd>
+<dt>main effect (89)</dt>
+<dd>isolated effects; the effect of a single predictor on the outcome
+</dd>
+<dt>hierarchical principle (89)</dt>
+<dd>the principle that main effects should be left in a model even if they are statistically insignificant, if they are also part of an interaction that is significant
+</dd>
+<dt>polynomial regression (91)</dt>
+<dd>an extension of linear regression to accommodate non-linear relationships
+</dd>
+<dt>residual plot (93)</dt>
+<dd>a plot of the residuals or errors (<span class="math inline">\(e_i = y_i - \hat{y}_i\)</span>), used to check for non-linearity (a potential problem that would likely indicate something was missed in the model)
+</dd>
+<dt>time series (94)</dt>
+<dd>data consisting of observation made at discrete points in time
+</dd>
+<dt>tracking (95)</dt>
+<dd>when (residuals / variables?) tend to have similar values
+</dd>
+<dt>heteroscedasticity (96)</dt>
+<dd>non-constant variances in errors; “unequal scatter”
+</dd>
+<dt>homoscedasticity (extra)</dt>
+<dd>constant variances in errors; follows the assumption of equal variance required by most methods
+</dd>
+<dt>weighted least squares (97)</dt>
+<dd>an extension to ordinary least squares used in circumstances of heteroscedasticity, to weight data points proportionally with the inverse variances
+</dd>
+<dt>outlier (97)</dt>
+<dd>an observation whose value is very far from its predicted value
+</dd>
+<dt>studentized residual (98)</dt>
+<dd>a residual divided by its estimated standard error; observations with student errors higher than 3 (indicating 3 standard deviations) are likely outliers
+</dd>
+<dt>high leverage (98)</dt>
+<dd>observations with an unusual <span class="math inline">\(x_i\)</span> value, far from other / expected <span class="math inline">\(x\)</span> values
+</dd>
+<dt>leverage statistic (99)</dt>
+<dd>a quantification of a point’s leverage <span class="math display">\[h_i = \frac{1}{n} + \frac{(x_i - \bar{x})^2}{\sum_{i&#39;=1}^{n}(x_{i`} - \bar{x})^2}\]</span>
+</dd>
+<dt>collinearity (99)</dt>
+<dd>when two or more predictor variables are closely related to each other
+</dd>
+<dt>power (101)</dt>
+<dd>the probability of a test correctly detecting a nonzero coefficient (and correctly rejecting <span class="math inline">\(H_0 : \beta_j = 0\)</span>)
+</dd>
+<dt>multicollinearity (102)</dt>
+<dd>when collinearity exists between three or more predictors even when no pair of predictors is collinear (or correlated)
+</dd>
+<dt>variance inflation factor (102)</dt>
+<dd><p>“the ratio of the variance of <span class="math inline">\(\hat{\beta_j}\)</span> when fitting the full model divided by the variance of <span class="math inline">\(\hat{\beta_j}\)</span> on its own”; smallest possible value of 1 indicates the absence of collinearity, 5-10 indicates a “problematic amount”. Hairy forumla not reproduced.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 </dd>
 </dl>
