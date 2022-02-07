@@ -9,7 +9,7 @@ twitter:
   creator: "@stevelinberg"
 navbar:
   right:
-    - text: "Home"
+    - icon: fas fa-home
       href: index.html
     - text: "About"
       href: steve.html
