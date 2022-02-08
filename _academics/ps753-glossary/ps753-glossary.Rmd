@@ -271,7 +271,7 @@ In the example above, there are 8 nodes that Homer (center) could connect to; am
 
 ### Class lecture 3a: [Degree](https://www.loom.com/share/49273add09ce4b26924b7f5ab2983810)
 
-degree
+(vertex) degree
 : the number of links that a node has; the number of nodes it's connected to
 
 degree distribution
@@ -301,7 +301,7 @@ centrality
 : (forthcoming)
 
 centralization
-: a property of a graph, referring to its overall cohesion; comparing most central point to all other points; ratio of the actual sum of differences to the maximum possible sum of differences
+: a property of a graph or network, referring to its overall cohesion; comparing most central point to all other points; ratio of the actual sum of differences to the maximum possible sum of differences
 
 ### Class lecture 3c: [Network Density](https://www.loom.com/share/6e43e1fca3d44e1881f1a1d4895c26d3)
 

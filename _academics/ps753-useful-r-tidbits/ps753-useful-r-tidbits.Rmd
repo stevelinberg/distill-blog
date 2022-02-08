@@ -1,5 +1,5 @@
 ---
-title: "Useful R tidbits: Social Neteorks"
+title: "Useful R tidbits: Social Networks"
 description: |
   Tasty R snacks that do useful things in Social Networks
 author:
@@ -22,4 +22,4 @@ output:
 &gt; Useful R tidbits
 </p>
 
-This document contains R snippets pertaining to work in the [Social Networks class](../ps753/index.html). There is also one for the [Machine Learning class](../ms797/index.html).
+This document contains R snippets pertaining to work in the [Social Networks class](../ps753/index.html). There is also one for the [Machine Learning class](../ms797-useful-r-tidbits/index.html).
