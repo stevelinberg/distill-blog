@@ -1,7 +1,7 @@
 ---
-title: "Useful R tidbits"
+title: "Useful R tidbits: Machine Learning"
 description: |
-  Tasty R snacks that do useful things
+  Tasty R snacks that do useful things in Machine Learning
 author:
   - name: Steve Linberg
     url: {}
@@ -22,6 +22,8 @@ preview: ISLR-cover.png
 [<i class="fas fa-home"></i>](/) &gt; Academics &gt; [MS797](../ms797/index.html)
 &gt; Useful R tidbits
 </p>
+
+This document contains R snippets pertaining to work in the [Machine Learning class](../ms797/index.html). There is also one for the [Social Networks class](../px753/index.html).
 
 Most of this comes directly from the [resources from the 2nd edition](https://www.statlearning.com/resources-second-edition) of [ISLR](https://www.statlearning.com/), either direct quotes or things that build on them. The `Lab` section of each chapter contains useful walkthroughs and code illustrating the chapter's key concepts, and there's always something to learn about R and how different people use it.
 
