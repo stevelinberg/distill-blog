@@ -291,6 +291,15 @@ centrality
 (degree) centrality
 : proportional the the number of other nodes to which a node is linked
 
+(closeness) centrality
+: (forthcoming)
+
+(betweenness) centrality
+: (forthcoming)
+
+(eigenvector) centrality
+: (forthcoming)
+
 centralization
 : a property of a graph, referring to its overall cohesion; comparing most central point to all other points; ratio of the actual sum of differences to the maximum possible sum of differences
 
