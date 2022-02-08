@@ -1512,7 +1512,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#week-1">Week 1</a>
+<li><a href="#week-1---introduction">Week 1 - Introduction</a>
 <ul>
 <li><a href="#class-lecture-1a-nodes-edges-and-network-samples">Class lecture 1a: <span>Nodes, Edges and Network Samples</span></a></li>
 <li><a href="#class-lecture-1b-ties-and-adjacency-matrices">Class lecture 1b: <span>Ties and Adjacency Matrices</span></a></li>
@@ -1521,24 +1521,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#lazer2011"><span class="citation" data-cites="lazer2011"><span>Lazer</span> (<span>2011</span>)</span></a></li>
 <li><a href="#borgatti2009"><span class="citation" data-cites="borgatti2009"><span>Borgatti et al.</span> (<span>2009</span>)</span></a></li>
 </ul></li>
-<li><a href="#week-2">Week 2</a>
+<li><a href="#week-2---network-structure">Week 2 - Network Structure</a>
 <ul>
 <li><a href="#class-lecture-2a-network-structure---walks-paths-and-distance">Class lecture 2a: <span>Network Structure - Walks, Paths, and Distance</span></a></li>
 <li><a href="#class-lecture-2b-graph-substructures-and-components">Class lecture 2b: <span>Graph Substructures and Components</span></a></li>
 <li><a href="#class-lecture-2c-dyad-and-triad-census">Class lecture 2c: <span>Dyad and Triad Census</span></a></li>
 <li><a href="#class-lecture-2d-transitivity-and-clustering-coefficient">Class lecture 2d: <span>Transitivity and Clustering Coefficient</span></a></li>
 </ul></li>
+<li><a href="#week-3---network-degree">Week 3 - Network Degree</a>
+<ul>
+<li><a href="#class-lecture-3a-degree">Class lecture 3a: <span>Degree</span></a></li>
+<li><a href="#class-lecture-3b-centrality-vs.-centralization">Class lecture 3b: <span>Centrality vs. Centralization</span></a></li>
+<li><a href="#class-lecture-3c-network-density">Class lecture 3c: <span>Network Density</span></a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
 <p style="background: #eee">
-Academics &gt; <a href="../ps753/index.html">PS 753</a> &gt; Glossary
+<a href="/"><i class="fas fa-home"></i></a> &gt; Academics &gt; <a href="../ps753/index.html">PS 753</a> &gt; Glossary
 </p>
 <blockquote>
 <p><strong>A social network</strong> is a set of actors (or points, or nodes, or agents) that may have relationships (or edges, or ties) with one another. Networks can have few or many actors, and one or more kinds of relations between pairs of actors.</p>
 <p>– <cite><span class="citation" data-cites="hanneman">(<a href="#ref-hanneman" role="doc-biblioref">Hanneman, Robert A. and Riddle, Mark 2005, chap. 2</a>)</span></cite></p>
 </blockquote>
-<h2 id="week-1">Week 1</h2>
+<h2 id="week-1---introduction">Week 1 - Introduction</h2>
 <h3 id="class-lecture-1a-nodes-edges-and-network-samples">Class lecture 1a: <a href="https://www.loom.com/share/efc5252bb75b463481b93e55be6e4d67">Nodes, Edges and Network Samples</a></h3>
 <p>(Note: some terms overlap somewhat or have context-dependent synonyms.)</p>
 <dl>
@@ -1716,7 +1722,7 @@ Academics &gt; <a href="../ps753/index.html">PS 753</a> &gt; Glossary
 <dt>one-mode data</dt>
 <dd>ties among one set (or category) of agent, such as nations in the context of trade
 </dd>
-<dt>two-mode data</dt>
+<dt>two-mode data / bipartite data</dt>
 <dd>ties between different sets (or categories) of agents, such as ties between nations and international organizations
 </dd>
 </dl>
@@ -1747,7 +1753,7 @@ Academics &gt; <a href="../ps753/index.html">PS 753</a> &gt; Glossary
 <dd>a category of node outcomes referring to some good (such as strong performance)
 </dd>
 </dl>
-<h2 id="week-2">Week 2</h2>
+<h2 id="week-2---network-structure">Week 2 - Network Structure</h2>
 <h3 id="class-lecture-2a-network-structure---walks-paths-and-distance">Class lecture 2a: <a href="https://www.loom.com/share/a8a7949244f04ed5995d572340c20aa0">Network Structure - Walks, Paths, and Distance</a></h3>
 <p>Connections between nodes:</p>
 <dl>
@@ -1845,7 +1851,41 @@ Academics &gt; <a href="../ps753/index.html">PS 753</a> &gt; Glossary
 </dd>
 </dl>
 <p><img src="homer.png" alt="homer" /> In the example above, there are 8 nodes that Homer (center) could connect to; among those 8 nodes, there are <span class="math inline">\(7 + 6 + 5 + 4 + 3 + 2 + 1 = 28\)</span> possible undirected connections (not connecting to Homer), and 9 of those 28 do exist, for a local clustering coefficient of <span class="math inline">\(9/28 \approx 0.32\)</span>.</p>
+<h2 id="week-3---network-degree">Week 3 - Network Degree</h2>
+<h3 id="class-lecture-3a-degree">Class lecture 3a: <a href="https://www.loom.com/share/49273add09ce4b26924b7f5ab2983810">Degree</a></h3>
+<dl>
+<dt>degree</dt>
+<dd>the number of links that a node has; the number of nodes it’s connected to
+</dd>
+<dt>degree distribution</dt>
+<dd>a distribution showing the number of nodes of a network that have each degree level
+</dd>
+<dt>indegree</dt>
+<dd>the number of links that a node <em>receives</em> in a directed network
+</dd>
+<dt>outdegree</dt>
+<dd>the number of links that a node <em>sends</em> in a directed network
+</dd>
+</dl>
+<h3 id="class-lecture-3b-centrality-vs.-centralization">Class lecture 3b: <a href="https://www.loom.com/share/d2ed1cbb9bc84d27adfbb3febedfeac4">Centrality vs. Centralization</a></h3>
+<dl>
+<dt>centrality</dt>
+<dd>a measure of the prominence of one node relative to others; can be variously defined
+</dd>
+<dt>(degree) centrality</dt>
+<dd>proportional the the number of other nodes to which a node is linked
+</dd>
+<dt>centralization</dt>
+<dd>a property of a graph, referring to its overall cohesion; comparing most central point to all other points; ratio of the actual sum of differences to the maximum possible sum of differences
+</dd>
+</dl>
+<h3 id="class-lecture-3c-network-density">Class lecture 3c: <a href="https://www.loom.com/share/6e43e1fca3d44e1881f1a1d4895c26d3">Network Density</a></h3>
+<dl>
+<dt>network density</dt>
+<dd><p>number of ties as a proportion of the maximum possible number of ties; varies from 0 to 1, calculation will vary by whether network is undirected or directed (twice as many potential connections)</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+</dd>
+</dl>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-alhazmiUnderstandingSocialEffects2015" class="csl-entry" role="doc-biblioentry">
 Alhazmi, Huda, Swapna S. Gokhale, and Derek Doran. 2015. <span>“Understanding Social Effects in Online Networks.”</span> In <em>2015 <span>International Conference</span> on <span>Computing</span>, <span>Networking</span> and <span>Communications</span> (<span>ICNC</span>)</em>, 863–68. <span>Garden Grove, CA, USA</span>: <span>IEEE</span>. <a href="https://doi.org/10.1109/ICCNC.2015.7069459">https://doi.org/10.1109/ICCNC.2015.7069459</a>.

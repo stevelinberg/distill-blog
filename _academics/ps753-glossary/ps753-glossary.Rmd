@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <p style="background: #eee">
-Academics &gt; [PS 753](../ps753/index.html)
+[<i class="fas fa-home"></i>](/) &gt; Academics &gt; [PS 753](../ps753/index.html)
 &gt; Glossary
 </p>
 
@@ -27,7 +27,7 @@ Academics &gt; [PS 753](../ps753/index.html)
 >
 >-- <cite>[@hanneman, chapter 2]</cite>
 
-## Week 1
+## Week 1 - Introduction
 
 ### Class lecture 1a: [Nodes, Edges and Network Samples](https://www.loom.com/share/efc5252bb75b463481b93e55be6e4d67)
 
@@ -168,7 +168,7 @@ node homogeneity
 performance
 : a category of node outcomes referring to some good (such as strong performance)
 
-## Week 2
+## Week 2 - Network Structure
 
 ### Class lecture 2a: [Network Structure - Walks, Paths, and Distance](https://www.loom.com/share/a8a7949244f04ed5995d572340c20aa0)
 
@@ -267,6 +267,34 @@ local transitivity / local clustering coefficient
 ![homer](homer.png)
 In the example above, there are 8 nodes that Homer (center) could connect to; among those 8 nodes, there are $7 + 6 + 5 + 4 + 3 + 2 + 1 = 28$ possible undirected connections (not connecting to Homer), and 9 of those 28 do exist, for a local clustering coefficient of $9/28 \approx 0.32$.
 
+## Week 3 - Network Degree
 
+### Class lecture 3a: [Degree](https://www.loom.com/share/49273add09ce4b26924b7f5ab2983810)
 
+degree
+: the number of links that a node has; the number of nodes it's connected to
 
+degree distribution
+: a distribution showing the number of nodes of a network that have each degree level
+
+indegree
+: the number of links that a node *receives* in a directed network
+
+outdegree
+: the number of links that a node *sends* in a directed network
+
+### Class lecture 3b: [Centrality vs. Centralization](https://www.loom.com/share/d2ed1cbb9bc84d27adfbb3febedfeac4)
+
+centrality
+: a measure of the prominence of one node relative to others; can be variously defined
+
+(degree) centrality
+: proportional the the number of other nodes to which a node is linked
+
+centralization
+: a property of a graph, referring to its overall cohesion; comparing most central point to all other points; ratio of the actual sum of differences to the maximum possible sum of differences
+
+### Class lecture 3c: [Network Density](https://www.loom.com/share/6e43e1fca3d44e1881f1a1d4895c26d3)
+
+network density
+: number of ties as a proportion of the maximum possible number of ties; varies from 0 to 1, calculation will vary by whether network is undirected or directed (twice as many potential connections)

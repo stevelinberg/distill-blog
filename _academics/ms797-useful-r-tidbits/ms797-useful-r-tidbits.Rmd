@@ -19,7 +19,7 @@ preview: ISLR-cover.png
 ```
 
 <p style="background: #eee">
-Academics &gt; [MS797](../ms797/index.html)
+[<i class="fas fa-home"></i>](/) &gt; Academics &gt; [MS797](../ms797/index.html)
 &gt; Useful R tidbits
 </p>
 

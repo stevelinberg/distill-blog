@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <p style="background: #eee">
-Academics &gt; PS 753
+[<i class="fas fa-home"></i>](/) &gt; Academics &gt; PS 753
 </p>
 
 Work and assignments from this class will be added here as we go. (This part has to be done by hand in Distill, unfortunately.)

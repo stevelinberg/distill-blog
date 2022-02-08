@@ -7,7 +7,16 @@
     <description>Steve Linberg's blog
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 02 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Saturday mornings with Tufte</title>
+      <dc:creator>Steve Linberg</dc:creator>
+      <link>https://slinberg.net/posts/2022-02-05-saturday-mornings-with-tufte</link>
+      <description>The other half of data science skillbuilding</description>
+      <guid>https://slinberg.net/posts/2022-02-05-saturday-mornings-with-tufte</guid>
+      <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://slinberg.net/posts/2022-02-05-saturday-mornings-with-tufte/tuftebooks.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>Pythagorean Theorem</title>
       <dc:creator>Steve Linberg</dc:creator>
