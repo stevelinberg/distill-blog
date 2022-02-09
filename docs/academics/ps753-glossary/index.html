@@ -157,7 +157,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["homer.png","ps753-glossary_files/anchor-4.2.2/anchor.min.js","ps753-glossary_files/bowser-1.9.3/bowser.min.js","ps753-glossary_files/DiagrammeR-styles-0.2/styles.css","ps753-glossary_files/distill-2.2.21/template.v2.js","ps753-glossary_files/grViz-binding-1.0.8/grViz.js","ps753-glossary_files/header-attrs-2.11/header-attrs.js","ps753-glossary_files/htmlwidgets-1.5.4/htmlwidgets.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min.map","ps753-glossary_files/popper-2.6.0/popper.min.js","ps753-glossary_files/tippy-6.2.7/tippy-bundle.umd.min.js","ps753-glossary_files/tippy-6.2.7/tippy-light-border.css","ps753-glossary_files/tippy-6.2.7/tippy.css","ps753-glossary_files/tippy-6.2.7/tippy.umd.min.js","ps753-glossary_files/viz-1.8.2/viz.js","ps753-glossary_files/webcomponents-2.0.0/webcomponents.js","PS753.bib","PS753.yaml"]}
+  {"type":"character","attributes":{},"value":["homer.png","ps753-glossary_files/anchor-4.2.2/anchor.min 2.js","ps753-glossary_files/anchor-4.2.2/anchor.min.js","ps753-glossary_files/bowser-1.9.3/bowser.min 2.js","ps753-glossary_files/bowser-1.9.3/bowser.min.js","ps753-glossary_files/DiagrammeR-styles-0.2/styles.css","ps753-glossary_files/distill-2.2.21/template.v2 2.js","ps753-glossary_files/distill-2.2.21/template.v2.js","ps753-glossary_files/grViz-binding-1.0.8/grViz.js","ps753-glossary_files/header-attrs-2.11/header-attrs 2.js","ps753-glossary_files/header-attrs-2.11/header-attrs.js","ps753-glossary_files/htmlwidgets-1.5.4/htmlwidgets.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0 2.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min 2.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min 2.map","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min.js","ps753-glossary_files/jquery-3.6.0/jquery-3.6.0.min.map","ps753-glossary_files/popper-2.6.0/popper.min 2.js","ps753-glossary_files/popper-2.6.0/popper.min.js","ps753-glossary_files/tippy-6.2.7/tippy 2.css","ps753-glossary_files/tippy-6.2.7/tippy-bundle.umd.min 2.js","ps753-glossary_files/tippy-6.2.7/tippy-bundle.umd.min.js","ps753-glossary_files/tippy-6.2.7/tippy-light-border 2.css","ps753-glossary_files/tippy-6.2.7/tippy-light-border.css","ps753-glossary_files/tippy-6.2.7/tippy.css","ps753-glossary_files/tippy-6.2.7/tippy.umd.min 2.js","ps753-glossary_files/tippy-6.2.7/tippy.umd.min.js","ps753-glossary_files/viz-1.8.2/viz.js","ps753-glossary_files/webcomponents-2.0.0/webcomponents 2.js","ps753-glossary_files/webcomponents-2.0.0/webcomponents.js","PS753.bib","PS753.yaml"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2784,7 +2784,7 @@ Academics
 <dd>ties among one set (or category) of agent, such as nations in the context of trade
 </dd>
 <dt>two-mode data / bipartite data</dt>
-<dd>ties between different sets (or categories) of agents, such as ties between nations and international organizations
+<dd>ties between different sets (or categories) of agents, such as ties between nations and international organizations; a network split into two parts, each of whose nodes only connect to nodes in the opposite part, not to nodes within its own part
 </dd>
 </dl>
 <h3 id="borgatti2009"><span class="citation" data-cites="borgatti2009"><a href="#ref-borgatti2009" role="doc-biblioref">Borgatti et al.</a> (<a href="#ref-borgatti2009" role="doc-biblioref">2009</a>)</span></h3>
@@ -2912,10 +2912,15 @@ Academics
 </dd>
 </dl>
 <p><img src="homer.png" alt="homer" /> In the example above, there are 8 nodes that Homer (center) could connect to; among those 8 nodes, there are <span class="math inline">\(7 + 6 + 5 + 4 + 3 + 2 + 1 = 28\)</span> possible undirected connections (not connecting to Homer), and 9 of those 28 do exist, for a local clustering coefficient of <span class="math inline">\(9/28 \approx 0.32\)</span>.</p>
+<dl>
+<dt>average clustering coefficient</dt>
+<dd>the average of the local clustering coefficient of all nodes in the network
+</dd>
+</dl>
 <h2 id="week-3---network-degree">Week 3 - Network Degree</h2>
 <h3 id="class-lecture-3a-degree">Class lecture 3a: <a href="https://www.loom.com/share/49273add09ce4b26924b7f5ab2983810">Degree</a></h3>
 <dl>
-<dt>degree</dt>
+<dt>(vertex) degree</dt>
 <dd>the number of links that a node has; the number of nodes it’s connected to
 </dd>
 <dt>degree distribution</dt>
@@ -2936,8 +2941,17 @@ Academics
 <dt>(degree) centrality</dt>
 <dd>proportional the the number of other nodes to which a node is linked
 </dd>
+<dt>(closeness) centrality</dt>
+<dd>(forthcoming)
+</dd>
+<dt>(betweenness) centrality</dt>
+<dd>(forthcoming)
+</dd>
+<dt>(eigenvector) centrality</dt>
+<dd>(forthcoming)
+</dd>
 <dt>centralization</dt>
-<dd>a property of a graph, referring to its overall cohesion; comparing most central point to all other points; ratio of the actual sum of differences to the maximum possible sum of differences
+<dd>a property of a graph or network, referring to its overall cohesion; comparing most central point to all other points; ratio of the actual sum of differences to the maximum possible sum of differences
 </dd>
 </dl>
 <h3 id="class-lecture-3c-network-density">Class lecture 3c: <a href="https://www.loom.com/share/6e43e1fca3d44e1881f1a1d4895c26d3">Network Density</a></h3>

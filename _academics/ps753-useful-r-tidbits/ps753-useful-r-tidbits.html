@@ -1495,6 +1495,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul></li>
 <li><a href="#components">Components</a></li>
 <li><a href="#graph-density">Graph density</a></li>
+<li><a href="#network-degree-centralization">Network degree centralization</a></li>
 </ul>
 </nav>
 </div>
@@ -1691,8 +1692,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>trade2007.nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">V</span>(trade2007.ig)<span class="sc">$</span>name,</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">totdegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">loops =</span> <span class="cn">FALSE</span>),</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">indegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">mode=</span><span class="st">&quot;in&quot;</span>, <span class="at">loops =</span> <span class="cn">FALSE</span>),</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">outdegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">mode=</span><span class="st">&quot;out&quot;</span>,  <span class="at">loops=</span><span class="cn">FALSE</span>))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">indegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">mode =</span> <span class="st">&quot;in&quot;</span>, <span class="at">loops =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">outdegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">mode =</span> <span class="st">&quot;out&quot;</span>, <span class="at">loops =</span> <span class="cn">FALSE</span>))</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#statnet version:</span></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
@@ -1747,7 +1748,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gden</span>(climate.stat, <span class="at">diag=</span><span class="cn">FALSE</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.3921569</span></span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="network-degree-centralization">Network degree centralization</h2>
+<p>In <code>statnet</code>, call <code>centralization()</code> with the <code>degree</code> function and appropriate parameters for <code>degree</code> in the <code>cmode</code> argument:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centralization</span>(climate.stat, degree, <span class="at">cmode=</span><span class="st">&quot;indegree&quot;</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">centralization</span>(climate.stat, degree, <span class="at">cmode=</span><span class="st">&quot;outdegree&quot;</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">centralization</span>(climate.stat, degree, <span class="at">cmode=</span><span class="st">&quot;freeman&quot;</span>) <span class="co"># default</span></span></code></pre></div>
+<p>Could also call it with other <code>sna</code> functions like <code>betweenness</code>, <code>closeness</code>; tutorial references <code>eigenvalue</code> but there is no such function in <code>sna</code>. <code>evcent</code> perhaps?</p>
+<p>The <code>igraph</code> version uses <code>centr_degree()</code> and returns an object with several components, of which <code>centralization</code> is one:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(climate.ig, <span class="at">loops =</span> <span class="cn">FALSE</span>, <span class="at">mode =</span> <span class="st">&quot;in&quot;</span>)<span class="sc">$</span>centralization</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(climate.ig, <span class="at">loops =</span> <span class="cn">FALSE</span>, <span class="at">mode =</span> <span class="st">&quot;out&quot;</span>)<span class="sc">$</span>centralization</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
