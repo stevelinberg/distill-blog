@@ -21,6 +21,8 @@ navbar:
           href: meta/distill-and-github-pages-setup/index.html
     - text: "Academics"
       menu:
+        - text: "Article listing"
+          href: academics_list.html
         - text: "PS753 - Political and Social Networks, Spring 2022"
           href: academics/ps753/
         - text: "MS797 - Machine Learning for Social Sciences, Spring 2022"
