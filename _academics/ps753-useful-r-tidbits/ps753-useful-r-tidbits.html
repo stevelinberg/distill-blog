@@ -1482,11 +1482,272 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#week-1-tutorial-cheatsheet">Week 1 tutorial cheatsheet</a></li>
+<li><a href="#week-2-cheatsheet">Week 2 cheatsheet</a></li>
+<li><a href="#transitivity">Transitivity</a></li>
+<li><a href="#degree">Degree</a>
+<ul>
+<li><a href="#indegree-and-outdegree-calculations"><em>Indegree</em> and <em>outdegree</em> calculations</a></li>
+</ul></li>
+<li><a href="#components">Components</a></li>
+<li><a href="#graph-density">Graph density</a></li>
+</ul>
+</nav>
+</div>
 <p style="background: #eee">
 <a href="/"><i class="fas fa-home"></i></a> &gt; Academics &gt; <a href="../ps753/index.html">PS753</a> &gt; Useful R tidbits
 </p>
 <p>This document contains R snippets pertaining to work in the <a href="../ps753/index.html">Social Networks class</a>. There is also one for the <a href="../ms797-useful-r-tidbits/index.html">Machine Learning class</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="week-1-tutorial-cheatsheet">Week 1 tutorial cheatsheet</h2>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>igraph</th>
+<th>statnet</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Count of vertices</td>
+<td><code>vcount()</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Count of edges</td>
+<td><code>ecount()</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Both</td>
+<td></td>
+<td><code>print()</code></td>
+</tr>
+<tr class="even">
+<td>Bipartite or single mode?</td>
+<td><code>is_bipartite()</code></td>
+<td><code>print()</code></td>
+</tr>
+<tr class="odd">
+<td>Edges directed or undirected?</td>
+<td><code>is_directed()</code></td>
+<td><code>print()</code></td>
+</tr>
+<tr class="even">
+<td>Weighted? (or binary)</td>
+<td><code>is_weighted()</code></td>
+<td><code>print()</code></td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>vertex attribute</dt>
+<dd>vector of additional information about nodes in a network
+</dd>
+<dt>edge attribute</dt>
+<dd>vector of additional information about the edges in a network
+</dd>
+</dl>
+<p>Q: how to get missing edge count in igraph?</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>igraph</th>
+<th>statnet</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>display vertex attributes</td>
+<td><code>vertex_attr_names()</code></td>
+<td><code>list.vertex.attributes()</code></td>
+</tr>
+<tr class="even">
+<td>display edge attributes</td>
+<td><code>edge_attr_names()</code></td>
+<td><code>list.edge.attributes()</code></td>
+</tr>
+</tbody>
+</table>
+<p>In igraph, attributes are accessed via <code>$</code>, using the <code>V</code> and <code>E</code> functions, as in:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(karate.ig)<span class="sc">$</span>name</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(karate.ig)<span class="sc">$</span>weight</span></code></pre></div>
+<p>In statnet, they are accessed via the <code>%v%</code> and <code>%e%</code> mechanisms, as in:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>karate.stat <span class="sc">%v%</span> <span class="st">&quot;vertex.names&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>karate.stat <span class="sc">%e%</span> <span class="st">&quot;weight&quot;</span></span></code></pre></div>
+<h2 id="week-2-cheatsheet">Week 2 cheatsheet</h2>
+<p>A dyad census will count the reciprocal (<code>mut</code>), asymmetric (<code>asym</code>) and absent (<code>null</code>) dyads, based on directed graphs. In igraph:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">dyad.census</span>(trade2007.ig)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>mut</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">11444</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>asym</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">3148</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>null</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2244</span></span></code></pre></div>
+<p>In statnet:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sna<span class="sc">::</span><span class="fu">dyad.census</span>()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>]   <span class="dv">6225</span>  <span class="dv">19035</span>  <span class="dv">40611</span>   <span class="dv">6442</span>   <span class="dv">7044</span>  <span class="dv">10097</span>  <span class="dv">55355</span>  <span class="dv">44966</span>   <span class="dv">9200</span>   <span class="dv">1876</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">11</span>] <span class="dv">146537</span>  <span class="dv">25578</span>  <span class="dv">17167</span>  <span class="dv">30894</span> <span class="dv">225908</span> <span class="dv">374449</span></span></code></pre></div>
+<p>Triad census is similar:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">triad_census</span>(trade2007.ig)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sna<span class="sc">::</span><span class="fu">triad.census</span>(gotbook.stat, <span class="at">mode=</span><span class="st">&quot;graph&quot;</span>)  <span class="co"># undirected</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sna<span class="sc">::</span><span class="fu">triad.census</span>(trade2007.stat)              <span class="co"># directed</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      <span class="dv">003</span>   <span class="dv">012</span>   <span class="dv">102</span> 021D 021U 021C  111D  111U 030T 030C   <span class="dv">201</span>  120D</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>,] <span class="dv">6225</span> <span class="dv">13655</span> <span class="dv">26489</span> <span class="dv">4225</span> <span class="dv">4657</span> <span class="dv">4821</span> <span class="dv">34812</span> <span class="dv">23635</span> <span class="dv">4374</span>  <span class="dv">537</span> <span class="dv">97088</span> <span class="dv">15073</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>     120U  120C    <span class="dv">210</span>    <span class="dv">300</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>,] <span class="dv">7947</span> <span class="dv">14249</span> <span class="dv">136169</span> <span class="dv">283855</span></span></code></pre></div>
+<p>Note that the <code>statnet</code> version gives us information about the types of triads as column names in the matrix it returns. The <code>igraph</code> version also breaks them into the 16 categories, but returns them in a fixed order not detailed in its return value (described in its help documentation).</p>
+<p>The total number of possible triads in a 298 vertex network is (298 x 297 x 296) / (3 x 2 x 1) - the 3 countdown comes from “triad”. Quads would be (298 x 297 x 296 x 295) / (4 x 3 x 2 x 1).</p>
+<h2 id="transitivity">Transitivity</h2>
+<p>Transitivity is the percentage of potential connected triads - how many are complete. Basic way in igraph is <code>transitivity()</code>. The statnet version is <code>gtrans()</code>, but it only works in directed networks. <code>print()</code> will say whether the network is directed. (Note: in the tutorial, we see that the climate network IS directed, but it returns a different result than igraph: 0.627 vs 0.724. Not clear why. “it is calculating a transitivity score based on an understanding of network structure rooted in hierarchy”)</p>
+<p>Local transitivity is the <code>local clustering coefficient</code> - how many nodes of an ego are connected to each other. Have to unpack this, but the magic is:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">transitivity</span>(gotbook.ig, <span class="at">type=</span><span class="st">&quot;local&quot;</span>, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vids=</span><span class="fu">V</span>(gotbook.ig)[</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&quot;Petyr Baelish&quot;</span>,<span class="st">&quot;Jon Snow&quot;</span>, <span class="st">&quot;Tyrion Lannister&quot;</span>)]) </span></code></pre></div>
+<p>The global clustering coefficient in igraph is</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">transitivity</span>(trade2007.ig, <span class="at">type=</span><span class="st">&quot;global&quot;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.8837142</span></span></code></pre></div>
+<p>The local coefficient is:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">transitivity</span>(trade2007.ig, <span class="at">type=</span><span class="st">&quot;average&quot;</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.8862707</span></span></code></pre></div>
+<p>Network transitivity in statnet is <code>gtrans()</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gtrans</span>(trade2007.stat)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.9993143</span></span></code></pre></div>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>igraph</th>
+<th>statnet</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>global clustering coefficient</td>
+<td><code>transitivity(trade2007.ig,  type="global")</code></td>
+<td><code>gtrans(trade2007.stat)</code> (directed only)</td>
+</tr>
+<tr class="even">
+<td>local clustering coefficient</td>
+<td><code>transitivity(trade2007.ig,  type="local")</code></td>
+<td>???</td>
+</tr>
+<tr class="odd">
+<td>average local clustering coefficient</td>
+<td><code>transitivity(trade2007.ig,  type="average")</code></td>
+<td>???</td>
+</tr>
+</tbody>
+</table>
+<h2 id="degree">Degree</h2>
+<p><code>igraph::degree()</code> and <code>statnet::degree()</code>, and once again they give different results; igraph includes loops, statnet doesn’t. Force igraph to ignore them with <code>loops = FALSE</code>. “Note that setting <code>diag=TRUE</code> in <code>sna::degree</code> does not guarantee equivalence as statnet only single counts the loops in a directed network, while igraph double-counts the loops.”</p>
+<p>igraph shows the node names, statnet doesn’t.</p>
+<p>Getting the degree of a particular set of nodes in <code>igraph</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">v =</span> <span class="fu">V</span>(trade2007.ig)[<span class="fu">c</span>(<span class="st">&quot;China&quot;</span>, <span class="st">&quot;Canada&quot;</span>, <span class="st">&quot;United Kingdom&quot;</span>, <span class="st">&quot;Denmark&quot;</span>)])</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>         China         Canada United Kingdom        Denmark </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>           <span class="dv">364</span>            <span class="dv">364</span>            <span class="dv">364</span>            <span class="dv">362</span> </span></code></pre></div>
+<h3 id="indegree-and-outdegree-calculations"><em>Indegree</em> and <em>outdegree</em> calculations</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>igraph</th>
+<th>statnet</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>indegree</td>
+<td><code>igraph::degree(climate.ig,mode="in", loops = FALSE)</code></td>
+<td><code>sna::degree(climate.stat, cmode="indegree")</code></td>
+</tr>
+<tr class="even">
+<td>outdegree</td>
+<td><code>igraph::degree(climate.ig,mode="out", loops = FALSE)</code></td>
+<td><code>sna::degree(climate.stat, cmode="outdegree")</code></td>
+</tr>
+</tbody>
+</table>
+<p>Code from the tutorial to create <code>data.frame</code>s with degree statistics:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#igraph:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>trade2007.nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">V</span>(trade2007.ig)<span class="sc">$</span>name,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">totdegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">loops =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">indegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">mode=</span><span class="st">&quot;in&quot;</span>, <span class="at">loops =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">outdegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">mode=</span><span class="st">&quot;out&quot;</span>,  <span class="at">loops=</span><span class="cn">FALSE</span>))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#statnet version:</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>trade2007.nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> trade2007.stat<span class="sc">%v%</span><span class="st">&quot;vertex.names&quot;</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">totdegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(trade2007.stat),</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">indegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(trade2007.stat, <span class="at">cmode =</span> <span class="st">&quot;indegree&quot;</span>),</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">outdegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(trade2007.stat, <span class="at">cmode =</span> <span class="st">&quot;outdegree&quot;</span>))</span></code></pre></div>
+<h2 id="components">Components</h2>
+<p>Shortest path length between 2 nodes: igraph <code>distances()</code> does this.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distances</span>(gotbook.ig,<span class="st">&quot;Petyr Baelish&quot;</span>,<span class="st">&quot;Robb Stark&quot;</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate distance using unweighted edges</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">distances</span>(gotbook.ig,<span class="st">&quot;Petyr Baelish&quot;</span>,<span class="st">&quot;Robb Stark&quot;</span>, <span class="at">weights=</span><span class="cn">NA</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># list shortest paths between 2 nodes</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">all_shortest_paths</span>(gotbook.ig,<span class="st">&quot;Bronn&quot;</span>,<span class="st">&quot;Varys&quot;</span>, <span class="at">weights=</span><span class="cn">NA</span>)<span class="sc">$</span>res</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#find average shortest path for network</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">average.path.length</span>(gotbook.ig,<span class="at">directed=</span>F)</span></code></pre></div>
+<p>Component structure and membership</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What element are returned by components</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(igraph<span class="sc">::</span><span class="fu">components</span>(gotbook.ig))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of components</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">components</span>(gotbook.ig)<span class="sc">$</span>no </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Size of each component</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">components</span>(gotbook.ig)<span class="sc">$</span>csize </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve the index of isolate nodes</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># (nodes with component count of 1 from &quot;components&quot; above)</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="fu">isolates</span>(gotbook.stat)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># subset vertex.names attribute to get names of isolates</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">as.vector</span>(gotbook.stat <span class="sc">%v%</span> <span class="st">&#39;vertex.names&#39;</span>)[<span class="fu">c</span>(<span class="fu">isolates</span>(gotbook.stat))]</span></code></pre></div>
+<h2 id="graph-density">Graph density</h2>
+<p>Note: <code>network.density()</code> (statnet) ignores edge values “at present”.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get network density: igraph</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">graph.density</span>(climate.ig)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.4117647</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#get network density: statnet</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">network.density</span>(climate.stat)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.399654</span></span></code></pre></div>
+<p>Adding <code>loops = TRUE</code> to <code>graph.density()</code> appears to fix the problem and gets the two packages to agree:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get network density without loops: igraph</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">graph.density</span>(climate.ig, <span class="at">loops=</span><span class="cn">TRUE</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.399654</span></span></code></pre></div>
+<p><em>SO</em>, it’s safest to always do either: - <code>graph.density(climate.ig, loops=TRUE)</code> (igraph), OR - <code>network.density(climate.stat)</code> (statnet)</p>
+<p>In statnet, we can get network density with loops (nodes connecting to themselves) omitted:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get network density without loops: statnet</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gden</span>(climate.stat, <span class="at">diag=</span><span class="cn">FALSE</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.3921569</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
