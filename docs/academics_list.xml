@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>slinberg.net</title>
+    <link>https://slinberg.net</link>
+    <atom:link href="https://slinberg.net/academics_list.xml" rel="self" type="application/rss+xml"/>
+    <description>Steve Linberg's blog
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Tue, 08 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>MS797</title>
+      <link>https://slinberg.net/academics/ms797</link>
+      <description>Machine Learning for Social Sciences, Spring 2022.</description>
+      <category>machine learning</category>
+      <guid>https://slinberg.net/academics/ms797</guid>
+      <pubDate>Tue, 08 Feb 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Useful R tidbits: Social Networks</title>
+      <dc:creator>Steve Linberg</dc:creator>
+      <link>https://slinberg.net/academics/ps753-useful-r-tidbits</link>
+      <description>Tasty R snacks that do useful things in Social Networks</description>
+      <category>r</category>
+      <category>social networks</category>
+      <guid>https://slinberg.net/academics/ps753-useful-r-tidbits</guid>
+      <pubDate>Tue, 08 Feb 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>PS753</title>
+      <link>https://slinberg.net/academics/ps753</link>
+      <description>Political and Social Networks, Spring 2022.</description>
+      <category>social networks</category>
+      <guid>https://slinberg.net/academics/ps753</guid>
+      <pubDate>Tue, 08 Feb 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Useful R tidbits: Machine Learning</title>
+      <dc:creator>Steve Linberg</dc:creator>
+      <link>https://slinberg.net/academics/ms797-useful-r-tidbits</link>
+      <description>Tasty R snacks that do useful things in Machine Learning</description>
+      <category>r</category>
+      <category>machine learning</category>
+      <guid>https://slinberg.net/academics/ms797-useful-r-tidbits</guid>
+      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://slinberg.net/academics/ms797-useful-r-tidbits/ISLR-cover.png" medium="image" type="image/png" width="750" height="1263"/>
+    </item>
+    <item>
+      <title>MS797 Glossary</title>
+      <dc:creator>Steve Linberg</dc:creator>
+      <link>https://slinberg.net/academics/ms797-glossary</link>
+      <description>Glossary for MS797 coursework</description>
+      <category>machine learning</category>
+      <category>glossary</category>
+      <guid>https://slinberg.net/academics/ms797-glossary</guid>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>PS753 Glossary</title>
+      <dc:creator>Steve Linberg</dc:creator>
+      <link>https://slinberg.net/academics/ps753-glossary</link>
+      <description>Glossary for PS753 coursework</description>
+      <category>social networks</category>
+      <category>glossary</category>
+      <guid>https://slinberg.net/academics/ps753-glossary</guid>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

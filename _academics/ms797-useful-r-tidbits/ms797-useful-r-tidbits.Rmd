@@ -11,11 +11,14 @@ output:
     self_contained: false
     toc: true
 preview: ISLR-cover.png
+categories:
+  - r
+  - machine learning
 ---
 
 
 ```{r setup, include=FALSE}
-# knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <p style="background: #eee">

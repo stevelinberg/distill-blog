@@ -11,6 +11,9 @@ output:
    self_contained: false
    toc: true
 bibliography: PS753.bib
+categories:
+  - social networks
+  - glossary
 ---
 
 
