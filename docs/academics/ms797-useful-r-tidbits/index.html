@@ -2566,10 +2566,13 @@ Academics
 <li><a href="#predict-see-confidence-or-prediction-intervals-for-a-model">predict(): see confidence OR prediction intervals for a model</a></li>
 <li><a href="#arranging-plots-in-grids">arranging plots in grids</a></li>
 </ul></li>
+<li><a href="#everything-below-this-line">EVERYTHING BELOW THIS LINE</a>
+<ul>
 <li><a href="#multiple-linear-regression">Multiple Linear Regression</a></li>
 <li><a href="#interaction-terms">Interaction Terms</a></li>
 <li><a href="#non-linear-transformations-of-the-predictors">Non-linear Transformations of the Predictors</a></li>
 <li><a href="#qualitative-predictors">Qualitative Predictors</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -2647,8 +2650,9 @@ lstat       -1.013877 -0.8862212</code></pre>
 </div>
 <p>ggplot uses <code>facet()</code> to arrange plots from the same data set in grids.</p>
 <p>Plots from different data sets need additional packages to be combined; one option is the <code>cowplot</code> library and the <code>plot_grid()</code> function.</p>
-XXX
-<hr>
+<h1 id="everything-below-this-line">EVERYTHING BELOW THIS LINE</h1>
+<p>is direct paste from the book’s sources which I have not yet written in my own words or added anything to. Stay tuned.</p>
+<hr />
 <p>Alternatively, we can compute the residuals from a linear regression fit using the <code>residuals()</code> function. The function <code>rstudent()</code> will return the studentized residuals, and we can use this function to plot the residuals against the fitted values.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="ms797-useful-r-tidbits_files/figure-html5/chunk12-1.png" width="624" /><img src="ms797-useful-r-tidbits_files/figure-html5/chunk12-2.png" width="624" /></p>
@@ -2661,7 +2665,7 @@ XXX
 </div>
 <p>The <code>which.max()</code> function identifies the index of the largest element of a vector. In this case, it tells us which observation has the largest leverage statistic.</p>
 <h2 id="multiple-linear-regression">Multiple Linear Regression</h2>
-<p>In order to fit a multiple linear regression model using least squares, we again use the <code>lm()</code> function. The syntax {} is used to fit a model with three predictors, <code>x1</code>, <code>x2</code>, and <code>x3</code>. The <code>summary()</code> function now outputs the regression coefficients for all the predictors.</p>
+<p>In order to fit a multiple linear regression model using least squares, we again use the <code>lm()</code> function. The syntax <code>lm(y ~ x1 + x2 + x3)</code> is used to fit a model with three predictors, <code>x1</code>, <code>x2</code>, and <code>x3</code>. The <code>summary()</code> function now outputs the regression coefficients for all the predictors.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre><code>
 Call:
@@ -2758,7 +2762,7 @@ F-statistic: 124.1 on 11 and 494 DF,  p-value: &lt; 2.2e-16</code></pre>
 
 </div>
 <h2 id="interaction-terms">Interaction Terms</h2>
-<p>It is easy to include interaction terms in a linear model using the <code>lm()</code> function. The syntax <code>lstat:black</code> tells <code>R</code> to include an interaction term between <code>lstat</code> and <code>black</code>. The syntax <code>lstat * age</code> simultaneously includes <code>lstat</code>, <code>age</code>, and the interaction term <code>lstat</code><span class="math inline">\(\times\)</span><code>age</code> as predictors; it is a shorthand for <code>lstat + age + lstat:age</code>. %We can also pass in transformed versions of the predictors.</p>
+<p>It is easy to include interaction terms in a linear model using the <code>lm()</code> function. The syntax <code>lstat:black</code> tells <code>R</code> to include an interaction term between <code>lstat</code> and <code>black</code>. The syntax <code>lstat * age</code> simultaneously includes <code>lstat</code>, <code>age</code>, and the interaction term <code>lstat</code><span class="math inline">\(\times\)</span><code>age</code> as predictors; it is a shorthand for <code>lstat + age + lstat:age</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre><code>
 Call:
