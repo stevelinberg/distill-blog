@@ -72,9 +72,12 @@ ntwk.nodes <- data.frame(
 
 # Get degree centralization
 
-ntwk.indegree_centralization <- centr_degree(ntwk.ig, loops = FALSE, mode = "in")$centralization
-ntwk.outdegree_centralization <- centr_degree(ntwk.ig, loops = FALSE, mode = "out")$centralization
-ntwk.total_centralization <- centr_degree(ntwk.ig, loops = FALSE, mode = "total")$centralization
+ntwk.indegree_centralization <- 
+  centr_degree(ntwk.ig, loops = FALSE, mode = "in")$centralization
+ntwk.outdegree_centralization <- 
+  centr_degree(ntwk.ig, loops = FALSE, mode = "out")$centralization
+ntwk.total_centralization <- 
+  centr_degree(ntwk.ig, loops = FALSE, mode = "total")$centralization
 ```
 </details>
 
@@ -99,7 +102,15 @@ V(ntwk.ig)$size <- ntwk.nodes[,"degree"] * 5
 V(ntwk.ig)$label.cex <- ntwk.nodes[,"degree"] / 4
 V(ntwk.ig)$label.cex <- pmax(V(ntwk.ig)$label.cex, 1)
 
-plot(ntwk.ig, layout = layout_in_circle(ntwk.ig), edge.arrow.mode = 0, vertex.label.color="black", vertex.shape = "circle", vertex.label.font = 2, main = "Florence interfamily marriages, 1282-1500")
+plot(
+  ntwk.ig,
+  layout = layout_in_circle(ntwk.ig),
+  edge.arrow.mode = 0,
+  vertex.label.color = "black",
+  vertex.shape = "circle",
+  vertex.label.font = 2,
+  main = "Florence interfamily marriages, 1282-1500"
+)
 ```
 
 Each node is sized according to its number of connections; it is easy to see from this diagram that the Medici family had the most marriages within the Florence family network, with six. The Strozzi and Guadagni families were next at four apiece.
@@ -109,7 +120,15 @@ A component layout offers a different view that makes distances and paths easier
 ```{r}
 set.seed(1235)
 V(ntwk.ig)$size <- ntwk.nodes[,"degree"] * 3
-plot(ntwk.ig, layout = layout_components(ntwk.ig), edge.arrow.mode = 0, vertex.label.color="black", vertex.shape = "circle", vertex.label.font = 2, main = "Florence interfamily marriages, 1282-1500")
+plot(
+  ntwk.ig,
+  layout = layout_components(ntwk.ig),
+  edge.arrow.mode = 0,
+  vertex.label.color = "black",
+  vertex.shape = "circle",
+  vertex.label.font = 2,
+  main = "Florence interfamily marriages, 1282-1500"
+)
 
 ```
 From this layout, we can see that the Medici, Strozzi and Guadagni never directly intermarried, but were also only separated from each other by one node. With an overall average path length of approximately 2.5, this suggests some calculus and deliberation: not directly joining with their main rivals, but remaining only one degree removed.
