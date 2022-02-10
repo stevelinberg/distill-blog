@@ -26,3 +26,4 @@ Work and assignments from this class will be added here as we go. (This part has
 
 - My ongoing [glossary](../ps753-glossary/index.html) page; feel free to comment, or make additions or corrections via comments or github.
 - Some [useful R tidbits](../ps753-useful-r-tidbits/index.html) from the course material and related sources.
+- [Homework 3](../ps753-hw3/index.html) for the course: a network analysis of the Florentine Wedding data.
