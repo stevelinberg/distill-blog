@@ -19,7 +19,8 @@ categories:
 knitr::opts_chunk$set(
 	echo = FALSE,
 	message = FALSE,
-	warning = FALSE
+	warning = FALSE,
+	fig.height = 8
 )
 library(network)
 library(igraph)
@@ -92,8 +93,8 @@ A visualization shows each marriage as a line connecting two families:
 
 ```{r}
 V(ntwk.ig)$size <- ntwk.nodes[,"degree"] * 5
-V(ntwk.ig)$label.cex <- ntwk.nodes[,"degree"] / 8
-V(ntwk.ig)$label.cex <- pmax(V(ntwk.ig)$label.cex, 0.75)
+V(ntwk.ig)$label.cex <- ntwk.nodes[,"degree"] / 4
+V(ntwk.ig)$label.cex <- pmax(V(ntwk.ig)$label.cex, 1)
 
 plot(ntwk.ig, layout = layout_in_circle(ntwk.ig), edge.arrow.mode = 0, vertex.label.color="black", vertex.shape = "circle", vertex.label.font = 2, main = "Florence interfamily marriages, 1282-1500")
 ```
@@ -112,4 +113,4 @@ From this layout, we can see that the Medici, Strozzi and Guadagni never directl
 
 The overall network density is $\approx$ 0.16; 20 connections by marriage out of a possible total of 120. Four of the 16 nodes are pendants. We might expect the network density to increase if we looked at more families than the 16 listed here; it is very unlikely that only 16% of families experienced any marriages at all! This would need to be weighed against the prominence of the additional families according to the criteria with which this initial set was selected.
 
-It would be interesting to me to look deeper into a bipartite network of connections between the families and who they patronized, especially the artists and scientists of the era. This would require more data than is present in this set, but could be very revealing about other ways in which the families interacted, competing for social and political influence in the dynamic period of the Renaissance.
+It would be interesting to me to look deeper into a bipartite network of connections between the families and whom they patronized, especially the artists and scientists of the era. This would require more data than is present in this set, but could be very revealing about other ways in which the families interacted, competing for social and political influence in the dynamic period of the Renaissance.
