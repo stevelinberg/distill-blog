@@ -224,7 +224,7 @@ $R^2$ values close to 1 indicate a regression that explains a lot of the variabi
 
 correlation (70)
 : a measure of the linearity of the relationship between $X$ and $Y$; values close to 0 indicate weak-to-no relationship, values near 1 or -1 indicate strong positive or negative correlation
-(horrible formula on p.70 I don't have time to LaTeX at the moment)
+$$\text{Cor(X, Y)} = {\frac {\sum _{i=1}^{n}(x_{i}-{\bar {x}})(y_{i}-{\bar {y}})}{{\sqrt {\sum _{i=1}^{n}(x_{i}-{\bar {x}})^{2}}}{\sqrt {\sum _{i=1}^{n}(y_{i}-{\bar {y}})^{2}}}}}$$
 
 standard linear regression model (72)
 : The modal used for standard linear models, used to interpret the the effect on $Y$ of a one-unit increase in any predictor $\beta_j$ while holding all other predictors constant
