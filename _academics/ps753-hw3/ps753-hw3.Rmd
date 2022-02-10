@@ -9,23 +9,30 @@ date: 2022-02-09
 output:
   distill::distill_article:
     self_contained: false
+    code_folding: true
 categories:
   - r
   - social networks
 ---
 
+<p style="background: #eee">
+[<i class="fas fa-home"></i>](/) &gt; Academics &gt; [PS753](../ps753/index.html)
+&gt; Homework 3: The Florentine Wedding dataset
+</p>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
 	echo = FALSE,
+	fig.height = 8,
 	message = FALSE,
-	warning = FALSE,
-	fig.height = 8
+	warning = FALSE
 )
 library(network)
 library(igraph)
 library(tidyverse)
+```
 
+```{r}
 data(flo)
 ntwk.ig <- graph_from_adjacency_matrix(flo)
 
@@ -69,11 +76,7 @@ ntwk.indegree_centralization <- centr_degree(ntwk.ig, loops = FALSE, mode = "in"
 ntwk.outdegree_centralization <- centr_degree(ntwk.ig, loops = FALSE, mode = "out")$centralization
 ntwk.total_centralization <- centr_degree(ntwk.ig, loops = FALSE, mode = "total")$centralization
 ```
-
-<p style="background: #eee">
-[<i class="fas fa-home"></i>](/) &gt; Academics &gt; [PS753](../ps753/index.html)
-&gt; Homework 3: The Florentine Wedding dataset
-</p>
+</details>
 
 For this assignment, I am looking at the Florentine Wedding dataset by J. F. Padgett, representing intermarriages between prominent families in Florence between 1282 and 1500. This is an area of interest to me as I have some background in fine art, and the Medici family in particular was known for its patronage of some of history's greatest artists throughout the Renaissance, including Boticelli, Leonardo da Vinci, and Michelangelo. No less than Galileo Galilei himself tutored several generations of Medici children.
 
