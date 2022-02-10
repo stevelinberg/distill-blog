@@ -7,7 +7,18 @@
     <description>Steve Linberg's blog
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 08 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Homework 3: The Florentine Wedding dataset</title>
+      <dc:creator>Steve Linberg</dc:creator>
+      <link>https://slinberg.net/academics/ps753-hw3</link>
+      <description>A first-look network analysis</description>
+      <category>r</category>
+      <category>social networks</category>
+      <guid>https://slinberg.net/academics/ps753-hw3</guid>
+      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://slinberg.net/academics/ps753-hw3/ps753-hw3_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>MS797</title>
       <link>https://slinberg.net/academics/ms797</link>
