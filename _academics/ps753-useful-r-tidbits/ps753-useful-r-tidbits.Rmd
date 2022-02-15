@@ -217,6 +217,9 @@ igraph::components(gotbook.ig)$csize
 # retrieve the index of isolate nodes
 # (nodes with component count of 1 from "components" above)
 isolates(gotbook.stat)
+# No direct command in igraph, but can do this:
+deg_counts <- igraph::degree(gotbook.ig, loops = FALSE)
+length(deg_counts[deg_counts == 0])
 
 # subset vertex.names attribute to get names of isolates
 as.vector(gotbook.stat %v% 'vertex.names')[c(isolates(gotbook.stat))]
