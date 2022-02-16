@@ -297,15 +297,6 @@ centrality
 (degree) centrality
 : proportional the the number of other nodes to which a node is linked
 
-(closeness) centrality
-: (forthcoming)
-
-(betweenness) centrality
-: (forthcoming)
-
-(eigenvector) centrality
-: (forthcoming)
-
 centralization
 : a property of a graph or network, referring to its overall cohesion; comparing most central point to all other points; ratio of the actual sum of differences to the maximum possible sum of differences
 
@@ -313,3 +304,65 @@ centralization
 
 network density
 : number of ties as a proportion of the maximum possible number of ties; varies from 0 to 1, calculation will vary by whether network is undirected or directed (twice as many potential connections)
+
+## Week 4 - Status & Eigenvectors
+
+### Class lecture 4a: [Status and Hierarchy](https://www.loom.com/share/91c521e65705482cb7249140be3b0274)
+
+closeness centrality
+: the sum of geodesic distances (shortest paths) to all other points in the graph. Divide by $n-1$, then invert. A measure of how close a node is to all of the other nodes in the network.
+
+### Class lecture 4b: [Status and Prestige](https://www.loom.com/share/e0484b4af1bb4d3b8242715c8cba30f8)
+
+prestige
+: signal of the quality of a node, of a node's visibility within the network
+
+eigenvector centrality
+: "takes into account the centrality of other nodes to which a node is connected. That is, being connected to other central nodes increases centrality." Takes into account the centrality of the nodes a node is connected to, considering the importance of the connected nodes and not just their quantity or path length.
+$$\lambda \text{c} = \text{Wc}$$
+
+Bonacich Power
+: "A closely related concept, but includes a weighting factor that emphasizes global vs. local structure (and negative connections)"
+$$\text{c}(\alpha, \beta) = \alpha(\text{I} - \beta\text{W})^{-1}\text{W1}$$
+
+### Class lecture 4c: [Hubs and Bridges](https://www.loom.com/share/e85fa1918f70438e9bb67232ade95594)
+
+bridge
+: a node with few ties to central actors
+
+hub
+: a node with many ties to peripheral actors
+
+reflected centrality
+: the degree of centrality that a node receives from a connected node that is due to that node's centrality. If A has influential friend B, then A's eigenvector centrality will be higher; reflected centrality is the portion of A's centrality that comes from B's centrality.
+
+derived centrality
+: the remainder of the eigenvector centrality that A receives from B in the example above, that is not due to B's centrality but just from B being a connected node
+
+Reflected and derived centrality can be represented in the following matrix by Mizruchi et al:
+
+||High reflected centrality|Low reflected centrality|
+|---|---|---|
+|High derived centrality|Cosmopolitans|Pure bridges|
+|Low derived centrality|Pure hubs|Peripherals|
+
+The four prototypes are:
+
+cosmopolitans
+: well-connected nodes that are connected to other well-connected nodes; the "cool kids" table
+
+pure hubs
+: well-connected nodes that are connected to nodes that are not well-connected; the cool kid who talks to uncool kids
+
+pure bridge
+: a node connected to few but high-centrality nodes; a friend of the cool kid with few other friends
+
+peripheral
+: a node with few and low-centrality connections; me and my D&D nerd friends in high school
+
+### Class lecture 4d: [Status and Core/Periphery Networks](https://www.loom.com/share/2b5fdf986b164bb785a4c8c0fca0d1e9)
+
+
+betweenness centrality
+: (forthcoming)
+

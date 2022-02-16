@@ -1538,6 +1538,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#class-lecture-3b-centrality-vs.-centralization">Class lecture 3b: <span>Centrality vs. Centralization</span></a></li>
 <li><a href="#class-lecture-3c-network-density">Class lecture 3c: <span>Network Density</span></a></li>
 </ul></li>
+<li><a href="#week-4---status-eigenvectors">Week 4 - Status &amp; Eigenvectors</a>
+<ul>
+<li><a href="#class-lecture-4a-status-and-hierarchy">Class lecture 4a: <span>Status and Hierarchy</span></a></li>
+<li><a href="#class-lecture-4b-status-and-prestige">Class lecture 4b: <span>Status and Prestige</span></a></li>
+<li><a href="#class-lecture-4c-hubs-and-bridges">Class lecture 4c: <span>Hubs and Bridges</span></a></li>
+<li><a href="#class-lecture-4c-status-and-coreperiphery-networks">Class lecture 4c: <span>Status and Core/Periphery Networks</span></a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -1884,15 +1891,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <dt>(degree) centrality</dt>
 <dd>proportional the the number of other nodes to which a node is linked
 </dd>
-<dt>(closeness) centrality</dt>
-<dd>(forthcoming)
-</dd>
-<dt>(betweenness) centrality</dt>
-<dd>(forthcoming)
-</dd>
-<dt>(eigenvector) centrality</dt>
-<dd>(forthcoming)
-</dd>
 <dt>centralization</dt>
 <dd>a property of a graph or network, referring to its overall cohesion; comparing most central point to all other points; ratio of the actual sum of differences to the maximum possible sum of differences
 </dd>
@@ -1900,10 +1898,87 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3 id="class-lecture-3c-network-density">Class lecture 3c: <a href="https://www.loom.com/share/6e43e1fca3d44e1881f1a1d4895c26d3">Network Density</a></h3>
 <dl>
 <dt>network density</dt>
-<dd><p>number of ties as a proportion of the maximum possible number of ties; varies from 0 to 1, calculation will vary by whether network is undirected or directed (twice as many potential connections)</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<dd>number of ties as a proportion of the maximum possible number of ties; varies from 0 to 1, calculation will vary by whether network is undirected or directed (twice as many potential connections)
 </dd>
 </dl>
+<h2 id="week-4---status-eigenvectors">Week 4 - Status &amp; Eigenvectors</h2>
+<h3 id="class-lecture-4a-status-and-hierarchy">Class lecture 4a: <a href="https://www.loom.com/share/91c521e65705482cb7249140be3b0274">Status and Hierarchy</a></h3>
+<dl>
+<dt>closeness centrality</dt>
+<dd>the sum of geodesic distances (shortest paths) to all other points in the graph. Divide by <span class="math inline">\(n-1\)</span>, then invert. A measure of how close a node is to all of the other nodes in the network.
+</dd>
+</dl>
+<h3 id="class-lecture-4b-status-and-prestige">Class lecture 4b: <a href="https://www.loom.com/share/e0484b4af1bb4d3b8242715c8cba30f8">Status and Prestige</a></h3>
+<dl>
+<dt>prestige</dt>
+<dd>signal of the quality of a node, of a node’s visibility within the network
+</dd>
+<dt>eigenvector centrality</dt>
+<dd>“takes into account the centrality of other nodes to which a node is connected. That is, being connected to other central nodes increases centrality.” Takes into account the centrality of the nodes a node is connected to, considering the importance of the connected nodes and not just their quantity or path length. <span class="math display">\[\lambda \text{c} = \text{Wc}\]</span>
+</dd>
+<dt>Bonacich Power</dt>
+<dd>“A closely related concept, but includes a weighting factor that emphasizes global vs. local structure (and negative connections)” <span class="math display">\[\text{c}(\alpha, \beta) = \alpha(\text{I} - \beta\text{W})^{-1}\text{W1}\]</span>
+</dd>
+</dl>
+<h3 id="class-lecture-4c-hubs-and-bridges">Class lecture 4c: <a href="https://www.loom.com/share/e85fa1918f70438e9bb67232ade95594">Hubs and Bridges</a></h3>
+<dl>
+<dt>bridge</dt>
+<dd>a node with few ties to central actors
+</dd>
+<dt>hub</dt>
+<dd>a node with many ties to peripheral actors
+</dd>
+<dt>reflected centrality</dt>
+<dd>the degree of centrality that a node receives from a connected node that is due to that node’s centrality. If A has influential friend B, then A’s eigenvector centrality will be higher; reflected centrality is the portion of A’s centrality that comes from B’s centrality.
+</dd>
+<dt>derived centrality</dt>
+<dd>the remainder of the eigenvector centrality that A receives from B in the example above, that is not due to B’s centrality but just from B being a connected node
+</dd>
+</dl>
+<p>Reflected and derived centrality can be represented in the following matrix by Mizruchi et al:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>High reflected centrality</th>
+<th>Low reflected centrality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>High derived centrality</td>
+<td>Cosmopolitans</td>
+<td>Pure bridges</td>
+</tr>
+<tr class="even">
+<td>Low derived centrality</td>
+<td>Pure hubs</td>
+<td>Peripherals</td>
+</tr>
+</tbody>
+</table>
+<p>The four prototypes are:</p>
+<dl>
+<dt>cosmopolitans</dt>
+<dd>well-connected nodes that are connected to other well-connected nodes; the “cool kids” table
+</dd>
+<dt>pure hubs</dt>
+<dd>well-connected nodes that are connected to nodes that are not well-connected; the cool kid who talks to uncool kids
+</dd>
+<dt>pure bridge</dt>
+<dd>a node connected to few but high-centrality nodes; a friend of the cool kid with few other friends
+</dd>
+<dt>peripheral</dt>
+<dd>a node with few and low-centrality connections; me and my D&amp;D nerd friends in high school
+</dd>
+</dl>
+<h3 id="class-lecture-4c-status-and-coreperiphery-networks">Class lecture 4c: <a href="https://www.loom.com/share/2b5fdf986b164bb785a4c8c0fca0d1e9">Status and Core/Periphery Networks</a></h3>
+<dl>
+<dt>betweenness centrality</dt>
+<dd>(forthcoming)
+</dd>
+</dl>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-alhazmiUnderstandingSocialEffects2015" class="csl-entry" role="doc-biblioentry">
 Alhazmi, Huda, Swapna S. Gokhale, and Derek Doran. 2015. <span>“Understanding Social Effects in Online Networks.”</span> In <em>2015 <span>International Conference</span> on <span>Computing</span>, <span>Networking</span> and <span>Communications</span> (<span>ICNC</span>)</em>, 863–68. <span>Garden Grove, CA, USA</span>: <span>IEEE</span>. <a href="https://doi.org/10.1109/ICCNC.2015.7069459">https://doi.org/10.1109/ICCNC.2015.7069459</a>.

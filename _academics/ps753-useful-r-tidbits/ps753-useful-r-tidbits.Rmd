@@ -217,8 +217,10 @@ igraph::components(gotbook.ig)$csize
 # retrieve the index of isolate nodes
 # (nodes with component count of 1 from "components" above)
 isolates(gotbook.stat)
-# No direct command in igraph, but can do this:
+# There is no direct command in igraph, but we can do this:
+# Create a list of the degree of each node in the network
 deg_counts <- igraph::degree(gotbook.ig, loops = FALSE)
+# filter and count the nodes with 0 degrees (or any other quantity of interest)
 length(deg_counts[deg_counts == 0])
 
 # subset vertex.names attribute to get names of isolates
@@ -273,7 +275,7 @@ centralization(climate.stat, degree, cmode="outdegree")
 centralization(climate.stat, degree, cmode="freeman") # default
 ```
 
-Could also call it with other `sna` functions like `betweenness`, `closeness`; tutorial references `eigenvalue` but there is no such function in `sna`. `evcent` perhaps?
+Could also call it with other `sna` functions like `betweenness`, `closeness`
 
 The `igraph` version uses `centr_degree()` and returns an object with several components, of which `centralization` is one:
 
@@ -282,5 +284,83 @@ centr_degree(climate.ig, loops = FALSE, mode = "in")$centralization
 centr_degree(climate.ig, loops = FALSE, mode = "out")$centralization
 ```
 
+### Eigenvector centralization
 
+`statnet` uses `evcent()` to calculate the eigenvalue centrality score for each node in the network:
+
+```r
+evcent(imf2014.stat, ignore.eval=TRUE))
+```
+
+Eigenvector centrality index for the network:
+
+```r
+centralization(imf2014.stat, evcent)
+```
+
+In `igraph`, a set of eigenvector-related information is created with `centr_eigen()`:
+
+```r
+# If the network is directed, specify "directed - T" - will not auto-detect
+eigen_info <- centr_eigen(imf2014.ig, directed = T)
+# Centrality score for node 3:
+eigen_info[3]$vector
+# Eigenveector centrality index for the network:
+eigen_info$centralization
+```
+
+**The scores calculated by `igraph` and `statnet` are different. We aren't sure why.** It appears that igraph [counts incoming ties to calculate eigenvector centrality](https://stackoverflow.com/questions/21035598/what-is-evcent-returning-for-directed-graphs), and statnet [recommends using Bonachic power instead for directed networks](http://mailman13.u.washington.edu/pipermail/statnet_help/2015/002170.html).
+
+### Bonacich Power Centrality
+
+`igraph`:
+
+```r
+power_centrality(imf2014.ig)
+```
+
+`statnet`:
+
+```r
+bonpow(imf2014.stat)
+```
+
+Again, there appear to be some inconsistency between `igraph` and `statnet` in the calculations, with statnet apparently not incorporating weights and failing on singluar matrices. 
+
+### Derived and Reflected Centrality
+
+There are no library routines for these calculations. Convert the data to a matrix first:
+
+```r
+mat2014 <- as.matrix(as_adjacency_matrix(imf2014.ig, attr="weight"))
+```
+
+> To calculate the proportion of centrality that is received, we first square the adjacency matrix. The diagonal of the adjacency matrix is equal to the the square of node degree. We then divide this diagonal (sqared degree) by total sqaured indegree (calculated by rowSums) to get the proportion of received centrality.
+
+```r
+# square the adjacency matrix
+mat2014sq <- t(mat2014) %*% mat2014
+
+# Calculate the proportion of reflected centrality.
+imf2014.nodes$rc <- diag(mat2014sq) / rowSums(mat2014sq)
+
+# freplace missing values with 0
+imf2014.nodes$rc <- ifelse(is.nan(imf2014.nodes$rc), 0, imf2014.nodes$rc)
+
+# Calculate received eigenvalue centrality
+imf2014.nodes$eigen.rc <- imf2014.nodes$eigen * imf2014.nodes$rc
+```
+
+> If total centraltiy is 1, then derived centrality is simply 1 - the proportion of eigenvector centrality due to received centrality.
+
+```r
+# Calculate the proportion of derived centrality.
+imf2014.nodes$dc <- 1 - diag(mat2014sq) / rowSums(mat2014sq)
+
+# replace missing values with 0
+imf2014.nodes$dc <- ifelse(is.nan(imf2014.nodes$dc), 1, imf2014.nodes$dc)
+
+# Calculate received eigenvalue centrality
+imf2014.nodes$eigen.dc <- imf2014.nodes$eigen * imf2014.nodes$dc
+```
 
