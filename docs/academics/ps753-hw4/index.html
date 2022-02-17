@@ -104,14 +104,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="A first-look network analysis"/>
 <meta property="og:url" content="https://slinberg.net/academics/ps753-hw4/"/>
+<meta property="og:image" content="https://slinberg.net/academics/ps753-hw4/ps753-hw4_files/figure-html5/unnamed-chunk-2-1.png"/>
+<meta property="og:image:width" content="1248"/>
+<meta property="og:image:height" content="1536"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="slinberg.net"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary"/>
+<meta property="twitter:card" content="summary_large_image"/>
 <meta property="twitter:title" content="slinberg.net: Homework 4: Centrality Analysis of the Florentine Wedding dataset"/>
 <meta property="twitter:description" content="A first-look network analysis"/>
 <meta property="twitter:url" content="https://slinberg.net/academics/ps753-hw4/"/>
+<meta property="twitter:image" content="https://slinberg.net/academics/ps753-hw4/ps753-hw4_files/figure-html5/unnamed-chunk-2-1.png"/>
+<meta property="twitter:image:width" content="1248"/>
+<meta property="twitter:image:height" content="1536"/>
 <meta property="twitter:site" content="@stevelinberg"/>
 <meta property="twitter:creator" content="@stevelinberg"/>
 
@@ -131,7 +137,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"NULL"}
+  {"type":"character","attributes":{},"value":["ps753-hw4_files/anchor-4.2.2/anchor.min.js","ps753-hw4_files/bowser-1.9.3/bowser.min.js","ps753-hw4_files/distill-2.2.21/template.v2.js","ps753-hw4_files/figure-html5/unnamed-chunk-2-1.png","ps753-hw4_files/figure-html5/unnamed-chunk-3-1.png","ps753-hw4_files/figure-html5/unnamed-chunk-4-1.png","ps753-hw4_files/figure-html5/unnamed-chunk-6-1.png","ps753-hw4_files/figure-html5/unnamed-chunk-7-1.png","ps753-hw4_files/header-attrs-2.11/header-attrs.js","ps753-hw4_files/jquery-3.6.0/jquery-3.6.0.js","ps753-hw4_files/jquery-3.6.0/jquery-3.6.0.min.js","ps753-hw4_files/jquery-3.6.0/jquery-3.6.0.min.map","ps753-hw4_files/popper-2.6.0/popper.min.js","ps753-hw4_files/tippy-6.2.7/tippy-bundle.umd.min.js","ps753-hw4_files/tippy-6.2.7/tippy-light-border.css","ps753-hw4_files/tippy-6.2.7/tippy.css","ps753-hw4_files/tippy-6.2.7/tippy.umd.min.js","ps753-hw4_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2614,7 +2620,221 @@ Show code
 </details>
 </div>
 <p>This week, we’re going to look at various measures of <em>degree centrality</em> in the Florentine Wedding dataset.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p><a href="../ps753-hw3/index.html">Last week</a>, we looked at some basic network plots that showed the overall structure of the network, sizing the nodes by their individual degrees. One of the primary features of this data set is all of the ways in which it can be shown how dominant the Medici family was in medieval Florence.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='va'>ntwk.nodes</span><span class='op'>[</span>,<span class='st'>"degree"</span><span class='op'>]</span> <span class='op'>*</span> <span class='fl'>5</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='va'>ntwk.nodes</span><span class='op'>[</span>,<span class='st'>"degree"</span><span class='op'>]</span> <span class='op'>/</span> <span class='fl'>4</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span>, <span class='fl'>1</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1235</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='va'>ntwk.nodes</span><span class='op'>[</span>,<span class='st'>"degree"</span><span class='op'>]</span> <span class='op'>*</span> <span class='fl'>3</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
+  <span class='va'>ntwk.ig</span>,
+  layout <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/merge_coords.html'>layout_components</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>,
+  edge.arrow.mode <span class='op'>=</span> <span class='fl'>0</span>,
+  vertex.label.color <span class='op'>=</span> <span class='st'>"black"</span>,
+  vertex.shape <span class='op'>=</span> <span class='st'>"circle"</span>,
+  vertex.label.font <span class='op'>=</span> <span class='fl'>2</span>,
+  main <span class='op'>=</span> <span class='st'>"Florence interfamily marriages, 1282-1500"</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="ps753-hw4_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
+</div>
+<h2 id="closeness-centrality">Closeness Centrality</h2>
+<p><em>Closeness centrality</em> is a measure of how close a node is, via the shortest path, to every other node in the network. It is more revealing in hierarchies, where dominant nodes that are closer to the center of the graph will have, on average, shorter paths to the rest of the node than the nodes at the periphery.</p>
+<p>The closeness centrality measures of the nodes in the Florentine data may come as a bit of a surprise:</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>closeness_centrality</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/closeness.html'>closeness</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span>, mode <span class='op'>=</span> <span class='st'>"all"</span><span class='op'>)</span>
+<span class='co'># Calculate node size by 1000 x closeness</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='va'>closeness_centrality</span> <span class='op'>*</span> <span class='fl'>1000</span>
+<span class='co'># Ensure minimum node size</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span>, <span class='fl'>1</span><span class='op'>)</span>
+<span class='co'># Base text size on node size</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>/</span> <span class='fl'>15</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span>, <span class='fl'>1</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1235</span><span class='op'>)</span>
+<span class='va'>closeness_labels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"%s\n%s"</span>, <span class='va'>ntwk.names</span>,
+                            <span class='co'># Omit leading "0" can't be done in sprintf</span>
+                            <span class='fu'><a href='https://rdrr.io/r/base/substr.html'>substr</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span>
+                              <span class='va'>closeness_centrality</span>, <span class='fl'>3</span>
+                            <span class='op'>)</span><span class='op'>)</span>, <span class='fl'>2</span>, <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
+  <span class='va'>ntwk.ig</span>,
+  layout <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/merge_coords.html'>layout_components</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>,
+  vertex.label <span class='op'>=</span> <span class='va'>closeness_labels</span>,
+  edge.arrow.mode <span class='op'>=</span> <span class='fl'>0</span>,
+  vertex.label.color <span class='op'>=</span> <span class='st'>"black"</span>,
+  vertex.shape <span class='op'>=</span> <span class='st'>"circle"</span>,
+  vertex.label.font <span class='op'>=</span> <span class='fl'>2</span>,
+  main <span class='op'>=</span> <span class='st'>"Florence nodes by closeness centrality"</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="ps753-hw4_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+</div>
+<p>Although careful examination shows that the Medici family is still the dominant node, with the highest closeness centrality score, there is very little variation among all but the disconnected Pucci node. The chief reason for this is that the network itself is very small, and tightly connected. As we saw last week, the average path length for this network is 2.486; the Florentine families were all in close proximity to each other, as might be expected given that one of its primary constraints is geographical, but it is interesting to see how the power of the Medici family did <em>not</em> derive primarily from its closeness centrality, or its position in a hierarchy.</p>
+<h2 id="betweenness-centrality">Betweenness Centrality</h2>
+<p>Another useful measure is <em>betweenness centrality</em>, which is a count of the number of shortest paths between nodes that pass through another node. It can be seen as a measure of importance or control, in that it reflects how well a node is positioned along the optimal path between two other nodes.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>betweenness_centrality</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/betweenness.html'>betweenness</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
+<span class='co'># Calculate node size by 2 x betweenness</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='va'>betweenness_centrality</span> <span class='op'>/</span> <span class='fl'>2</span>
+<span class='co'># Ensure minimum node size</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span>, <span class='fl'>10</span><span class='op'>)</span>
+<span class='co'># Base text size on node size</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>/</span> <span class='fl'>15</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span>, <span class='fl'>1</span><span class='op'>)</span>
+
+<span class='va'>colors</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span>
+  <span class='va'>betweenness_centrality</span> <span class='op'>==</span> <span class='fl'>0</span> <span class='op'>~</span> <span class='st'>"#FFFF33"</span>,
+  <span class='va'>betweenness_centrality</span> <span class='op'>&lt;</span> <span class='fl'>20</span> <span class='op'>~</span> <span class='st'>"#FF8033"</span>,
+  <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='st'>"#FF0033"</span>
+<span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1235</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
+  <span class='va'>ntwk.ig</span>,
+  vertex.color <span class='op'>=</span> <span class='va'>colors</span>,
+  layout <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/merge_coords.html'>layout_components</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>,
+  edge.arrow.mode <span class='op'>=</span> <span class='fl'>0</span>,
+  vertex.label.color <span class='op'>=</span> <span class='st'>"black"</span>,
+  vertex.shape <span class='op'>=</span> <span class='st'>"circle"</span>,
+  vertex.label.font <span class='op'>=</span> <span class='fl'>2</span>,
+  main <span class='op'>=</span> <span class='st'>"Florence nodes by betweenness centrality"</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="ps753-hw4_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+</div>
+<p>This chart uses heatmap colors to indicate the strength of betweenness centrality. The yellow nodes - the network’s pendants and isolate - are yellow, which indicates a betweenness measure of 0. The orange nodes are nodes with 20 or less optimal paths running through them, and the red nodes have more than 20. In fact, the scale had to be forced in this graph to make the smaller-weighted betweenness nodes visible at all compared to the overwhelming dominance of the Medici node, with a betweenness score more than twice that of its nearest rival:</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>betweenness_centrality</span>, <span class='fl'>2</span><span class='op'>)</span>, decreasing <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>      Medici     Guadagni      Albizzi     Salviati      Ridolfi 
+       95.00        46.33        38.67        26.00        20.67 
+    Bischeri      Strozzi    Barbadori   Tornabuoni   Castellani 
+       19.00        18.67        17.00        16.67        10.00 
+     Peruzzi   Acciaiuoli       Ginori Lamberteschi        Pazzi 
+        4.00         0.00         0.00         0.00         0.00 
+       Pucci 
+        0.00 </code></pre>
+</div>
+<p>95 of the 312 optimal paths in the Florence network ran through the Medici. It is easy to imagine many different ways that such centrality could manifest as various forms of power.</p>
+<h2 id="eigenvector-and-bonacich-power">Eigenvector and Bonacich Power</h2>
+<p>Eigenvector centrality is a measure of not just how many alters a node is connected to, but of how well-connected those alters are. A node with a high eigenvector centrality score is connected to significant numbers of other highly central nodes. For this chart, we can return to standard-area scaling (except for slightly inflating the smallest to keep them visible), and we see that once again, the Medici are in a dominant position, well-connected to the other well-connected Florence families:</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>eigen_info</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/centr_eigen.html'>centr_eigen</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span>, directed <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span>
+
+<span class='co'># Calculate node size by 1000 x closeness</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='va'>eigen_info</span><span class='op'>$</span><span class='va'>vector</span> <span class='op'>*</span> <span class='fl'>30</span>
+<span class='co'># Ensure minimum node size</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span>, <span class='fl'>5</span><span class='op'>)</span>
+<span class='co'># Base text size on node size</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>/</span> <span class='fl'>15</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span>, <span class='fl'>1</span><span class='op'>)</span>
+
+<span class='co'># colors &lt;- case_when(</span>
+<span class='co'>#   betweenness_centrality == 0 ~ "#FFFF33",</span>
+<span class='co'>#   betweenness_centrality &lt; 20 ~ "#FF8033",</span>
+<span class='co'>#   TRUE ~ "#FF0033"</span>
+<span class='co'># )</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1235</span><span class='op'>)</span>
+<span class='va'>eigen_labels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"%s\n%.2f"</span>, <span class='va'>ntwk.names</span>, <span class='va'>eigen_info</span><span class='op'>$</span><span class='va'>vector</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
+  <span class='va'>ntwk.ig</span>,
+  <span class='co'># vertex.color = colors,</span>
+  layout <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/merge_coords.html'>layout_components</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>,
+  vertex.label <span class='op'>=</span> <span class='va'>eigen_labels</span>,
+  edge.arrow.mode <span class='op'>=</span> <span class='fl'>0</span>,
+  vertex.label.color <span class='op'>=</span> <span class='st'>"black"</span>,
+  vertex.shape <span class='op'>=</span> <span class='st'>"circle"</span>,
+  vertex.label.font <span class='op'>=</span> <span class='fl'>2</span>,
+  main <span class='op'>=</span> <span class='st'>"Florence nodes by eigenvector centrality"</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="ps753-hw4_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+</div>
+<p>It is interesting to look at the Strozzi family in this diagram, which has the second-highest eigenvector centrality score behind the Medici. Recall that in terms of simple degree, the Strozzi and Guadagni families were equal, and in terms of betweenness centrality, the Guadagini family had a significantly higher score than the Strozzi, showing that more optimal / shortest paths between nodes passed through the Guadagini. This could be interpreted as a measure of positional influence and power. However, here we see that the Strozzi’s eigenvector centrality is higher than the Guadagini, and it is plain to see why; the Strozzi are connected to four other families with relatively high eigenvector centrality (the Bischeri, Peruzzi and Castellani), where the Guadagni family is somewhat penalized by its connection to the Lamberteschi pendant node that has no other connections. So, although the Guadagni family was more centrally positioned in terms of betweenness, the Strozzi family’s fewer optimal paths were nonetheless connected to more central families.</p>
+<p>Finally, it is worth examining the Bonacich power connections, which is an interesting measure that in some way inverts the eigenvector concept, proposing that being well-connected to other well-connected nodes does not mean that a node has the ability to <em>influence</em> those nodes, as they are also well-connected, and so therefore there is advantage in being connected to weaker nodes. When viewed purely in terms of potential power dynamics, this has some interesting merit.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>bon_info</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/power_centrality.html'>power_centrality</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
+
+<span class='co'># H/T: range01 &lt;- function(x){(x-min(x))/(max(x)-min(x))}</span>
+<span class='va'>range01</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>{</span><span class='op'>(</span><span class='va'>x</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>}</span>
+<span class='va'>scaled_bon_info</span> <span class='op'>&lt;-</span> <span class='fu'>range01</span><span class='op'>(</span><span class='va'>bon_info</span><span class='op'>)</span>
+
+<span class='co'># Calculate node size by 1000 x closeness</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='va'>scaled_bon_info</span> <span class='op'>*</span> <span class='fl'>30</span>
+<span class='co'># Ensure minimum node size</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span>, <span class='fl'>5</span><span class='op'>)</span>
+<span class='co'># Base text size on node size</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>/</span> <span class='fl'>15</span>
+<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span>, <span class='fl'>1</span><span class='op'>)</span>
+
+<span class='co'># colors &lt;- case_when(</span>
+<span class='co'>#   betweenness_centrality == 0 ~ "#FFFF33",</span>
+<span class='co'>#   betweenness_centrality &lt; 20 ~ "#FF8033",</span>
+<span class='co'>#   TRUE ~ "#FF0033"</span>
+<span class='co'># )</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1235</span><span class='op'>)</span>
+<span class='va'>eigen_labels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"%s\n%.2f"</span>, <span class='va'>ntwk.names</span>, <span class='va'>bon_info</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
+  <span class='va'>ntwk.ig</span>,
+  <span class='co'># vertex.color = colors,</span>
+  layout <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/merge_coords.html'>layout_components</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>,
+  vertex.label <span class='op'>=</span> <span class='va'>eigen_labels</span>,
+  edge.arrow.mode <span class='op'>=</span> <span class='fl'>0</span>,
+  vertex.label.color <span class='op'>=</span> <span class='st'>"black"</span>,
+  vertex.shape <span class='op'>=</span> <span class='st'>"circle"</span>,
+  vertex.label.font <span class='op'>=</span> <span class='fl'>2</span>,
+  main <span class='op'>=</span> <span class='st'>"Florence nodes by Bonacich centrality"</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<p><img src="ps753-hw4_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<p>This offers a very different view of the power dynamics in Florence. The Medici are greatly reduced, because their direct connections are all powerful families themselves, and so although they are well-connected by other measures, they may not be in a position of power over those other families. More influential families according to Bonacich would include the Ridolfi and Tornabuoni families, who suddenly become dominant from this perspective. The Bonacich calculation is complex and includes notions of centrality and power, and is not purely a measure of adjacency; see how small the Albizzi’s Bonacich’s score is, even though one of its three connections is to the pendant Ginori family, which is nonetheless in a slightly stronger position according to Bonacich. A fuller investigation of this dynamic would require some careful research.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
