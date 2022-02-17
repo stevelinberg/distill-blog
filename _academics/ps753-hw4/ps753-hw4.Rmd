@@ -1,0 +1,84 @@
+---
+title: "Homework 4: Centrality Analysis of the Florentine Wedding dataset"
+description: |
+  A first-look network analysis
+author:
+  - name: Steve Linberg
+    url: {}
+date: 2022-02-09
+output:
+  distill::distill_article:
+    self_contained: false
+    code_folding: true
+categories:
+  - r
+  - social networks
+---
+
+<p style="background: #eee">
+[<i class="fas fa-home"></i>](/) &gt; Academics &gt; [PS753](../ps753/index.html)
+&gt; Homework 4: Centrality Analysis of the Florentine Wedding dataset
+</p>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	fig.height = 8,
+	message = FALSE,
+	warning = FALSE
+)
+library(network)
+library(igraph)
+library(tidyverse)
+```
+
+```{r}
+data(flo)
+ntwk.ig <- graph_from_adjacency_matrix(flo)
+
+ntwk.vcount <- vcount(ntwk.ig)
+ntwk.ecount <- ecount(ntwk.ig)
+ntwk.is_bipartite <- is_bipartite(ntwk.ig)
+ntwk.is_directed <- is_directed(ntwk.ig)
+ntwk.is_weighted <- is_weighted(ntwk.ig)
+ntwk.vertex_attr_names <- vertex_attr_names(ntwk.ig)
+ntwk.edge_attr_names <- edge_attr_names(ntwk.ig)
+ntwk.names <- V(ntwk.ig)$name
+ntwk.dyad_census <- igraph::dyad.census(ntwk.ig)
+ntwk.triad_census <- igraph::triad_census(ntwk.ig)
+ntwk.global_clustering_coef <- transitivity(ntwk.ig, type = "global")
+ntwk.local_avg_clustering_coef <- transitivity(ntwk.ig, type = "average")
+ntwk.avg_path_length <- average.path.length(ntwk.ig, directed = T)
+ntwk.component_names <- names(igraph::components(ntwk.ig))
+ntwk.components_no <- igraph::components(ntwk.ig)$no
+ntwk.components_csize <- igraph::components(ntwk.ig)$csize
+
+# distances(ntwk.ig,"Acciaiuoli","Strozzi", weights=NA)
+
+ntwk.graph_density <- graph.density(ntwk.ig)
+ntwk.graph_density_noloops <- graph.density(ntwk.ig, loops = TRUE)
+
+ntwk.avg_degree <- igraph::degree(ntwk.ig)
+
+# Get the degree info and make the data frame
+
+ntwk.nodes <- data.frame(
+  name = V(ntwk.ig)$name, 
+  degree = igraph::degree(ntwk.ig),
+  indegrees = igraph::degree(ntwk.ig, mode = "in", loops = FALSE),
+  outdegrees = igraph::degree(ntwk.ig, mode = "out", loops = FALSE)
+  )
+# ntwk.nodes[ntwk.nodes$name %in% c("Medici", "Strozzi"),]
+
+# Get degree centralization
+
+ntwk.indegree_centralization <- 
+  centr_degree(ntwk.ig, loops = FALSE, mode = "in")$centralization
+ntwk.outdegree_centralization <- 
+  centr_degree(ntwk.ig, loops = FALSE, mode = "out")$centralization
+ntwk.total_centralization <- 
+  centr_degree(ntwk.ig, loops = FALSE, mode = "total")$centralization
+```
+
+This week, we're going to look at various measures of *degree centrality* in the Florentine Wedding dataset.
+
