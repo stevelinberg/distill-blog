@@ -1,5 +1,19 @@
 [
   {
+    "path": "academics/ps753/",
+    "title": "PS753",
+    "description": "Political and Social Networks, Spring 2022.",
+    "author": [],
+    "date": "2022-02-16",
+    "categories": [
+      "social networks"
+    ],
+    "contents": "\n\n > Academics > PS 753\n\nWork and assignments from this class will be added here as we go. (This part has to be done by hand in Distill, unfortunately.)\nMy ongoing glossary page; feel free to comment, or make additions or corrections via comments or github.\nSome useful R tidbits from the course material and related sources.\nHomework 3 for the course: a network analysis of the Florentine Wedding data.\nHomework 4 for the course: a centrality analysis of the Florentine Wedding data.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-02-16T19:18:43-05:00",
+    "input_file": "ps753.knit.md"
+  },
+  {
     "path": "academics/ps753-hw3/",
     "title": "Homework 3: The Florentine Wedding dataset",
     "description": "A first-look network analysis",
@@ -22,18 +36,24 @@
     "preview_height": 1536
   },
   {
-    "path": "academics/ps753/",
-    "title": "PS753",
-    "description": "Political and Social Networks, Spring 2022.",
-    "author": [],
+    "path": "academics/ps753-hw4/",
+    "title": "Homework 4: Centrality Analysis of the Florentine Wedding dataset",
+    "description": "A first-look network analysis",
+    "author": [
+      {
+        "name": "Steve Linberg",
+        "url": {}
+      }
+    ],
     "date": "2022-02-09",
     "categories": [
+      "r",
       "social networks"
     ],
-    "contents": "\n\n > Academics > PS 753\n\nWork and assignments from this class will be added here as we go. (This part has to be done by hand in Distill, unfortunately.)\nMy ongoing glossary page; feel free to comment, or make additions or corrections via comments or github.\nSome useful R tidbits from the course material and related sources.\nHomework 3 for the course: a network analysis of the Florentine Wedding data.\n\n\n\n",
+    "contents": "\n\n > Academics > PS753 > Homework 4: Centrality Analysis of the Florentine Wedding dataset\n\n\n\nShow code\n\ndata(flo)\nntwk.ig <- graph_from_adjacency_matrix(flo)\n\nntwk.vcount <- vcount(ntwk.ig)\nntwk.ecount <- ecount(ntwk.ig)\nntwk.is_bipartite <- is_bipartite(ntwk.ig)\nntwk.is_directed <- is_directed(ntwk.ig)\nntwk.is_weighted <- is_weighted(ntwk.ig)\nntwk.vertex_attr_names <- vertex_attr_names(ntwk.ig)\nntwk.edge_attr_names <- edge_attr_names(ntwk.ig)\nntwk.names <- V(ntwk.ig)$name\nntwk.dyad_census <- igraph::dyad.census(ntwk.ig)\nntwk.triad_census <- igraph::triad_census(ntwk.ig)\nntwk.global_clustering_coef <- transitivity(ntwk.ig, type = \"global\")\nntwk.local_avg_clustering_coef <- transitivity(ntwk.ig, type = \"average\")\nntwk.avg_path_length <- average.path.length(ntwk.ig, directed = T)\nntwk.component_names <- names(igraph::components(ntwk.ig))\nntwk.components_no <- igraph::components(ntwk.ig)$no\nntwk.components_csize <- igraph::components(ntwk.ig)$csize\n\n# distances(ntwk.ig,\"Acciaiuoli\",\"Strozzi\", weights=NA)\n\nntwk.graph_density <- graph.density(ntwk.ig)\nntwk.graph_density_noloops <- graph.density(ntwk.ig, loops = TRUE)\n\nntwk.avg_degree <- igraph::degree(ntwk.ig)\n\n# Get the degree info and make the data frame\n\nntwk.nodes <- data.frame(\n  name = V(ntwk.ig)$name, \n  degree = igraph::degree(ntwk.ig),\n  indegrees = igraph::degree(ntwk.ig, mode = \"in\", loops = FALSE),\n  outdegrees = igraph::degree(ntwk.ig, mode = \"out\", loops = FALSE)\n  )\n# ntwk.nodes[ntwk.nodes$name %in% c(\"Medici\", \"Strozzi\"),]\n\n# Get degree centralization\n\nntwk.indegree_centralization <- \n  centr_degree(ntwk.ig, loops = FALSE, mode = \"in\")$centralization\nntwk.outdegree_centralization <- \n  centr_degree(ntwk.ig, loops = FALSE, mode = \"out\")$centralization\nntwk.total_centralization <- \n  centr_degree(ntwk.ig, loops = FALSE, mode = \"total\")$centralization\n\n\n\nThis week, we’re going to look at various measures of degree centrality in the Florentine Wedding dataset.\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-02-09T22:11:06-05:00",
-    "input_file": {}
+    "last_modified": "2022-02-16T19:18:49-05:00",
+    "input_file": "ps753-hw4.knit.md"
   },
   {
     "path": "academics/ms797/",
