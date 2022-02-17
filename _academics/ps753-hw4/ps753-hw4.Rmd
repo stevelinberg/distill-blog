@@ -1,7 +1,7 @@
 ---
 title: "Homework 4: Centrality Analysis of the Florentine Wedding dataset"
 description: |
-  A first-look network analysis
+  Examining centrality measures in the Florentine network
 author:
   - name: Steve Linberg
     url: {}
