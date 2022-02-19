@@ -7,7 +7,18 @@
     <description>Steve Linberg's blog
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 05 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Playfair and the "Flatten the Curve" Graphic</title>
+      <dc:creator>Steve Linberg</dc:creator>
+      <link>https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic</link>
+      <description>The importance of simplicity in statistical graphics</description>
+      <category>tufte</category>
+      <category>design</category>
+      <guid>https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic</guid>
+      <pubDate>Sat, 19 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/nyt_curve.png" medium="image" type="image/png" width="1102" height="396"/>
+    </item>
     <item>
       <title>Saturday mornings with Tufte</title>
       <dc:creator>Steve Linberg</dc:creator>

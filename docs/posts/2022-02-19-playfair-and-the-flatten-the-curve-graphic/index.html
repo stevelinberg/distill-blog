@@ -85,59 +85,83 @@ code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
+<style>
+  div.csl-bib-body { }
+  div.csl-entry {
+    clear: both;
+    }
+  .hanging div.csl-entry {
+    margin-left:2em;
+    text-indent:-2em;
+  }
+  div.csl-left-margin {
+    min-width:2em;
+    float:left;
+  }
+  div.csl-right-inline {
+    margin-left:2em;
+    padding-left:1em;
+  }
+  div.csl-indent {
+    margin-left: 2em;
+  }
+</style>
 
   <!--radix_placeholder_meta_tags-->
-<title>slinberg.net: Homework 4: Centrality Analysis of the Florentine Wedding dataset</title>
+<title>slinberg.net: Playfair and the "Flatten the Curve" Graphic</title>
 
-<meta property="description" itemprop="description" content="Examining centrality measures in the Florentine network"/>
+<meta property="description" itemprop="description" content="The importance of simplicity in statistical graphics"/>
 
-<link rel="canonical" href="https://slinberg.net/academics/ps753-hw4/"/>
+<link rel="canonical" href="https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2022-02-09"/>
-<meta property="article:created" itemprop="dateCreated" content="2022-02-09"/>
+<meta property="article:published" itemprop="datePublished" content="2022-02-19"/>
+<meta property="article:created" itemprop="dateCreated" content="2022-02-19"/>
 <meta name="article:author" content="Steve Linberg"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="slinberg.net: Homework 4: Centrality Analysis of the Florentine Wedding dataset"/>
+<meta property="og:title" content="slinberg.net: Playfair and the &quot;Flatten the Curve&quot; Graphic"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Examining centrality measures in the Florentine network"/>
-<meta property="og:url" content="https://slinberg.net/academics/ps753-hw4/"/>
-<meta property="og:image" content="https://slinberg.net/academics/ps753-hw4/ps753-hw4_files/figure-html5/unnamed-chunk-2-1.png"/>
-<meta property="og:image:width" content="1248"/>
-<meta property="og:image:height" content="1536"/>
+<meta property="og:description" content="The importance of simplicity in statistical graphics"/>
+<meta property="og:url" content="https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/"/>
+<meta property="og:image" content="https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/nyt_curve.png"/>
+<meta property="og:image:width" content="1102"/>
+<meta property="og:image:height" content="396"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="slinberg.net"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="slinberg.net: Homework 4: Centrality Analysis of the Florentine Wedding dataset"/>
-<meta property="twitter:description" content="Examining centrality measures in the Florentine network"/>
-<meta property="twitter:url" content="https://slinberg.net/academics/ps753-hw4/"/>
-<meta property="twitter:image" content="https://slinberg.net/academics/ps753-hw4/ps753-hw4_files/figure-html5/unnamed-chunk-2-1.png"/>
-<meta property="twitter:image:width" content="1248"/>
-<meta property="twitter:image:height" content="1536"/>
+<meta property="twitter:title" content="slinberg.net: Playfair and the &quot;Flatten the Curve&quot; Graphic"/>
+<meta property="twitter:description" content="The importance of simplicity in statistical graphics"/>
+<meta property="twitter:url" content="https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/"/>
+<meta property="twitter:image" content="https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/nyt_curve.png"/>
+<meta property="twitter:image:width" content="1102"/>
+<meta property="twitter:image:height" content="396"/>
 <meta property="twitter:site" content="@stevelinberg"/>
 <meta property="twitter:creator" content="@stevelinberg"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="slinberg.net: Homework 4: Centrality Analysis of the Florentine Wedding dataset"/>
-<meta name="citation_fulltext_html_url" content="https://slinberg.net/academics/ps753-hw4/"/>
+<meta name="citation_title" content="slinberg.net: Playfair and the &quot;Flatten the Curve&quot; Graphic"/>
+<meta name="citation_fulltext_html_url" content="https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/"/>
 <meta name="citation_fulltext_world_readable" content=""/>
-<meta name="citation_online_date" content="2022/02/09"/>
-<meta name="citation_publication_date" content="2022/02/09"/>
+<meta name="citation_online_date" content="2022/02/19"/>
+<meta name="citation_publication_date" content="2022/02/19"/>
 <meta name="citation_author" content="Steve Linberg"/>
 <!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Interim pre-pandemic planning guidance : Community strategy for pandemic influenza mitigation in the United States : Early, targeted, layered use of nonpharmaceutical interventions;citation_publication_date=2007;citation_publisher=https://stacks.cdc.gov/view/cdc/11425;citation_author=Interim pre-pandemic planning guidance : Community strategy for pandemic influenza mitigation in the United States : Early, targeted, layered use of nonpharmaceutical interventions"/>
+  <meta name="citation_reference" content="citation_title=Flattening the Coronavirus Curve;citation_publication_date=2020;citation_issn=0362-4331;citation_author=Siobhan Roberts"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY-NC"]},{"type":"character","attributes":{},"value":["Homework 4: Centrality Analysis of the Florentine Wedding dataset"]},{"type":"character","attributes":{},"value":["Examining centrality measures in the Florentine network"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Steve Linberg"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["2022-02-09"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","code_folding","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["r","social networks"]},{"type":"character","attributes":{},"value":["https://slinberg.net/academics/ps753-hw4/"]},{"type":"character","attributes":{},"value":["https://slinberg.net/academics/ps753-hw4/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","categories","bibliography","preview","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY-NC"]},{"type":"character","attributes":{},"value":["Playfair and the \"Flatten the Curve\" Graphic"]},{"type":"character","attributes":{},"value":["The importance of simplicity in statistical graphics"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Steve Linberg"]},{"type":"character","attributes":{},"value":["https://slinberg.net"]}]}]},{"type":"character","attributes":{},"value":["2022-02-19"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["tufte","design"]},{"type":"character","attributes":{},"value":["bib.bib"]},{"type":"character","attributes":{},"value":["nyt_curve.png"]},{"type":"character","attributes":{},"value":["https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/"]},{"type":"character","attributes":{},"value":["https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["ps753-hw4_files/anchor-4.2.2/anchor.min.js","ps753-hw4_files/bowser-1.9.3/bowser.min.js","ps753-hw4_files/distill-2.2.21/template.v2.js","ps753-hw4_files/figure-html5/unnamed-chunk-2-1.png","ps753-hw4_files/figure-html5/unnamed-chunk-3-1.png","ps753-hw4_files/figure-html5/unnamed-chunk-4-1.png","ps753-hw4_files/figure-html5/unnamed-chunk-6-1.png","ps753-hw4_files/figure-html5/unnamed-chunk-7-1.png","ps753-hw4_files/header-attrs-2.11/header-attrs.js","ps753-hw4_files/jquery-3.6.0/jquery-3.6.0.js","ps753-hw4_files/jquery-3.6.0/jquery-3.6.0.min.js","ps753-hw4_files/jquery-3.6.0/jquery-3.6.0.min.map","ps753-hw4_files/popper-2.6.0/popper.min.js","ps753-hw4_files/tippy-6.2.7/tippy-bundle.umd.min.js","ps753-hw4_files/tippy-6.2.7/tippy-light-border.css","ps753-hw4_files/tippy-6.2.7/tippy.css","ps753-hw4_files/tippy-6.2.7/tippy.umd.min.js","ps753-hw4_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["bib.bib","nyt_curve.png","playfair-and-the-flatten-the-curve-graphic_files/anchor-4.2.2/anchor.min.js","playfair-and-the-flatten-the-curve-graphic_files/bowser-1.9.3/bowser.min.js","playfair-and-the-flatten-the-curve-graphic_files/distill-2.2.21/template.v2.js","playfair-and-the-flatten-the-curve-graphic_files/header-attrs-2.11/header-attrs.js","playfair-and-the-flatten-the-curve-graphic_files/jquery-3.6.0/jquery-3.6.0.js","playfair-and-the-flatten-the-curve-graphic_files/jquery-3.6.0/jquery-3.6.0.min.js","playfair-and-the-flatten-the-curve-graphic_files/jquery-3.6.0/jquery-3.6.0.min.map","playfair-and-the-flatten-the-curve-graphic_files/popper-2.6.0/popper.min.js","playfair-and-the-flatten-the-curve-graphic_files/tippy-6.2.7/tippy-bundle.umd.min.js","playfair-and-the-flatten-the-curve-graphic_files/tippy-6.2.7/tippy-light-border.css","playfair-and-the-flatten-the-curve-graphic_files/tippy-6.2.7/tippy.css","playfair-and-the-flatten-the-curve-graphic_files/tippy-6.2.7/tippy.umd.min.js","playfair-and-the-flatten-the-curve-graphic_files/webcomponents-2.0.0/webcomponents.js","r6601a1f1.gif"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2478,7 +2502,7 @@ gtag('config', 'G-0ZXRPNMLL7');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Homework 4: Centrality Analysis of the Florentine Wedding dataset","description":"Examining centrality measures in the Florentine network","authors":[{"author":"Steve Linberg","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-02-09T00:00:00.000-05:00","citationText":"Linberg, 2022"}
+{"title":"Playfair and the \"Flatten the Curve\" Graphic","description":"The importance of simplicity in statistical graphics","authors":[{"author":"Steve Linberg","authorURL":"https://slinberg.net","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-02-19T00:00:00.000-05:00","citationText":"Linberg, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2544,325 +2568,63 @@ Academics
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Homework 4: Centrality Analysis of the Florentine Wedding dataset</h1>
+<h1>Playfair and the “Flatten the Curve” Graphic</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
-  <a href="../../academics_list.html#category:r" class="dt-tag">r</a>
-  <a href="../../academics_list.html#category:social_networks" class="dt-tag">social networks</a>
+  <a href="../../index.html#category:tufte" class="dt-tag">tufte</a>
+  <a href="../../index.html#category:design" class="dt-tag">design</a>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>Examining centrality measures in the Florentine network</p></p>
+<p><p>The importance of simplicity in statistical graphics</p></p>
 </div>
 
 <div class="d-byline">
-  Steve Linberg true 
+  Steve Linberg <a href="https://slinberg.net" class="uri">https://slinberg.net</a> 
   
-<br/>2022-02-09
+<br/>2022-02-19
 </div>
 
 <div class="d-article">
-<div class="d-contents d-contents-float">
-<nav class="l-text toc figcaption" id="TOC">
-<h3>Contents</h3>
-<ul>
-<li><a href="#i-forgot-to-knit">I FORGOT TO KNIT</a>
-<ul>
-<li><a href="#closeness-centrality">Closeness Centrality</a></li>
-<li><a href="#betweenness-centrality">Betweenness Centrality</a></li>
-<li><a href="#eigenvector-and-bonacich-power">Eigenvector and Bonacich Power</a></li>
-</ul></li>
-</ul>
-</nav>
+<p>One of the early tidbits from <a href="https://www.edwardtufte.com">Edward Tufte</a>’s “<a href="https://www.edwardtufte.com/tufte/books_vdqi">The Visual Display of Quantitative Information</a> is this quote from Scottish political economist William Playfair’s 1786 book”The Commercial and Political Atlas":</p>
+<blockquote>
+<p>Information, that is imperfectly acquired, is generally as imperfectly retained; and a man who has carefully investigated a printed table, finds, when done, that he has only a very faint and partial idea of what he has read; and that like a figure imprinted on sand, is soon totally erased and defaced.</p>
+</blockquote>
+<p>This speaks to the general principle, widely accepted now but less so at that time, that tables of data can be hard to interpret and understand, and that knowledge gained from them is fleeting. Deep truths revealed by diligent statistical analysis are of limited value if they can’t make themselves readily understood, and if they don’t stick in the minds of viewers.</p>
+<p>One of the great recent triumphs of visual design was the justly-famous “Flatten the Curve” graphic that illustrated the need to keep the rates of COVID-19 transmission low enough that hospitals could keep up and not be overwhelmed. It actually originated from the CDC in a 2007 publication with a title only a career bureaucrat could love: “Interim Pre-Pandemic Planning Guidance : Community Strategy for Pandemic Influenza Mitigation in the United States : Early, Targeted, Layered Use of Nonpharmaceutical Interventions” <span class="citation" data-cites="centersfordiseasecontrolandpreventionu.s.InterimPrepandemicPlanning2007a">(<a href="#ref-centersfordiseasecontrolandpreventionu.s.InterimPrepandemicPlanning2007a" role="doc-biblioref">Centers for Disease Control and Prevention (U.S.) 2007</a>)</span>:</p>
+<figure>
+<img src="r6601a1f1.gif" alt="The CDC’s original “Flatten the Curve” graphic (2007)" /><figcaption aria-hidden="true">The CDC’s original “Flatten the Curve” graphic (2007)</figcaption>
+</figure>
+<p>Ponderous as the document’s title may be, this graphic nonetheless showed this nontrivial concept very well. The solid-colored curve was the bad scenario of an outbreak of a pandemic with no intervention, and the transparent curve was a view of squishing that outbreak down over time so that it would be more manageable.</p>
+<p>As brilliant as the design was - far, far more effective than paragraphs of explanatory text with supporting tables of data - it was still a bit text-heavy, with two text axes and five chunks of (small) inline text that had to be read to fully understand its meaning, and similarly-colored curves showing the two different outcomes, so it wasn’t quite a glance-level chart that could be instantly understood. When COVID-19 hit in 2019, this graphic was popularized and went through many iterations of further simplification, to makes its message as clear and impactful as possible. The New York Times published this version in 2020 <span class="citation" data-cites="robertsFlatteningCoronavirusCurve2020">(<a href="#ref-robertsFlatteningCoronavirusCurve2020" role="doc-biblioref">Roberts 2020</a>)</span>:</p>
+<figure>
+<img src="nyt_curve.png" alt="The NYT’s simplified graphic (2020)" /><figcaption aria-hidden="true">The NYT’s simplified graphic (2020)</figcaption>
+</figure>
+<p>This is even more effective: the text and colors are bold and easy to read, the axis text is simplified, there are only three elements of text in the graph (each only three words), and a third item has been added: a horizontal line indicating the healthcare system’s capacity. This is about as simple and direct as it’s possible to make this information. It communicated a complex problem in a way that could be instantly understood, with minimal reading, by almost anyone regardless of education levels. It may have saved millions of lives, by being shared around the world and absorbed into the collective human understanding of what needed to happen to make the pandemic as manageable as possible.</p>
+<p>(Another very subtle and effective change was the rendering of both curves as slightly irregular in shape, as opposed to the mathematically perfect normal-distribution forms in the CDC’s original graphic; this would help to reinforce the notion that infection / hospitalization / death rates from the pandemic would not follow shapes that could be precisely predicted, though overall trends could still be forecast.)</p>
+<p>Not every complex social phenomenon can be rendered into such an effective message, but good data science should always strive for this level of simplicity and clarity when the purpose is to communicate something important as broadly and effectively as possible.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-centersfordiseasecontrolandpreventionu.s.InterimPrepandemicPlanning2007a" class="csl-entry" role="doc-biblioentry">
+Centers for Disease Control and Prevention (U.S.). 2007. <span>“Interim Pre-Pandemic Planning Guidance : Community Strategy for Pandemic Influenza Mitigation in the <span>United States</span> : Early, Targeted, Layered Use of Nonpharmaceutical Interventions.”</span> https://stacks.cdc.gov/view/cdc/11425.
 </div>
-<p style="background: #eee">
-<a href="/"><i class="fas fa-home"></i></a> &gt; Academics &gt; <a href="../ps753/index.html">PS753</a> &gt; Homework 4: Centrality Analysis of the Florentine Wedding dataset
-</p>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>flo</span><span class='op'>)</span>
-<span class='va'>ntwk.ig</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/graph_from_adjacency_matrix.html'>graph_from_adjacency_matrix</a></span><span class='op'>(</span><span class='va'>flo</span><span class='op'>)</span>
-
-<span class='va'>ntwk.vcount</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/gorder.html'>vcount</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
-<span class='va'>ntwk.ecount</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/gsize.html'>ecount</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
-<span class='va'>ntwk.is_bipartite</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/make_bipartite_graph.html'>is_bipartite</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
-<span class='va'>ntwk.is_directed</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/is_directed.html'>is_directed</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
-<span class='va'>ntwk.is_weighted</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/is_weighted.html'>is_weighted</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
-<span class='va'>ntwk.vertex_attr_names</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/vertex_attr_names.html'>vertex_attr_names</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
-<span class='va'>ntwk.edge_attr_names</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/edge_attr_names.html'>edge_attr_names</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
-<span class='va'>ntwk.names</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>name</span>
-<span class='va'>ntwk.dyad_census</span> <span class='op'>&lt;-</span> <span class='fu'>igraph</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/dyad_census.html'>dyad.census</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
-<span class='va'>ntwk.triad_census</span> <span class='op'>&lt;-</span> <span class='fu'>igraph</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/triad_census.html'>triad_census</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
-<span class='va'>ntwk.global_clustering_coef</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/transitivity.html'>transitivity</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span>, type <span class='op'>=</span> <span class='st'>"global"</span><span class='op'>)</span>
-<span class='va'>ntwk.local_avg_clustering_coef</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/transitivity.html'>transitivity</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span>, type <span class='op'>=</span> <span class='st'>"average"</span><span class='op'>)</span>
-<span class='va'>ntwk.avg_path_length</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/distances.html'>average.path.length</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span>, directed <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span>
-<span class='va'>ntwk.component_names</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='fu'>igraph</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/components.html'>components</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>ntwk.components_no</span> <span class='op'>&lt;-</span> <span class='fu'>igraph</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/components.html'>components</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>no</span>
-<span class='va'>ntwk.components_csize</span> <span class='op'>&lt;-</span> <span class='fu'>igraph</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/components.html'>components</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>csize</span>
-
-<span class='co'># distances(ntwk.ig,"Acciaiuoli","Strozzi", weights=NA)</span>
-
-<span class='va'>ntwk.graph_density</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/edge_density.html'>graph.density</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
-<span class='va'>ntwk.graph_density_noloops</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/edge_density.html'>graph.density</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span>, loops <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-
-<span class='va'>ntwk.avg_degree</span> <span class='op'>&lt;-</span> <span class='fu'>igraph</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/degree.html'>degree</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
-
-<span class='co'># Get the degree info and make the data frame</span>
-
-<span class='va'>ntwk.nodes</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
-  name <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>name</span>, 
-  degree <span class='op'>=</span> <span class='fu'>igraph</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/degree.html'>degree</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>,
-  indegrees <span class='op'>=</span> <span class='fu'>igraph</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/degree.html'>degree</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span>, mode <span class='op'>=</span> <span class='st'>"in"</span>, loops <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>,
-  outdegrees <span class='op'>=</span> <span class='fu'>igraph</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/degree.html'>degree</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span>, mode <span class='op'>=</span> <span class='st'>"out"</span>, loops <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-  <span class='op'>)</span>
-<span class='co'># ntwk.nodes[ntwk.nodes$name %in% c("Medici", "Strozzi"),]</span>
-
-<span class='co'># Get degree centralization</span>
-
-<span class='va'>ntwk.indegree_centralization</span> <span class='op'>&lt;-</span> 
-  <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/centr_degree.html'>centr_degree</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span>, loops <span class='op'>=</span> <span class='cn'>FALSE</span>, mode <span class='op'>=</span> <span class='st'>"in"</span><span class='op'>)</span><span class='op'>$</span><span class='va'>centralization</span>
-<span class='va'>ntwk.outdegree_centralization</span> <span class='op'>&lt;-</span> 
-  <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/centr_degree.html'>centr_degree</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span>, loops <span class='op'>=</span> <span class='cn'>FALSE</span>, mode <span class='op'>=</span> <span class='st'>"out"</span><span class='op'>)</span><span class='op'>$</span><span class='va'>centralization</span>
-<span class='va'>ntwk.total_centralization</span> <span class='op'>&lt;-</span> 
-  <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/centr_degree.html'>centr_degree</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span>, loops <span class='op'>=</span> <span class='cn'>FALSE</span>, mode <span class='op'>=</span> <span class='st'>"total"</span><span class='op'>)</span><span class='op'>$</span><span class='va'>centralization</span>
-</code></pre>
+<div id="ref-robertsFlatteningCoronavirusCurve2020" class="csl-entry" role="doc-biblioentry">
+Roberts, Siobhan. 2020. <span>“Flattening the <span>Coronavirus Curve</span>.”</span> <em>The New York Times</em>, March.
 </div>
-</details>
 </div>
-<h1 id="i-forgot-to-knit">I FORGOT TO KNIT</h1>
-<p>This week, we’re going to look at various measures of <em>degree centrality</em> in the Florentine Wedding dataset.</p>
-<p><a href="../ps753-hw3/index.html">Last week</a>, we looked at some basic network plots that showed the overall structure of the network, sizing the nodes by their individual degrees. One of the primary features of this data set is all of the ways in which it can be shown how dominant the Medici family was in medieval Florence.</p>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='va'>ntwk.nodes</span><span class='op'>[</span>,<span class='st'>"degree"</span><span class='op'>]</span> <span class='op'>*</span> <span class='fl'>5</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='va'>ntwk.nodes</span><span class='op'>[</span>,<span class='st'>"degree"</span><span class='op'>]</span> <span class='op'>/</span> <span class='fl'>4</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span>, <span class='fl'>1</span><span class='op'>)</span>
-
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1235</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='va'>ntwk.nodes</span><span class='op'>[</span>,<span class='st'>"degree"</span><span class='op'>]</span> <span class='op'>*</span> <span class='fl'>3</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
-  <span class='va'>ntwk.ig</span>,
-  layout <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/merge_coords.html'>layout_components</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>,
-  edge.arrow.mode <span class='op'>=</span> <span class='fl'>0</span>,
-  vertex.label.color <span class='op'>=</span> <span class='st'>"black"</span>,
-  vertex.shape <span class='op'>=</span> <span class='st'>"circle"</span>,
-  vertex.label.font <span class='op'>=</span> <span class='fl'>2</span>,
-  main <span class='op'>=</span> <span class='st'>"Florence interfamily marriages, 1282-1500"</span>
-<span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-<p><img src="ps753-hw4_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
-</div>
-<h2 id="closeness-centrality">Closeness Centrality</h2>
-<p><em>Closeness centrality</em> is a measure of how close a node is, via the shortest path, to every other node in the network. It is more revealing in hierarchies, where dominant nodes that are closer to the center of the graph will have, on average, shorter paths to the rest of the node than the nodes at the periphery.</p>
-<p>The closeness centrality measures of the nodes in the Florentine data may come as a bit of a surprise:</p>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>closeness_centrality</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/closeness.html'>closeness</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span>, mode <span class='op'>=</span> <span class='st'>"all"</span><span class='op'>)</span>
-<span class='co'># Calculate node size by 1000 x closeness</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='va'>closeness_centrality</span> <span class='op'>*</span> <span class='fl'>1000</span>
-<span class='co'># Ensure minimum node size</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span>, <span class='fl'>1</span><span class='op'>)</span>
-<span class='co'># Base text size on node size</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>/</span> <span class='fl'>15</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span>, <span class='fl'>1</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1235</span><span class='op'>)</span>
-<span class='va'>closeness_labels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"%s\n%s"</span>, <span class='va'>ntwk.names</span>,
-                            <span class='co'># Omit leading "0" can't be done in sprintf</span>
-                            <span class='fu'><a href='https://rdrr.io/r/base/substr.html'>substr</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span>
-                              <span class='va'>closeness_centrality</span>, <span class='fl'>3</span>
-                            <span class='op'>)</span><span class='op'>)</span>, <span class='fl'>2</span>, <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
-  <span class='va'>ntwk.ig</span>,
-  layout <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/merge_coords.html'>layout_components</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>,
-  vertex.label <span class='op'>=</span> <span class='va'>closeness_labels</span>,
-  edge.arrow.mode <span class='op'>=</span> <span class='fl'>0</span>,
-  vertex.label.color <span class='op'>=</span> <span class='st'>"black"</span>,
-  vertex.shape <span class='op'>=</span> <span class='st'>"circle"</span>,
-  vertex.label.font <span class='op'>=</span> <span class='fl'>2</span>,
-  main <span class='op'>=</span> <span class='st'>"Florence nodes by closeness centrality"</span>
-<span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-<p><img src="ps753-hw4_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
-</div>
-<p>Although careful examination shows that the Medici family is still the dominant node, with the highest closeness centrality score, there is very little variation among all but the disconnected Pucci node. The chief reason for this is that the network itself is very small, and tightly connected. As we saw last week, the average path length for this network is 2.486; the Florentine families were all in close proximity to each other, as might be expected given that one of its primary constraints is geographical, but it is interesting to see how the power of the Medici family did <em>not</em> derive primarily from its closeness centrality, or its position in a hierarchy.</p>
-<h2 id="betweenness-centrality">Betweenness Centrality</h2>
-<p>Another useful measure is <em>betweenness centrality</em>, which is a count of the number of shortest paths between nodes that pass through another node. It can be seen as a measure of importance or control, in that it reflects how well a node is positioned along the optimal path between two other nodes.</p>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>betweenness_centrality</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/betweenness.html'>betweenness</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
-<span class='co'># Calculate node size by 2 x betweenness</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='va'>betweenness_centrality</span> <span class='op'>/</span> <span class='fl'>2</span>
-<span class='co'># Ensure minimum node size</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span>, <span class='fl'>10</span><span class='op'>)</span>
-<span class='co'># Base text size on node size</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>/</span> <span class='fl'>15</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span>, <span class='fl'>1</span><span class='op'>)</span>
-
-<span class='va'>colors</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span>
-  <span class='va'>betweenness_centrality</span> <span class='op'>==</span> <span class='fl'>0</span> <span class='op'>~</span> <span class='st'>"#FFFF33"</span>,
-  <span class='va'>betweenness_centrality</span> <span class='op'>&lt;</span> <span class='fl'>20</span> <span class='op'>~</span> <span class='st'>"#FF8033"</span>,
-  <span class='cn'>TRUE</span> <span class='op'>~</span> <span class='st'>"#FF0033"</span>
-<span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1235</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
-  <span class='va'>ntwk.ig</span>,
-  vertex.color <span class='op'>=</span> <span class='va'>colors</span>,
-  layout <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/merge_coords.html'>layout_components</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>,
-  edge.arrow.mode <span class='op'>=</span> <span class='fl'>0</span>,
-  vertex.label.color <span class='op'>=</span> <span class='st'>"black"</span>,
-  vertex.shape <span class='op'>=</span> <span class='st'>"circle"</span>,
-  vertex.label.font <span class='op'>=</span> <span class='fl'>2</span>,
-  main <span class='op'>=</span> <span class='st'>"Florence nodes by betweenness centrality"</span>
-<span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-<p><img src="ps753-hw4_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
-</div>
-<p>This chart uses heatmap colors to indicate the strength of betweenness centrality. The yellow nodes - the network’s pendants and isolate - are yellow, which indicates a betweenness measure of 0. The orange nodes are nodes with 20 or less optimal paths running through them, and the red nodes have more than 20. In fact, the scale had to be forced in this graph to make the smaller-weighted betweenness nodes visible at all compared to the overwhelming dominance of the Medici node, with a betweenness score more than twice that of its nearest rival:</p>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>betweenness_centrality</span>, <span class='fl'>2</span><span class='op'>)</span>, decreasing <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-<pre><code>      Medici     Guadagni      Albizzi     Salviati      Ridolfi 
-       95.00        46.33        38.67        26.00        20.67 
-    Bischeri      Strozzi    Barbadori   Tornabuoni   Castellani 
-       19.00        18.67        17.00        16.67        10.00 
-     Peruzzi   Acciaiuoli       Ginori Lamberteschi        Pazzi 
-        4.00         0.00         0.00         0.00         0.00 
-       Pucci 
-        0.00 </code></pre>
-</div>
-<p>95 of the 312 optimal paths in the Florence network ran through the Medici. It is easy to imagine many different ways that such centrality could manifest as various forms of power.</p>
-<h2 id="eigenvector-and-bonacich-power">Eigenvector and Bonacich Power</h2>
-<p>Eigenvector centrality is a measure of not just how many alters a node is connected to, but of how well-connected those alters are. A node with a high eigenvector centrality score is connected to significant numbers of other highly central nodes. For this chart, we can return to standard-area scaling (except for slightly inflating the smallest to keep them visible), and we see that once again, the Medici are in a dominant position, well-connected to the other well-connected Florence families:</p>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>eigen_info</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/centr_eigen.html'>centr_eigen</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span>, directed <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span>
-
-<span class='co'># Calculate node size by 1000 x closeness</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='va'>eigen_info</span><span class='op'>$</span><span class='va'>vector</span> <span class='op'>*</span> <span class='fl'>30</span>
-<span class='co'># Ensure minimum node size</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span>, <span class='fl'>5</span><span class='op'>)</span>
-<span class='co'># Base text size on node size</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>/</span> <span class='fl'>15</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span>, <span class='fl'>1</span><span class='op'>)</span>
-
-<span class='co'># colors &lt;- case_when(</span>
-<span class='co'>#   betweenness_centrality == 0 ~ "#FFFF33",</span>
-<span class='co'>#   betweenness_centrality &lt; 20 ~ "#FF8033",</span>
-<span class='co'>#   TRUE ~ "#FF0033"</span>
-<span class='co'># )</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1235</span><span class='op'>)</span>
-<span class='va'>eigen_labels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"%s\n%.2f"</span>, <span class='va'>ntwk.names</span>, <span class='va'>eigen_info</span><span class='op'>$</span><span class='va'>vector</span><span class='op'>)</span>
-
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
-  <span class='va'>ntwk.ig</span>,
-  <span class='co'># vertex.color = colors,</span>
-  layout <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/merge_coords.html'>layout_components</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>,
-  vertex.label <span class='op'>=</span> <span class='va'>eigen_labels</span>,
-  edge.arrow.mode <span class='op'>=</span> <span class='fl'>0</span>,
-  vertex.label.color <span class='op'>=</span> <span class='st'>"black"</span>,
-  vertex.shape <span class='op'>=</span> <span class='st'>"circle"</span>,
-  vertex.label.font <span class='op'>=</span> <span class='fl'>2</span>,
-  main <span class='op'>=</span> <span class='st'>"Florence nodes by eigenvector centrality"</span>
-<span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-<p><img src="ps753-hw4_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
-</div>
-<p>It is interesting to look at the Strozzi family in this diagram, which has the second-highest eigenvector centrality score behind the Medici. Recall that in terms of simple degree, the Strozzi and Guadagni families were equal, and in terms of betweenness centrality, the Guadagini family had a significantly higher score than the Strozzi, showing that more optimal / shortest paths between nodes passed through the Guadagini. This could be interpreted as a measure of positional influence and power. However, here we see that the Strozzi’s eigenvector centrality is higher than the Guadagini, and it is plain to see why; the Strozzi are connected to four other families with relatively high eigenvector centrality (the Bischeri, Peruzzi and Castellani), where the Guadagni family is somewhat penalized by its connection to the Lamberteschi pendant node that has no other connections. So, although the Guadagni family was more centrally positioned in terms of betweenness, the Strozzi family’s fewer optimal paths were nonetheless connected to more central families.</p>
-<p>Finally, it is worth examining the Bonacich power connections, which is an interesting measure that in some way inverts the eigenvector concept, proposing that being well-connected to other well-connected nodes does not mean that a node has the ability to <em>influence</em> those nodes, as they are also well-connected, and so therefore there is advantage in being connected to weaker nodes. When viewed purely in terms of potential power dynamics, this has some interesting merit.</p>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>bon_info</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/power_centrality.html'>power_centrality</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>
-
-<span class='co'># H/T: range01 &lt;- function(x){(x-min(x))/(max(x)-min(x))}</span>
-<span class='va'>range01</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>{</span><span class='op'>(</span><span class='va'>x</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>}</span>
-<span class='va'>scaled_bon_info</span> <span class='op'>&lt;-</span> <span class='fu'>range01</span><span class='op'>(</span><span class='va'>bon_info</span><span class='op'>)</span>
-
-<span class='co'># Calculate node size by 1000 x closeness</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='va'>scaled_bon_info</span> <span class='op'>*</span> <span class='fl'>30</span>
-<span class='co'># Ensure minimum node size</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span>, <span class='fl'>5</span><span class='op'>)</span>
-<span class='co'># Base text size on node size</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>size</span> <span class='op'>/</span> <span class='fl'>15</span>
-<span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>pmax</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span><span class='op'>$</span><span class='va'>label.cex</span>, <span class='fl'>1</span><span class='op'>)</span>
-
-<span class='co'># colors &lt;- case_when(</span>
-<span class='co'>#   betweenness_centrality == 0 ~ "#FFFF33",</span>
-<span class='co'>#   betweenness_centrality &lt; 20 ~ "#FF8033",</span>
-<span class='co'>#   TRUE ~ "#FF0033"</span>
-<span class='co'># )</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1235</span><span class='op'>)</span>
-<span class='va'>eigen_labels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"%s\n%.2f"</span>, <span class='va'>ntwk.names</span>, <span class='va'>bon_info</span><span class='op'>)</span>
-
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span>
-  <span class='va'>ntwk.ig</span>,
-  <span class='co'># vertex.color = colors,</span>
-  layout <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/merge_coords.html'>layout_components</a></span><span class='op'>(</span><span class='va'>ntwk.ig</span><span class='op'>)</span>,
-  vertex.label <span class='op'>=</span> <span class='va'>eigen_labels</span>,
-  edge.arrow.mode <span class='op'>=</span> <span class='fl'>0</span>,
-  vertex.label.color <span class='op'>=</span> <span class='st'>"black"</span>,
-  vertex.shape <span class='op'>=</span> <span class='st'>"circle"</span>,
-  vertex.label.font <span class='op'>=</span> <span class='fl'>2</span>,
-  main <span class='op'>=</span> <span class='st'>"Florence nodes by Bonacich centrality"</span>
-<span class='op'>)</span>
-</code></pre>
-</div>
-</details>
-<p><img src="ps753-hw4_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
-</div>
-<p>This offers a very different view of the power dynamics in Florence. The Medici are greatly reduced, because their direct connections are all powerful families themselves, and so although they are well-connected by other measures, they may not be in a position of power over those other families. More influential families according to Bonacich would include the Ridolfi and Tornabuoni families, who suddenly become dominant from this perspective. The Bonacich calculation is complex and includes notions of centrality and power, and is not purely a measure of adjacency; see how small the Albizzi’s Bonacich’s score is, even though one of its three connections is to the pendant Ginori family, which is nonetheless in a slightly stronger position according to Bonacich. A fuller investigation of this dynamic would require some careful research.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
     <span class="disqus-comments">
       <i class="fas fa-comments"></i>
       &nbsp;
-      <span class="disqus-comment-count" data-disqus-identifier="academics/ps753-hw4/">Comment on this article</span>
+      <span class="disqus-comment-count" data-disqus-identifier="posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/">Comment on this article</span>
     </span>
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=Homework%204%3A%20Centrality%20Analysis%20of%20the%20Florentine%20Wedding%20dataset&amp;url=https%3A%2F%2Fslinberg.net%2Facademics%2Fps753-hw4%2F">
+      <a href="https://twitter.com/share?text=Playfair%20and%20the%20%22Flatten%20the%20Curve%22%20Graphic&amp;url=https%3A%2F%2Fslinberg.net%2Fposts%2F2022-02-19-playfair-and-the-flatten-the-curve-graphic%2F">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fslinberg.net%2Facademics%2Fps753-hw4%2F&amp;title=Homework%204%3A%20Centrality%20Analysis%20of%20the%20Florentine%20Wedding%20dataset">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fslinberg.net%2Fposts%2F2022-02-19-playfair-and-the-flatten-the-curve-graphic%2F&amp;title=Playfair%20and%20the%20%22Flatten%20the%20Curve%22%20Graphic">
         <i class="fab fa-linkedin"></i>
       </a>
     </span>
@@ -2871,8 +2633,8 @@ Show code
   <div id="disqus_thread" class="hidden"></div>
   <script type="text/javascript" cookie-consent="functionality">
 var disqus_config = function () {
-  this.page.url = 'https://slinberg.net/academics/ps753-hw4/';
-  this.page.identifier = 'academics/ps753-hw4/';
+  this.page.url = 'https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/';
+  this.page.identifier = 'posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/';
 };
 (function() {
   var d = document, s = d.createElement('script');
@@ -2881,6 +2643,16 @@ var disqus_config = function () {
   (d.head || d.body).appendChild(s);
 })();
 </script>
+  <p>
+    <div class="subscribe"><form method='post' action='https://blogtrottr.com'>
+  <p>Get notified of new posts via email:</p>
+  <input type='text' name='btr_email' />
+  <input type='hidden' name='btr_url'
+         value='https://slinberg.net/index.xml'/>
+  <input type='hidden' name='schedule_type' value='0' />
+  <input type='submit' value='Subscribe' />
+</form></div>
+  </p>
 </div>
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2893,18 +2665,20 @@ var disqus_config = function () {
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
 <div class="appendix-bottom">
+  <h3 id="references">References</h3>
+  <div id="references-listing"></div>
   <h3 id="updates-and-corrections">Corrections</h3>
   <p>If you see mistakes or want to suggest changes, please <a href="https://github.com/stevelinberg/distill-blog/issues/new">create an issue</a> on the source repository.</p>
   <h3 id="reuse">Reuse</h3>
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>. Source code is available at <a href="https://github.com/stevelinberg/distill-blog">https://github.com/stevelinberg/distill-blog</a>, unless otherwise noted. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Linberg (2022, Feb. 9). slinberg.net: Homework 4: Centrality Analysis of the Florentine Wedding dataset. Retrieved from https://slinberg.net/academics/ps753-hw4/</pre>
+  <pre class="citation-appendix short">Linberg (2022, Feb. 19). slinberg.net: Playfair and the "Flatten the Curve" Graphic. Retrieved from https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{linberg2022homework,
+  <pre class="citation-appendix long">@misc{linberg2022playfair,
   author = {Linberg, Steve},
-  title = {slinberg.net: Homework 4: Centrality Analysis of the Florentine Wedding dataset},
-  url = {https://slinberg.net/academics/ps753-hw4/},
+  title = {slinberg.net: Playfair and the "Flatten the Curve" Graphic},
+  url = {https://slinberg.net/posts/2022-02-19-playfair-and-the-flatten-the-curve-graphic/},
   year = {2022}
 }</pre>
 </div>
