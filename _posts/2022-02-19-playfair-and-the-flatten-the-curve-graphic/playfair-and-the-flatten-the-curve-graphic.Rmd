@@ -20,7 +20,7 @@ categories:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-One of the early tidbits from [Edward Tufte](https://www.edwardtufte.com)'s "[The Visual Display of Quantitative Information](https://www.edwardtufte.com/tufte/books_vdqi) is this quote from Scottish political economist William Playfair's 1786 book "The Commercial and Political Atlas":
+One of the early tidbits from [Edward Tufte](https://www.edwardtufte.com)'s "[The Visual Display of Quantitative Information](https://www.edwardtufte.com/tufte/books_vdqi)" is this quote from Scottish political economist William Playfair's 1786 book "The Commercial and Political Atlas":
 
 > Information, that is imperfectly acquired, is generally as imperfectly retained; and a man who has carefully investigated a printed table, finds, when done, that he has only a very faint and partial idea of what he has read; and that like a figure imprinted on sand, is soon totally erased and defaced.
 
