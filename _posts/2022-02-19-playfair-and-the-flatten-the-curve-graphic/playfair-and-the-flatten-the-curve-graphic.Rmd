@@ -9,13 +9,12 @@ date: 2022-02-19
 output:
   distill::distill_article:
     self_contained: false
+bibliography: bib.bib
+preview: nyt_curve.png
 categories:
   - tufte
   - design
-bibliography: bib.bib
-preview: nyt_curve.png
 ---
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
