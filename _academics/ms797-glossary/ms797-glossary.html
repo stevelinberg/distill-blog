@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["ms797-glossary_files/anchor-4.2.2/anchor.min 3.js","ms797-glossary_files/anchor-4.2.2/anchor.min.js","ms797-glossary_files/bowser-1.9.3/bowser.min 3.js","ms797-glossary_files/bowser-1.9.3/bowser.min.js","ms797-glossary_files/distill-2.2.21/template.v2 3.js","ms797-glossary_files/distill-2.2.21/template.v2.js","ms797-glossary_files/header-attrs-2.11/header-attrs 3.js","ms797-glossary_files/header-attrs-2.11/header-attrs.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0 3.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.min 2.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.min 2.map","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.min.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.min.map","ms797-glossary_files/popper-2.6.0/popper.min 3.js","ms797-glossary_files/popper-2.6.0/popper.min.js","ms797-glossary_files/tippy-6.2.7/tippy 2.css","ms797-glossary_files/tippy-6.2.7/tippy-bundle.umd.min 3.js","ms797-glossary_files/tippy-6.2.7/tippy-bundle.umd.min.js","ms797-glossary_files/tippy-6.2.7/tippy-light-border 2.css","ms797-glossary_files/tippy-6.2.7/tippy-light-border.css","ms797-glossary_files/tippy-6.2.7/tippy.css","ms797-glossary_files/tippy-6.2.7/tippy.umd.min 2.js","ms797-glossary_files/tippy-6.2.7/tippy.umd.min.js","ms797-glossary_files/webcomponents-2.0.0/webcomponents 3.js","ms797-glossary_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["ms797-glossary_files/anchor-4.2.2/anchor.min.js","ms797-glossary_files/bowser-1.9.3/bowser.min.js","ms797-glossary_files/distill-2.2.21/template.v2.js","ms797-glossary_files/header-attrs-2.11/header-attrs.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.min.js","ms797-glossary_files/jquery-3.6.0/jquery-3.6.0.min.map","ms797-glossary_files/popper-2.6.0/popper.min.js","ms797-glossary_files/tippy-6.2.7/tippy-bundle.umd.min.js","ms797-glossary_files/tippy-6.2.7/tippy-light-border.css","ms797-glossary_files/tippy-6.2.7/tippy.css","ms797-glossary_files/tippy-6.2.7/tippy.umd.min.js","ms797-glossary_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1492,6 +1492,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <ul>
 <li><a href="#chapter-2">Chapter 2</a></li>
 <li><a href="#chapter-3">Chapter 3</a></li>
+<li><a href="#chapter-4">Chapter 4</a></li>
+<li><a href="#chapter-5">Chapter 5</a></li>
 </ul>
 </nav>
 </div>
@@ -1659,7 +1661,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <dd>the proportion of variance in <span class="math inline">\(Y\)</span> explained by <span class="math inline">\(X\)</span>, a range from 0 to 1 <span class="math display">\[R^2 = \frac{\text{TSS - RSS}}{\text{TSS}} = 1 - \frac{\text{RSS}}{\text{TSS}}\]</span> <span class="math inline">\(R^2\)</span> values close to 1 indicate a regression that explains a lot of the variability in the response, and a stronger model. A value close to 0 indicates that the regression doesn’t explain much of the variability.
 </dd>
 <dt>correlation (70)</dt>
-<dd>a measure of the linearity of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>; values close to 0 indicate weak-to-no relationship, values near 1 or -1 indicate strong positive or negative correlation (horrible formula on p.70 I don’t have time to LaTeX at the moment)
+<dd>a measure of the linearity of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>; values close to 0 indicate weak-to-no relationship, values near 1 or -1 indicate strong positive or negative correlation <span class="math display">\[\text{Cor(X, Y)} = {\frac {\sum _{i=1}^{n}(x_{i}-{\bar {x}})(y_{i}-{\bar {y}})}{{\sqrt {\sum _{i=1}^{n}(x_{i}-{\bar {x}})^{2}}}{\sqrt {\sum _{i=1}^{n}(y_{i}-{\bar {y}})^{2}}}}}\]</span>
 </dd>
 <dt>standard linear regression model (72)</dt>
 <dd>The modal used for standard linear models, used to interpret the the effect on <span class="math inline">\(Y\)</span> of a one-unit increase in any predictor <span class="math inline">\(\beta_j\)</span> while holding all other predictors constant <span class="math display">\[Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \dots + \beta_pX_p + \epsilon\]</span>
@@ -1755,10 +1757,114 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <dd>when collinearity exists between three or more predictors even when no pair of predictors is collinear (or correlated)
 </dd>
 <dt>variance inflation factor (102)</dt>
-<dd><p>“the ratio of the variance of <span class="math inline">\(\hat{\beta_j}\)</span> when fitting the full model divided by the variance of <span class="math inline">\(\hat{\beta_j}\)</span> on its own”; smallest possible value of 1 indicates the absence of collinearity, 5-10 indicates a “problematic amount”. Hairy forumla not reproduced.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<dd>“the ratio of the variance of <span class="math inline">\(\hat{\beta_j}\)</span> when fitting the full model divided by the variance of <span class="math inline">\(\hat{\beta_j}\)</span> on its own”; smallest possible value of 1 indicates the absence of collinearity, 5-10 indicates a “problematic amount”. <span class="math display">\[\text{VIF}(\hat{\beta_j}) = \frac{1}{1 - {R_{X_j|X_-j}^2}}\]</span> “<span class="math inline">\(R_{X_j|X_-j}^2\)</span> is the <span class="math inline">\(R^2\)</span> from a regression of <span class="math inline">\(X_j\)</span> onto all of the other predictors”
+</dd>
+<dt>K-nearest neighbors regression (105)</dt>
+<dd>a mode of regression that seeks to classify observations by their proximity to classified neighbors
+</dd>
+<dt>curse of dimensionality (107)</dt>
+<dd>when an observation has no nearby neighbors due to a high number of dimensions exponentially increasing the available space for other observations to be spread out in
 </dd>
 </dl>
+<h1 id="chapter-4">Chapter 4</h1>
+<dl>
+<dt>qualitative / categorical (129)</dt>
+<dd>interchangeable term for a variable with a non-quantitative value, such as color
+</dd>
+<dt>classification (129)</dt>
+<dd>predicting a qualitative response for an observation
+</dd>
+<dt>classifier (129)</dt>
+<dd>a classification technique, such as: logistic regression, linear discriminant analysis, quadratic discriminant analysis, naive Bayes, and K-nearest neighbors
+</dd>
+<dt>logistic function (134)</dt>
+<dd>a specific function returning an S-shaped curve with values between 0 and 1, used in logistic regression <span class="math display">\[p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}\]</span>
+</dd>
+<dt>odds (134)</dt>
+<dd>the likelihood of a particular outcome: the ratio of the number of results that produce the outcome versus the number that do not, between 0 and <span class="math inline">\(\infty\)</span> (very low or very high probabilities) <span class="math display">\[odds = \frac{p(X)}{1 - p(X)} = e^{\beta_0 + \beta_1X}\]</span> Note: odds is not the same as probability! Odds of 1/4 means a 20% probability, not 25%.
+</dd>
+</dl>
+<p>To convert from odds to probability: divide odds by (1 + odds), as in:</p>
+<p><span class="math display">\[\frac{1}{4} \div \left[ 1 + \frac{1}{4} \right] = \frac{1}{4} \div \frac{5}{4} = 1/5 = 0.2\]</span></p>
+<p>To convert from probability to odds, divide probability by (1 - probability), as in: <span class="math display">\[\frac{1}{5} \div \left[ 1 - \frac{1}{5} \right] = \frac{1}{5} \div \frac{4}{5} = \frac{1}{5} \times \frac{5}{4} = 1/4 = 0.25\]</span> log odds / logit (135) : the log of the odds <span class="math display">\[\text{log} \left( \frac{p(X)}{1 - p(X)} \right)\]</span></p>
+<dl>
+<dt>likelihood function (135)</dt>
+<dd>a function that produces the closest possible match of a set of observations, for use in predicting the classifications of other points hairy equation not rendered
+</dd>
+<dt>confounding (139)</dt>
+<dd>when predictors correlate; usually this is something to work to avoid
+</dd>
+<dt>multinomial logistic regression (140)</dt>
+<dd>logistic regression into more than 2 categories
+</dd>
+<dt>softmax coding (141)</dt>
+<dd>an alternative coding for multiple logistic regression that treats all classes symmetrically, rather than establishing one as a baseline
+</dd>
+<dt>(probability) density function (142)</dt>
+<dd>a function returning the likelihood of a particular value occurring in a given sample, between 0 and 1; often used in pairs to establish likelihood of a value within a range rather than the likelihood of an infinitely-thin single “slice”
+</dd>
+<dt>prior (142)</dt>
+<dd>the probability that a random observation comes from class <span class="math inline">\(k\)</span>
+</dd>
+<dt>posterior (142)</dt>
+<dd>the probability that an observation belongs to a class <span class="math inline">\(k\)</span> given its predictor value
+</dd>
+<dt>normal / Gaussian (143)</dt>
+<dd>characterized by a bell-shaped curve, not uniformly distributed but tending towards a likeliest/central value
+</dd>
+<dt>overfitting (148)</dt>
+<dd>mapping too closely to idiosyncrasies in training data, increasing variance in a model
+</dd>
+<dt>null classifier (148)</dt>
+<dd>a classifier that always predicts a zero or null status
+</dd>
+<dt>confusion matrix (148)</dt>
+<dd>a matrix showing how many predictions were made, and how accurate the classifications were (predicted x actual, hits on TL-BR diagonal and misses on BL-TR diagonal)
+</dd>
+<dt>sensitivity (149)</dt>
+<dd>the percentage of a class (like defaulters) that is correctly identified
+</dd>
+<dt>specificity (149)</dt>
+<dd>the percentage of a different class (like non-defaulters) that is correctly identified
+</dd>
+<dt>ROC curve (150)</dt>
+<dd>Receiver Operating Characteristics; name of a curve showing the overall performance of a classifier resembling the top left corner of a rounded rectangle; area under the curve (AUC) indicates the percentage of correct classifications; the closer it is to square, the bigger the AUC, the better the classifier
+</dd>
+<dt>marginal distribution (155)</dt>
+<dd>the distribution of an individual predictor
+</dd>
+<dt>joint distribution (155)</dt>
+<dd>the association between different predictors
+</dd>
+<dt>kernel density estimator (156)</dt>
+<dd>“essentially a smoothed version of a histogram”
+</dd>
+</dl>
+<h1 id="chapter-5">Chapter 5</h1>
+<dl>
+<dt>model assessment (197)</dt>
+<dd>the process of evaluating a model’s performance
+</dd>
+<dt>model selection (197)</dt>
+<dd>the process of selecting the proper level of flexibility for a model
+</dd>
+<dt>validation set approach (198)</dt>
+<dd>randomly dividing a set of observations into a training set and a validation or hold-out set, to assess the test error rate
+</dd>
+<dt>leave one out cross-validation (LOOCV) (200)</dt>
+<dd>using a single observation for a validation set and the rest as a training set
+</dd>
+<dt>k-fold cross-validation (CV) (203)</dt>
+<dd>dividing a set of observation into <span class="math inline">\(k\)</span> groups of approximately equal size, using the first as a validation set and fitting the method on the remaining <span class="math inline">\(k-1\)</span> folds
+</dd>
+<dt>bootstrap (209)</dt>
+<dd>a tool to quantify the uncertainty associated with a given estimator or statistical learning method
+</dd>
+<dt>sampling with replacement (211)</dt>
+<dd>picking from a set without removing the picked elements
+</dd>
+</dl>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>

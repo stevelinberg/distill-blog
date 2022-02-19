@@ -322,4 +322,118 @@ multicollinearity (102)
 : when collinearity exists between three or more predictors even when no pair of predictors is collinear (or correlated)
 
 variance inflation factor (102)
-: "the ratio of the variance of $\hat{\beta_j}$ when fitting the full model divided by the variance of $\hat{\beta_j}$ on its own"; smallest possible value of 1 indicates the absence of collinearity, 5-10 indicates a "problematic amount". Hairy forumla not reproduced.
+: "the ratio of the variance of $\hat{\beta_j}$ when fitting the full model divided by the variance of $\hat{\beta_j}$ on its own"; smallest possible value of 1 indicates the absence of collinearity, 5-10 indicates a "problematic amount". 
+$$\text{VIF}(\hat{\beta_j}) = \frac{1}{1 - {R_{X_j|X_-j}^2}}$$
+"$R_{X_j|X_-j}^2$ is the $R^2$ from a regression of $X_j$ onto all of the other predictors"
+
+K-nearest neighbors regression (105)
+: a mode of regression that seeks to classify observations by their proximity to classified neighbors
+
+curse of dimensionality (107)
+: when an observation has no nearby neighbors due to a high number of dimensions exponentially increasing the available space for other observations to be spread out in
+
+# Chapter 4
+
+qualitative / categorical (129)
+: interchangeable term for a variable with a non-quantitative value, such as color
+
+classification (129)
+: predicting a qualitative response for an observation
+
+classifier (129)
+: a classification technique, such as: logistic regression, linear discriminant analysis, quadratic discriminant analysis, naive Bayes, and K-nearest neighbors
+
+logistic function (134)
+: a specific function returning an S-shaped curve with values between 0 and 1, used in logistic regression
+$$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$
+
+odds (134)
+: the likelihood of a particular outcome: the ratio of the number of results that produce the outcome versus the number that do not, between 0 and $\infty$ (very low or very high probabilities)
+$$odds = \frac{p(X)}{1 - p(X)} = e^{\beta_0 + \beta_1X}$$
+Note: odds is not the same as probability! Odds of 1/4 means a 20% probability, not 25%. 
+
+To convert from odds to probability: divide odds by (1 + odds), as in:
+
+$$\frac{1}{4} \div \left[ 1 + \frac{1}{4} \right] = \frac{1}{4} \div \frac{5}{4} = 1/5 = 0.2$$
+
+To convert from probability to odds, divide probability by (1 - probability), as in:
+$$\frac{1}{5} \div \left[ 1 - \frac{1}{5} \right] = \frac{1}{5} \div \frac{4}{5} = \frac{1}{5} \times \frac{5}{4} = 1/4 = 0.25$$
+log odds / logit (135)
+: the log of the odds 
+$$\text{log} \left( \frac{p(X)}{1 - p(X)} \right)$$
+
+likelihood function (135)
+: a function that produces the closest possible match of a set of observations, for use in predicting the classifications of other points
+hairy equation not rendered
+
+confounding (139)
+: when predictors correlate; usually this is something to work to avoid
+
+multinomial logistic regression (140)
+: logistic regression into more than 2 categories
+
+softmax coding (141)
+: an alternative coding for multiple logistic regression that treats all classes symmetrically, rather than establishing one as a baseline
+
+(probability) density function (142)
+: a function returning the likelihood of a particular value occurring in a given sample, between 0 and 1; often used in pairs to establish likelihood of a value within a range rather than the likelihood of an infinitely-thin single "slice"
+
+prior (142)
+: the probability that a random observation comes from class $k$
+
+posterior (142)
+: the probability that an observation belongs to a class $k$ given its predictor value
+
+normal / Gaussian (143)
+: characterized by a bell-shaped curve, not uniformly distributed but tending towards a likeliest/central value
+
+overfitting (148)
+: mapping too closely to idiosyncrasies in training data, increasing variance in a model
+
+null classifier (148)
+: a classifier that always predicts a zero or null status
+
+confusion matrix (148)
+: a matrix showing how many predictions were made, and how accurate the classifications were (predicted x actual, hits on TL-BR diagonal and misses on BL-TR diagonal)
+
+sensitivity (149)
+: the percentage of a class (like defaulters) that is correctly identified
+
+specificity (149)
+: the percentage of a different class (like non-defaulters) that is correctly identified
+
+ROC curve (150)
+: Receiver Operating Characteristics; name of a curve showing the overall performance of a classifier resembling the top left corner of a rounded rectangle; area under the curve (AUC) indicates the percentage of correct classifications; the closer it is to square, the bigger the AUC, the better the classifier
+
+marginal distribution (155)
+: the distribution of an individual predictor
+
+joint distribution (155)
+: the association between different predictors
+
+kernel density estimator (156)
+: "essentially a smoothed version of a histogram"
+
+# Chapter 5
+
+model assessment (197)
+: the process of evaluating a model's performance
+
+model selection (197)
+: the process of selecting the proper level of flexibility for a model
+
+validation set approach (198)
+: randomly dividing a set of observations into a training set and a validation or hold-out set, to assess the test error rate
+
+leave one out cross-validation (LOOCV) (200)
+: using a single observation for a validation set and the rest as a training set
+
+k-fold cross-validation (CV) (203)
+: dividing a set of observation into $k$ groups of approximately equal size, using the first as a validation set and fitting the method on the remaining $k-1$ folds
+
+bootstrap (209)
+: a tool to quantify the uncertainty associated with a given estimator or statistical learning method
+
+sampling with replacement (211)
+: picking from a set without removing the picked elements
+
