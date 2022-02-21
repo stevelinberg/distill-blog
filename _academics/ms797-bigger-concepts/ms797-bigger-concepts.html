@@ -1505,6 +1505,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a href="/"><i class="fas fa-home"></i></a> &gt; Academics &gt; <a href="../ms797/index.html">MS797</a> &gt; MS797 Bigger Concepts
 </p>
 <p>This page is for concepts that don’t fit into the <a href="../ms797-glossary/index.html">glossary</a>.</p>
+<p><strong>This document is in process.</strong></p>
 <h1 id="classification">Classification</h1>
 <p>The general umbrella categories for <em>classification</em>—where the outcome variable to be predicted is categorical, rather than continuous, like eye color rather than weight—are *discriminative" and “generative”.</p>
 <p>Logistic regression is discriminative. Linear discriminant analysis, quadratic discriminant analysis, and naive Bayes are generative, K-nearest neighbors appears to be neither.</p>
@@ -1526,7 +1527,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>In some cases, a categorical response variable could be analyzed with a linear regression by treating the categorical variable as numeric, like treating “not infected” as 0 and “infected” as 1, and using the rounded value as the predictor; however, beyond 2 possible responses it’s unlikely that a continuous scale could be established between the possible values, and it gets messy.</p>
 <h3 id="how-to-do-logistic-regression">How to do logistic regression</h3>
 <p>Use <code>glm()</code> with the argument <code>family = binomial</code> to indicate logistic regression.</p>
-<p>The following will model the probability of a tract having a <code>crim</code> rate above the median, based on <code>zn</code>, using logistic regression:</p>
+<p>Using the <code>Boston</code> data set from the <code>ISLR2</code> package, the following will model the probability of a tract having a <code>crim</code> rate above the median, based on <code>zn</code>, using logistic regression:</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>

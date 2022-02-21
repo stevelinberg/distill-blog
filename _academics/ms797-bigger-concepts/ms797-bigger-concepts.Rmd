@@ -31,6 +31,8 @@ library(cowplot) # for side-by-side plots from different data
 
 This page is for concepts that don't fit into the [glossary](../ms797-glossary/index.html).
 
+**This document is in process.**
+
 # Classification
 
 The general umbrella categories for *classification*&mdash;where the outcome variable to be predicted is categorical, rather than continuous, like eye color rather than weight&mdash;are *discriminative" and "generative". 

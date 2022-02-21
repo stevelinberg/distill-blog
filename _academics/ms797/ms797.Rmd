@@ -26,3 +26,4 @@ Work and assignments from this class will be added here as we go. (This part has
 
 - My ongoing [glossary](../ms797-glossary/index.html) page; feel free to comment, or make additions or corrections via comments or github.
 - Some [useful R tidbits](../ms797-useful-r-tidbits/index.html) from, or inspired by, the text.
+- [Bigger concepts](../ms797-bigger-concepts/index.html) about things too big to be glossary entries, like discussions of types of regression or classification.
