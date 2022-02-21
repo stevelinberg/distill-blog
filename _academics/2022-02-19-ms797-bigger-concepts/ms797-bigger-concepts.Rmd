@@ -1,0 +1,138 @@
+---
+title: "MS797 Bigger Concepts"
+description: |
+  Bigger concepts for MS797 coursework
+author:
+  - name: Steve Linberg
+    url: {}
+date: 2022-02-19
+output:
+ distill::distill_article:
+   self_contained: false
+   toc: true
+   code_folding: Show code
+categories:
+  - machine learning
+---
+
+<p style="background: #eee">
+[<i class="fas fa-home"></i>](/) &gt; Academics &gt; [MS797](../ms797/index.html)
+&gt; `r rmarkdown::metadata$title`
+</p>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ISLR2)
+library(tidyverse)
+library(GGally) # for ggpairs
+library(pander) # for prettier output
+library(cowplot) # for side-by-side plots from different data
+```
+
+This page is for concepts that don't fit into the [glossary](../ms797-glossary/index.html).
+
+# Classification
+
+The general umbrella categories for *classification*&mdash;where the outcome variable to be predicted is categorical, rather than continuous, like eye color rather than weight&mdash;are *discriminative" and "generative". 
+
+Logistic regression is discriminative. Linear discriminant analysis, quadratic discriminant analysis, and naive Bayes are generative, K-nearest neighbors appears to be neither.
+
+## Logistic Regression
+
+Logistic regression's output is a *probability* that a response variable belongs to a particular category.
+
+The general form of a logistic model is:
+
+$$p(X) = \text{PR}(Y = 1|X)$$
+The right side of the equation reads "The probability that Y equals 1, given X" - or the chance that Y is a particular category for a specific value of X.
+
+A linear regression model would use this form:
+
+$$p(X) = \beta_0 + \beta_1X$$
+
+And the magic formula for this is the *logistic function*, in which we raise $e$ to this power.
+
+$$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$
+
+(Why $e^{\beta_0 + \beta_1X}$ instead of, say, $2^{\beta_0 + \beta_1X}$ or $\pi^{\beta_0 + \beta_1X}$ or $123456^{\beta_0 + \beta_1X}$?)
+
+Dividing both sides by $1 - p(X)$ (somehow) yields:
+
+$$\frac{p(X)}{1 - p(X)} = e^{\beta_0 + \beta_1X}$$
+
+which is also the *odds* that Y is 1 given X. If the probability of something is 20%, or 1/5, then the odds are 1/4:
+
+$$\frac{1}{5} \div \left[ 1 - \frac{1}{5} \right] = \frac{1}{5} \div \frac{4}{5} = \frac{1}{5} \times \frac{5}{4} = 1/4 = 0.25$$
+
+### When to use logistic regression
+
+When the response variable is categorical, and has two possible classes, like "Yes" or "No", "Up" or "Down", etc. However, see Linear Discriminant Analysis below for examples of when *not* to use it.
+
+In some cases, a categorical response variable could be analyzed with a linear regression by treating the categorical variable as numeric, like treating "not infected" as 0 and "infected" as 1, and using the rounded value as the predictor; however, beyond 2 possible responses it's unlikely that a continuous scale could be established between the possible values, and it gets messy.
+
+
+
+### How to do logistic regression
+
+Use `glm()` with the argument `family = binomial` to indicate logistic regression.
+
+Using the `Boston` data set from the `ISLR2` package, the following will model the probability of a tract having a `crim` rate above the median, based on `zn`, using logistic regression:
+
+```{r}
+data(Boston)
+boston <- Boston %>%
+  # Create the crim_above_median response variable
+  mutate(crim_above_med = as.factor(
+    ifelse(crim > median(crim), "Yes", "No")))
+
+# Fit the model
+zn.fit <- glm(crim_above_med ~ zn, data = boston, family = binomial)
+summary(zn.fit)
+```
+
+The `foo.fit` summary will show the coefficients and p-values; the `$coef` aspect of the summary will show more detail.
+
+`predict()` can then be fed the fit to make predictions. The argument `type = "response"` will tell it to output probabilities "of the form $P(Y = 1|X)$" from the data that was used in the fit, also described as the training data. It returns a vector of probabilities for every data element.
+
+```{r}
+# Create the probability vector from the fit
+zn.probs <- predict(zn.fit, type = "response")
+head(zn.probs) %>% pander()
+```
+
+The responses can be converted into categories and turned into a confusion matrix to show how the regression did with the training data. 
+
+```{r}
+# Convert the probability vector into yes-or-no predictions
+zn.pred <- ifelse(zn.probs > 0.5, "Yes", "No")
+# Display a confusion matrix
+table(zn.pred, boston$crim_above_med) %>% pander()
+```
+
+The overall success rate can be calculated with `mean()`, comparing each predicted value to the actual value:
+
+```{r}
+# See how many of the predictions match the actual value
+mean(zn.pred == boston$crim_above_med)
+```
+
+The model can then be run on test data that is held out from the main set, with the expectation that it won't do quite as well as the training data. The efficacy can then be assessed in the same way, and if it's not high, we can return to the model and try to find other forms that make better predictions - or perhaps conclude that we can't make a good prediction at all.
+
+## Linear Discriminant Analysis (LDA)
+
+The simplest use case for LDA is when there are more than two possible response classes; logistic regression gives the probability that an observation is in a class A or B, but it can only handle two classes.
+
+LDA also gives better results when "there is substantial separation between the two classes", or where the sample size is small and the distribution of the predictors is approximately normal in each of the classes. 
+
+<aside>
+How do we determine this?
+</aside>
+
+
+<!--
+### When to use it
+
+### How to do it
+
+### How to interpret it
+-->
