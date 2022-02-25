@@ -1,6 +1,6 @@
 ---
 title: "Steve Linberg"
-image: "2021-sfl-photo-fadedbg-256.png"
+image: "2022-sfl-photo-400x400.jpg"
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/slinberg"
