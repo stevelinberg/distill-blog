@@ -131,7 +131,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["ms797-bigger-concepts_files/anchor-4.2.2/anchor.min.js","ms797-bigger-concepts_files/bowser-1.9.3/bowser.min.js","ms797-bigger-concepts_files/distill-2.2.21/template.v2.js","ms797-bigger-concepts_files/header-attrs-2.11/header-attrs.js","ms797-bigger-concepts_files/jquery-3.6.0/jquery-3.6.0.js","ms797-bigger-concepts_files/jquery-3.6.0/jquery-3.6.0.min.js","ms797-bigger-concepts_files/jquery-3.6.0/jquery-3.6.0.min.map","ms797-bigger-concepts_files/popper-2.6.0/popper.min.js","ms797-bigger-concepts_files/tippy-6.2.7/tippy-bundle.umd.min.js","ms797-bigger-concepts_files/tippy-6.2.7/tippy-light-border.css","ms797-bigger-concepts_files/tippy-6.2.7/tippy.css","ms797-bigger-concepts_files/tippy-6.2.7/tippy.umd.min.js","ms797-bigger-concepts_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["disc-gen.png","ms797-bigger-concepts_files/anchor-4.2.2/anchor.min.js","ms797-bigger-concepts_files/bowser-1.9.3/bowser.min.js","ms797-bigger-concepts_files/distill-2.2.21/template.v2.js","ms797-bigger-concepts_files/header-attrs-2.11/header-attrs.js","ms797-bigger-concepts_files/jquery-3.6.0/jquery-3.6.0.js","ms797-bigger-concepts_files/jquery-3.6.0/jquery-3.6.0.min.js","ms797-bigger-concepts_files/jquery-3.6.0/jquery-3.6.0.min.map","ms797-bigger-concepts_files/popper-2.6.0/popper.min.js","ms797-bigger-concepts_files/tippy-6.2.7/tippy-bundle.umd.min.js","ms797-bigger-concepts_files/tippy-6.2.7/tippy-light-border.css","ms797-bigger-concepts_files/tippy-6.2.7/tippy.css","ms797-bigger-concepts_files/tippy-6.2.7/tippy.umd.min.js","ms797-bigger-concepts_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2577,7 +2577,13 @@ Academics
 <p>This page is for concepts that don’t fit into the <a href="../ms797-glossary/index.html">glossary</a>.</p>
 <p><strong>This document is in process.</strong></p>
 <h1 id="classification">Classification</h1>
-<p>The general umbrella categories for <em>classification</em>—where the outcome variable to be predicted is categorical, rather than continuous, like eye color rather than weight—are *discriminative" and “generative”.</p>
+<p>The general umbrella categories for <em>classification</em>—where the outcome variable to be predicted is categorical, rather than continuous, like eye color rather than weight—are “discriminative” and “generative”. Discriminative models take sets of data and separate them into classes, like finding the decision boundary between two or more classes, but can’t predict the values of new data. Generative models (used in unsupervised learning) can generate new data, but are more susceptible to outliers (misclassified observations) than discriminative models, require more data to create, and are more computationally expensive.</p>
+<p>A generative model—somehow—tries to guess how the data was generated, so it can take a new bit of unseen data, assess the probability that each class would have produced it, and pick the class with the highest probability.</p>
+<p>A discriminative model can only look at existing data and create a decision boundary separating the existing data into classes.</p>
+<figure>
+<img src="disc-gen.png" alt="Figure from https://stanford.edu/%7Eshervine/teaching/cs-229/cheatsheet-supervised-learning" /><figcaption aria-hidden="true">Figure from <a href="https://stanford.edu/%7Eshervine/teaching/cs-229/cheatsheet-supervised-learning" class="uri">https://stanford.edu/%7Eshervine/teaching/cs-229/cheatsheet-supervised-learning</a></figcaption>
+</figure>
+<p>Note that there is no decision boundary in the generative model, just levels of probability into which new data could be classified with varying levels of confidence.</p>
 <p>Logistic regression is discriminative. Linear discriminant analysis, quadratic discriminant analysis, and naive Bayes are generative, K-nearest neighbors appears to be neither.</p>
 <h2 id="logistic-regression">Logistic Regression</h2>
 <p>Logistic regression’s output is a <em>probability</em> that a response variable belongs to a particular category.</p>
