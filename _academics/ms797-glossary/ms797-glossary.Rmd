@@ -101,6 +101,7 @@ MSE is small if the predicted responses are close to the true responses, and lar
 
 variance (34)
 : _"the amount by which $\hat{f}$ would change if we estimated it using a different training data set"_
+More practically: the *average* of squared differences from the mean, often expressed as $\sigma^2$, where $\sigma$ (or the square root of the variance) is the standard deviation
 
 bias (35)
 : _"the error that is introduced by approximating a real-life problem, which may be extremely complicated, by a much simpler model"_, as in the error from the (presumed) linearity of a regression against non-linear data whose complexity it does not capture. More flexible models increase variance and decrease bias.
