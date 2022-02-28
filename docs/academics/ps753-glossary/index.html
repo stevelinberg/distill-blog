@@ -2613,7 +2613,7 @@ Academics
 <li><a href="#class-lecture-4a-status-and-hierarchy">Class lecture 4a: <span>Status and Hierarchy</span></a></li>
 <li><a href="#class-lecture-4b-status-and-prestige">Class lecture 4b: <span>Status and Prestige</span></a></li>
 <li><a href="#class-lecture-4c-hubs-and-bridges">Class lecture 4c: <span>Hubs and Bridges</span></a></li>
-<li><a href="#class-lecture-4c-status-and-coreperiphery-networks">Class lecture 4c: <span>Status and Core/Periphery Networks</span></a></li>
+<li><a href="#class-lecture-4d-status-and-coreperiphery-networks">Class lecture 4d: <span>Status and Core/Periphery Networks</span></a></li>
 </ul></li>
 </ul>
 </nav>
@@ -2984,10 +2984,10 @@ Academics
 <dd>signal of the quality of a node, of a node’s visibility within the network
 </dd>
 <dt>eigenvector centrality</dt>
-<dd>“takes into account the centrality of other nodes to which a node is connected. That is, being connected to other central nodes increases centrality.” Takes into account the centrality of the nodes a node is connected to, considering the importance of the connected nodes and not just their quantity or path length. <span class="math display">\[\lambda \text{c} = \text{Wc}\]</span>
+<dd>“takes into account the centrality of other nodes to which a node is connected. That is, being connected to other central nodes increases centrality.” Takes into account the centrality of the nodes a node is connected to, considering the importance of the connected nodes and not just their quantity or path length. A node with high eigenvector centrality is connected to significant numbers of other highly central nodes. <span class="math display">\[\lambda \text{c} = \text{Wc}\]</span>
 </dd>
 <dt>Bonacich Power</dt>
-<dd>“A closely related concept, but includes a weighting factor that emphasizes global vs. local structure (and negative connections)” <span class="math display">\[\text{c}(\alpha, \beta) = \alpha(\text{I} - \beta\text{W})^{-1}\text{W1}\]</span>
+<dd>“A closely related concept, but includes a weighting factor that emphasizes global vs. local structure (and negative connections)” In contrast to eigenvector centrality, penalizes nodes connected to other well-connected nodes, under the theory that being connected to strong or powerful nodes means a node has less influence and power than it would if it were connected to fewer or weaker nodes. <span class="math display">\[\text{c}(\alpha, \beta) = \alpha(\text{I} - \beta\text{W})^{-1}\text{W1}\]</span>
 </dd>
 </dl>
 <h3 id="class-lecture-4c-hubs-and-bridges">Class lecture 4c: <a href="https://www.loom.com/share/e85fa1918f70438e9bb67232ade95594">Hubs and Bridges</a></h3>
@@ -3042,10 +3042,10 @@ Academics
 <dd>a node with few and low-centrality connections; me and my D&amp;D nerd friends in high school
 </dd>
 </dl>
-<h3 id="class-lecture-4c-status-and-coreperiphery-networks">Class lecture 4c: <a href="https://www.loom.com/share/2b5fdf986b164bb785a4c8c0fca0d1e9">Status and Core/Periphery Networks</a></h3>
+<h3 id="class-lecture-4d-status-and-coreperiphery-networks">Class lecture 4d: <a href="https://www.loom.com/share/2b5fdf986b164bb785a4c8c0fca0d1e9">Status and Core/Periphery Networks</a></h3>
 <dl>
 <dt>betweenness centrality</dt>
-<dd>(forthcoming)
+<dd>a count of the number of shortest paths between nodes that pass through another node
 </dd>
 </dl>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
