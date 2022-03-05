@@ -31,7 +31,7 @@ On the subject of [graph paper](#graph_paper), he doesn't hold back:
 
 > Most ready-made graph paper comes with a darkly printed grid. The reverse (unprinted) side should be used, for then the lines show through faintly and do not clutter the data. If the paper is heavily gridded on both sides, throw it out.
 
-Taking no prisoners, he shows this monstrosity a little further on:
+A little further on, he shows this monstrosity:
 
 ```{r fig.cap="Figure from [The Visual Display of Quantitative Information](https://www.edwardtufte.com/tufte/books_vdqi), p. 118", out.width=400}
 knitr::include_graphics("badgraphic.png")
