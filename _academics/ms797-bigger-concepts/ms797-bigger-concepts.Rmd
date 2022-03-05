@@ -138,6 +138,88 @@ LDA also gives better results when "there is substantial separation between the 
 How do we determine this?
 </aside>
 
+## Resampling methods
+
+Resampling methods are used to refine and test models against training data by repeatedly testing against different subsets within the data.
+
+*Cross-validation* can be used to estimate the test error rate of a method (*model assessment*), and *bootstrap* is mostly to measure the accuracy of a parameter or of a method.
+
+### Cross-validation: validation set approach
+
+This approach randomly splits the data into two sets: a *training* set and a *validation* or *test* set. Size ratios seem to be on the order of between 50-50 to 3:1 or 4:1 training-to-test data. The model is fit against the training data, and then `predict()` is used to predict the results for the validation data; the results of `predict` can then be compared against the actual classifications in the validation data to compute the error rate.
+
+This process can be run repeatedly with different splits.
+
+The general process is:
+
+1. Randomly split the dataset into training and validation sets
+2. Fit the model to the training data
+3. Predict the outcomes of the model on the validation data
+4. Convert the predictions into categorical variables that match the field being predicted (like Yes/No, etc)
+5. The error rate is the proportion of correct predictions in the validation data.
+
+The code below runs 10 iterations and accumulates the results into a results data frame.
+
+```{r eval=FALSE}
+set.seed(1235)
+train_pct <- .75
+
+p5_3a.results <- data.frame(iteration = integer(),
+                           error_rate = double())
+
+for (i in 1:10) {
+  p5_3a.training <- rep(FALSE, nrow(Default))
+  p5_3a.training[sample(nrow(Default), nrow(Default) * train_pct)] <- TRUE
+  p5_3a.validation <- !p5_3a.training
+
+  p5_3a.fit <-
+    glm(
+      formula = default ~ income + balance,
+      family = binomial,
+      data = Default,
+      subset = p5_3a.training
+    )
+
+  p5_3a.probs <- predict(p5_3a.fit, Default[p5_3a.validation, ], type = "response")
+  p5_3a.pred <- ifelse(p5_3a.probs > 0.5, "Yes", "No")
+  p5_3a.validation_error_rate <-
+    mean(p5_3a.pred == Default[p5_3a.validation, ]$default)
+  p5_3a.validation_error_rate_print <-
+    round(p5_3a.validation_error_rate, 2)
+  
+  p5_3a.results[i,] <- data.frame(
+    iteration = i,
+    error_rate = 1 - p5_3a.validation_error_rate
+  )
+}
+
+```
+
+
+### Cross-validation: leave-one-out (LOOCV)
+
+This method is similar to the validation set approach, except that the validation set is only one element, and the training set is the remaining $n-1$ observations. It is run automatically $n$ times and returns an average of the test errors.
+
+The process is simpler than the validation set approach:
+
+1. Fit the model to the entire data set with `glm()` (omitting the `subset` argument)
+2. Run `cv.glm` on the fit
+3. The `delta` factor of the return data is the cross-validation error rate for the test data.
+
+Code from the book:
+
+```{r eval=FALSE}
+library(boot)
+glm.fit <- glm(mpg ~ horsepower, data = Auto)
+cv.error <- cv.glm(Auto, glm.fit)
+cv.error$delta
+```
+
+### Cross-validation: k-fold
+
+K-fold cross-validation is like leave-one-out cross-validation but with a larger test set; it splits the data up into $k$ segments and runs the cross-validation on each. It may give better results if run repeatedly and averaged, as with the validation set approach. It is faster than LOOCV, obviously, because it uses less data.
+
+The process is the same as LOOCV, except a parameter such as `K = 10` is added to the `cv.glm()` call. 5 to 10 is a common range for values of $k$.
 
 <!--
 ### When to use it

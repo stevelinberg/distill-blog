@@ -7,7 +7,18 @@
     <description>Steve Linberg's blog
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 19 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Tufte Takes No Prisoners</title>
+      <dc:creator>Steve Linberg</dc:creator>
+      <link>https://slinberg.net/posts/2022-03-05-tufte-takes-no-prisoners</link>
+      <description>Edward Tufte gets raw on chartjunk.</description>
+      <category>tufte</category>
+      <category>design</category>
+      <guid>https://slinberg.net/posts/2022-03-05-tufte-takes-no-prisoners</guid>
+      <pubDate>Sat, 05 Mar 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://slinberg.net/posts/2022-03-05-tufte-takes-no-prisoners/badgraphic.png" medium="image" type="image/png" width="338" height="560"/>
+    </item>
     <item>
       <title>Playfair and the "Flatten the Curve" Graphic</title>
       <dc:creator>Steve Linberg</dc:creator>
