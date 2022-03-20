@@ -2636,10 +2636,13 @@ Academics
 <dd>the average squared error for a set of observations: <span class="math display">\[MSE = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{f}(x_i))^2\]</span> MSE is small if the predicted responses are close to the true responses, and larger as it becomes less accurate; computed from training data, and Gareth <em>et al.</em> suggest it should be called <em>training MSE</em>.
 </dd>
 <dt>variance (34)</dt>
-<dd><em>“the amount by which <span class="math inline">\(\hat{f}\)</span> would change if we estimated it using a different training data set”</em>
+<dd><em>“the amount by which <span class="math inline">\(\hat{f}\)</span> would change if we estimated it using a different training data set”</em> More practically: the <em>average</em> of squared differences from the mean, often expressed as <span class="math inline">\(\sigma^2\)</span>, where <span class="math inline">\(\sigma\)</span> (or the square root of the variance) is the standard deviation per <a href="https://www.youtube.com/watch?v=EuBBz3bI-aA&amp;t=246s">StatQuest</a>: “the difference in fits between data sets” (like training and test)
 </dd>
 <dt>bias (35)</dt>
-<dd><em>“the error that is introduced by approximating a real-life problem, which may be extremely complicated, by a much simpler model”</em>, as in the error from the (presumed) linearity of a regression against non-linear data whose complexity it does not capture. More flexible models increase variance and decrease bias.
+<dd><em>“the error that is introduced by approximating a real-life problem, which may be extremely complicated, by a much simpler model”</em>, as in the error from the (presumed) linearity of a regression against non-linear data whose complexity it does not capture. More flexible models increase variance and decrease bias. per <a href="https://www.youtube.com/watch?v=EuBBz3bI-aA&amp;t=136s">StatQuest</a>: “The inability for a machine learning method (like linear regression) to capture the true relationship is called <strong>bias</strong>” - a straight line trying to model a curved separation in classes will never get it right and always be biased
+</dd>
+<dt>bias (65)</dt>
+<dd>in an estimator, something that systematically misses the true parameter; for an unbiased estimator, <span class="math inline">\(\hat{\mu} = \mu\)</span> when averaged over (huge) numbers of observations
 </dd>
 <dt>bias-variance trade-off (36)</dt>
 <dd>The tension in seeking the best model for the data between missing the true <span class="math inline">\(f\)</span> with an overly simple (biased) model, vs. an overfitted model with too much variance from mapping too closely to test data.
@@ -2696,9 +2699,6 @@ Academics
 <dd>“the best linear approximation to the true relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>” <span class="math display">\[Y = \beta_0 + \beta_1X + \epsilon\]</span> least squares line (63)
 </dd>
 <dd>the regression line made of the least-squares estimates for <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>
-</dd>
-<dt>bias (65)</dt>
-<dd>in an estimator, something that systematically misses the true parameter; for an unbiased estimator, <span class="math inline">\(\hat{\mu} = \mu\)</span> when averaged over (huge) numbers of observations
 </dd>
 <dt>standard error (SE) (65)</dt>
 <dd>the average amount that an estimate <span class="math inline">\(\hat{\mu}\)</span> (sample mean) differs from the actual value of <span class="math inline">\(\mu\)</span> (population mean) <span class="math display">\[\text{Var}(\hat{\mu}) = \text{SE}(\hat{\mu})^2 = \frac{\sigma^2}{n} (\text{also} = \frac{\sigma}{\sqrt{n}})\]</span> <span class="math inline">\(\sigma\)</span> is “the standard deviation of each of the realizations <span class="math inline">\(y_i\)</span> of <span class="math inline">\(Y\)</span>. Since <span class="math inline">\(\sigma^2\)</span> is divided by <span class="math inline">\(n\)</span>, the standard error shrinks as observations increase. It represents the amount we would expect means of additional samples to”jump around" simply due to random chance and the limitations of the model’s accuracy.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
@@ -2897,9 +2897,20 @@ Academics
 <dt>specificity (149)</dt>
 <dd>the percentage of a different class (like non-defaulters) that is correctly identified
 </dd>
+</dl>
+<p>Note: sensitivity and specificity can and should be separately considered when evaluating ML methods. Each column (class) of a confusion matrix has a sensitivity and a specificity. In a 2x2, this is simple; in larger than 2x2, it involves summation.</p>
+<p><span class="math display">\[\text{Sensitivity} = \frac{\text{True Positives}}{\text{True Positives + False Negatives}}\]</span> True positives is the cell in the class column containing the number of correct predictions in a category; the false negatives are the rest of the column.</p>
+<p><span class="math display">\[\text{Specificity} = \frac{\text{True Negatives}}{\text{True Negatives + False Positives}}\]</span> True negatives is the sum of cells, in the other columns, that correctly do <em>not</em> predict the class (even if they wrongly predict some other class as well); the false positives are the rest of the <em>row</em> for the class that incorrectly predicted that class.</p>
+<p>ROC charts show the true positive rate (sensitivity) on the Y axis, and the false positive rate (1 - sensitivity) on the X axis.</p>
+<dl>
 <dt>ROC curve (150)</dt>
-<dd>Receiver Operating Characteristics; name of a curve showing the overall performance of a classifier resembling the top left corner of a rounded rectangle; area under the curve (AUC) indicates the percentage of correct classifications; the closer it is to square, the bigger the AUC, the better the classifier
+<dd>Receiver Operating Characteristics; name of a curve showing the overall performance of a classifier resembling the top left corner of a rounded rectangle; area under the curve (AUC) indicates the percentage of correct classifications; the closer it is to square, the bigger the AUC, the better the classifier. The Y axis is true positive rate (sensitivity). the X axis is false positive rate (1 - sensitivity).
 </dd>
+</dl>
+<p><a href="https://www.youtube.com/watch?v=4jRBRDbJemM&amp;list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF&amp;index=6">StatQuest</a>: AUC (area under the curve) of the ROC shows the overall effectiveness / quality of a model; good models will fill the space more. And the points of the individual curve help indicate the best thresholds to pick for the classifier; points with X = 0 have no false positives, and points with Y = 1 get all of the true positives.</p>
+<p>Also, <em>precision</em> is another option for the X-axis, rather than if it’s more important to know the proportion of the true positives were correctly identified, as opposed to the false positive rate.</p>
+<p><span class="math display">\[\text{Precision} = \frac{\text{True Positives}}{\text{True Positives + False Positives}}\]</span></p>
+<dl>
 <dt>marginal distribution (155)</dt>
 <dd>the distribution of an individual predictor
 </dd>

@@ -102,9 +102,14 @@ MSE is small if the predicted responses are close to the true responses, and lar
 variance (34)
 : _"the amount by which $\hat{f}$ would change if we estimated it using a different training data set"_
 More practically: the *average* of squared differences from the mean, often expressed as $\sigma^2$, where $\sigma$ (or the square root of the variance) is the standard deviation
+per [StatQuest](https://www.youtube.com/watch?v=EuBBz3bI-aA&t=246s): "the difference in fits between data sets" (like training and test)
 
 bias (35)
 : _"the error that is introduced by approximating a real-life problem, which may be extremely complicated, by a much simpler model"_, as in the error from the (presumed) linearity of a regression against non-linear data whose complexity it does not capture. More flexible models increase variance and decrease bias.
+per [StatQuest](https://www.youtube.com/watch?v=EuBBz3bI-aA&t=136s): "The inability for a machine learning method (like linear regression) to capture the true relationship is called **bias**" - a straight line trying to model a curved separation in classes will never get it right and always be biased
+
+bias (65)
+: in an estimator, something that systematically misses the true parameter; for an unbiased estimator, $\hat{\mu} = \mu$ when averaged over (huge) numbers of observations
 
 bias-variance trade-off (36)
 : The tension in seeking the best model for the data between missing the true $f$ with an overly simple (biased) model, vs. an overfitted model with too much variance from mapping too closely to test data.
@@ -154,6 +159,7 @@ least squares (61)
 
 residual (61)
 : the difference between $y_i$ and $\hat{y}_i$, also $e_i$; the difference between the $i$th response variable and the $i$th response variable predicted by the model
+[StatQuest](https://youtu.be/g9c66TUylZ4?t=542): the difference between the *observed* and *predicted* value
 
 residual sum of squares (RSS) (62)
 : the sum of the squared residuals for each point on the regression line
@@ -174,9 +180,6 @@ population regression line (63)
 $$Y = \beta_0 + \beta_1X + \epsilon$$
 least squares line (63)
 : the regression line made of the least-squares estimates for $\beta_0$ and $\beta_1$
-
-bias (65)
-: in an estimator, something that systematically misses the true parameter; for an unbiased estimator, $\hat{\mu} = \mu$ when averaged over (huge) numbers of observations
 
 standard error (SE) (65)
 : the average amount that an estimate $\hat{\mu}$ (sample mean) differs from the actual value of $\mu$ (population mean)
@@ -403,8 +406,25 @@ sensitivity (149)
 specificity (149)
 : the percentage of a different class (like non-defaulters) that is correctly identified
 
+Note: sensitivity and specificity can and should be separately considered when evaluating ML methods. Each column (class) of a confusion matrix has a sensitivity and a specificity. In a 2x2, this is simple; in larger than 2x2, it involves summation.
+
+$$\text{Sensitivity} = \frac{\text{True Positives}}{\text{True Positives + False Negatives}}$$
+True positives is the cell in the class column containing the number of correct predictions in a category; the false negatives are the rest of the column.
+
+$$\text{Specificity} = \frac{\text{True Negatives}}{\text{True Negatives + False Positives}}$$
+True negatives is the sum of cells, in the other columns, that correctly do *not* predict the class (even if they wrongly predict some other class as well); the false positives are the rest of the *row* for the class that incorrectly predicted that class. 
+
+ROC charts show the true positive rate (sensitivity) on the Y axis, and the false positive rate (1 - sensitivity) on the X axis.
+
 ROC curve (150)
-: Receiver Operating Characteristics; name of a curve showing the overall performance of a classifier resembling the top left corner of a rounded rectangle; area under the curve (AUC) indicates the percentage of correct classifications; the closer it is to square, the bigger the AUC, the better the classifier
+: Receiver Operating Characteristics; name of a curve showing the overall performance of a classifier resembling the top left corner of a rounded rectangle; area under the curve (AUC) indicates the percentage of correct classifications; the closer it is to square, the bigger the AUC, the better the classifier. The Y axis is true positive rate (sensitivity). the X axis is false positive rate (1 - sensitivity).
+
+[StatQuest](https://www.youtube.com/watch?v=4jRBRDbJemM&list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF&index=6): AUC (area under the curve) of the ROC shows the overall effectiveness / quality of a model; good models will fill the space more. And the points of the individual curve help indicate the best thresholds to pick for the classifier; points with X = 0 have no false positives, and points with Y = 1 get all of the true positives.
+
+Also, *precision* is another option for the X-axis, rather than false positives, if it's more important to know the proportion of the true positives were correctly identified.
+
+$$\text{Precision} = \frac{\text{True Positives}}{\text{True Positives + False Positives}}$$
+
 
 marginal distribution (155)
 : the distribution of an individual predictor
