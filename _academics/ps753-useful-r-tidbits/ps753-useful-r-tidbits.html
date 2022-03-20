@@ -2009,8 +2009,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">totdegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(climinfl.stat),</span>
 <span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">indegree  =</span> sna<span class="sc">::</span><span class="fu">degree</span>(climinfl.stat, <span class="at">cmode =</span> <span class="st">&quot;indegree&quot;</span>),</span>
 <span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">outdegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(climinfl.stat, <span class="at">cmode =</span> <span class="st">&quot;outdegree&quot;</span>),</span>
-<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">eigen     =</span> <span class="fu">evcent</span>(climinfl.stat, <span class="at">ignore.eval =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">bonanich  =</span> <span class="fu">bonpow</span>(climinfl.stat),</span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">eigen     =</span> sna<span class="sc">::</span><span class="fu">evcent</span>(climinfl.stat, <span class="at">ignore.eval =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">bonanich  =</span> sna<span class="sc">::</span><span class="fu">bonpow</span>(climinfl.stat),</span>
 <span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">centr_clo =</span> sna<span class="sc">::</span><span class="fu">closeness</span>(climinfl.stat, <span class="at">gmode =</span> <span class="st">&quot;graph&quot;</span>),</span>
 <span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">centr_btw =</span> sna<span class="sc">::</span><span class="fu">betweenness</span>(climinfl.stat, <span class="at">gmode =</span> <span class="st">&quot;graph&quot;</span>)</span>
 <span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -2018,26 +2018,36 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a><span class="co">#   closeness centralization</span></span>
 <span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a>climinfl.centr_clo <span class="ot">=</span> <span class="fu">centralization</span>(climinfl.stat, <span class="at">FUN =</span> <span class="st">&quot;closeness&quot;</span>, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span>
 <span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a><span class="co">#   betweenness centralization</span></span>
-<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a>climinfl.centr_btw <span class="ot">=</span> <span class="fu">centralization</span>(climpref.stat, <span class="at">FUN =</span> <span class="st">&quot;betweenness&quot;</span>, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span>
+<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a>climinfl.centr_btw <span class="ot">=</span> <span class="fu">centralization</span>(climinfl.stat, <span class="at">FUN =</span> <span class="st">&quot;betweenness&quot;</span>, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span>
 <span id="cb37-36"><a href="#cb37-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculated measures not specific to igraph or statnet:</span></span>
-<span id="cb37-38"><a href="#cb37-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the derived and reflected centrality (dc/rc) measures</span></span>
-<span id="cb37-39"><a href="#cb37-39" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;To calculate the proportion of centrality that is received, we first</span></span>
-<span id="cb37-40"><a href="#cb37-40" aria-hidden="true" tabindex="-1"></a><span class="co"># square the adjacency matrix. The diagonal of the adjacency matrix is</span></span>
-<span id="cb37-41"><a href="#cb37-41" aria-hidden="true" tabindex="-1"></a><span class="co"># equal to the the square of node degree. We then divide this diagonal</span></span>
-<span id="cb37-42"><a href="#cb37-42" aria-hidden="true" tabindex="-1"></a><span class="co"># (squared degree) by total squared indegree (calculated by rowSums) to get</span></span>
-<span id="cb37-43"><a href="#cb37-43" aria-hidden="true" tabindex="-1"></a><span class="co"># the proportion of received centrality.&quot;</span></span>
-<span id="cb37-44"><a href="#cb37-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-45"><a href="#cb37-45" aria-hidden="true" tabindex="-1"></a>mat_climinfl <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">as_adjacency_matrix</span>(climinfl.ig))  <span class="co"># not &quot; attr=&#39;weight&#39;&quot;</span></span>
-<span id="cb37-46"><a href="#cb37-46" aria-hidden="true" tabindex="-1"></a>mat_climinfl_sq <span class="ot">&lt;-</span> <span class="fu">t</span>(mat_climinfl) <span class="sc">%*%</span> mat_climinfl</span>
-<span id="cb37-47"><a href="#cb37-47" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>rc <span class="ot">&lt;-</span> <span class="fu">diag</span>(mat_climinfl_sq) <span class="sc">/</span> <span class="fu">rowSums</span>(mat_climinfl_sq)</span>
-<span id="cb37-48"><a href="#cb37-48" aria-hidden="true" tabindex="-1"></a><span class="co"># replace missing values with 0</span></span>
-<span id="cb37-49"><a href="#cb37-49" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>rc <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.nan</span>(climinfl.nodes<span class="sc">$</span>rc), <span class="dv">0</span>, climinfl.nodes<span class="sc">$</span>rc)</span>
-<span id="cb37-50"><a href="#cb37-50" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>dc <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> climinfl.nodes<span class="sc">$</span>rc</span>
-<span id="cb37-51"><a href="#cb37-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-52"><a href="#cb37-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the derived and reflected eigenvector measures</span></span>
-<span id="cb37-53"><a href="#cb37-53" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>eigen.rc <span class="ot">&lt;-</span> climinfl.nodes<span class="sc">$</span>eigen <span class="sc">*</span> climinfl.nodes<span class="sc">$</span>rc</span>
-<span id="cb37-54"><a href="#cb37-54" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>eigen.dc <span class="ot">&lt;-</span> climinfl.nodes<span class="sc">$</span>eigen <span class="sc">*</span> climinfl.nodes<span class="sc">$</span>dc</span></code></pre></div>
+<span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Statnet-only: Gould-Fernandez Brokerage</span></span>
+<span id="cb37-38"><a href="#cb37-38" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">brokerage</span>(climinfl.stat, <span class="at">cl =</span> climinfl.nodes<span class="sc">$</span>orgtype5)<span class="sc">$</span>z.nli)</span>
+<span id="cb37-39"><a href="#cb37-39" aria-hidden="true" tabindex="-1"></a>climinfl.nodes <span class="ot">&lt;-</span> climinfl.nodes <span class="sc">%&gt;%</span></span>
+<span id="cb37-40"><a href="#cb37-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">broker.tot =</span> temp<span class="sc">$</span>t,</span>
+<span id="cb37-41"><a href="#cb37-41" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.coord =</span> temp<span class="sc">$</span>w_I,</span>
+<span id="cb37-42"><a href="#cb37-42" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.itin =</span> temp<span class="sc">$</span>w_O,</span>
+<span id="cb37-43"><a href="#cb37-43" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.rep =</span> temp<span class="sc">$</span>b_IO,</span>
+<span id="cb37-44"><a href="#cb37-44" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.gate =</span> temp<span class="sc">$</span>b_OI,</span>
+<span id="cb37-45"><a href="#cb37-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.lia =</span> temp<span class="sc">$</span>b_O)</span>
+<span id="cb37-46"><a href="#cb37-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-47"><a href="#cb37-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculated measures not specific to igraph or statnet:</span></span>
+<span id="cb37-48"><a href="#cb37-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the derived and reflected centrality (dc/rc) measures</span></span>
+<span id="cb37-49"><a href="#cb37-49" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;To calculate the proportion of centrality that is received, we first</span></span>
+<span id="cb37-50"><a href="#cb37-50" aria-hidden="true" tabindex="-1"></a><span class="co"># square the adjacency matrix. The diagonal of the adjacency matrix is</span></span>
+<span id="cb37-51"><a href="#cb37-51" aria-hidden="true" tabindex="-1"></a><span class="co"># equal to the the square of node degree. We then divide this diagonal</span></span>
+<span id="cb37-52"><a href="#cb37-52" aria-hidden="true" tabindex="-1"></a><span class="co"># (squared degree) by total squared indegree (calculated by rowSums) to get</span></span>
+<span id="cb37-53"><a href="#cb37-53" aria-hidden="true" tabindex="-1"></a><span class="co"># the proportion of received centrality.&quot;</span></span>
+<span id="cb37-54"><a href="#cb37-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-55"><a href="#cb37-55" aria-hidden="true" tabindex="-1"></a>mat_climinfl <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">as_adjacency_matrix</span>(climinfl.ig))  <span class="co"># not &quot; attr=&#39;weight&#39;&quot;</span></span>
+<span id="cb37-56"><a href="#cb37-56" aria-hidden="true" tabindex="-1"></a>mat_climinfl_sq <span class="ot">&lt;-</span> <span class="fu">t</span>(mat_climinfl) <span class="sc">%*%</span> mat_climinfl</span>
+<span id="cb37-57"><a href="#cb37-57" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>rc <span class="ot">&lt;-</span> <span class="fu">diag</span>(mat_climinfl_sq) <span class="sc">/</span> <span class="fu">rowSums</span>(mat_climinfl_sq)</span>
+<span id="cb37-58"><a href="#cb37-58" aria-hidden="true" tabindex="-1"></a><span class="co"># replace missing values with 0</span></span>
+<span id="cb37-59"><a href="#cb37-59" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>rc <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.nan</span>(climinfl.nodes<span class="sc">$</span>rc), <span class="dv">0</span>, climinfl.nodes<span class="sc">$</span>rc)</span>
+<span id="cb37-60"><a href="#cb37-60" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>dc <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> climinfl.nodes<span class="sc">$</span>rc</span>
+<span id="cb37-61"><a href="#cb37-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-62"><a href="#cb37-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the derived and reflected eigenvector measures</span></span>
+<span id="cb37-63"><a href="#cb37-63" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>eigen.rc <span class="ot">&lt;-</span> climinfl.nodes<span class="sc">$</span>eigen <span class="sc">*</span> climinfl.nodes<span class="sc">$</span>rc</span>
+<span id="cb37-64"><a href="#cb37-64" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>eigen.dc <span class="ot">&lt;-</span> climinfl.nodes<span class="sc">$</span>eigen <span class="sc">*</span> climinfl.nodes<span class="sc">$</span>dc</span></code></pre></div>
 <h3 id="closeness-centrailty">Closeness centrailty</h3>
 <p>From text: “The closeness centrality of a node is defined as the sum of the geodesic distances between that node and all other nodes in a network.”</p>
 <p>Both are called in the above blocks, with <code>sna::closeness()</code> or <code>igraph::closeness()</code> on the respective network object.</p>
@@ -2071,7 +2081,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3 id="gould-fernandez-brokerage">Gould-Fernandez Brokerage</h3>
 <p>(Statnet-only)</p>
 <p>From <code>?brokerage()</code>: “Gould and Fernandez (following Marsden and others) describe brokerage as the role played by a social actor who mediates contact between two alters.”</p>
-<p>A structure with a lot of information is returned; tutorial refers mainly to <code>znli</code> containing the following roles:</p>
+<p>Requires a directed network with a vertex attribute used for grouping. Returns a structure with a lot of information is returned; tutorial refers mainly to <code>znli</code> containing the following roles:</p>
 <table>
 <colgroup>
 <col style="width: 25%" />
@@ -2126,7 +2136,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brokerage</span>(climinfl.stat, <span class="at">cl =</span> climinfl.nodes<span class="sc">$</span>orgtype5)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

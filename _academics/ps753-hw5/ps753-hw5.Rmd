@@ -32,3 +32,85 @@ library(network)
 library(igraph)
 library(tidyverse)
 ```
+
+```{r}
+data(flo)
+ntwk.ig <- graph_from_adjacency_matrix(flo)
+
+ntwk.vcount <- vcount(ntwk.ig)
+ntwk.ecount <- ecount(ntwk.ig)
+ntwk.is_bipartite <- is_bipartite(ntwk.ig)
+ntwk.is_directed <- is_directed(ntwk.ig)
+ntwk.is_weighted <- is_weighted(ntwk.ig)
+ntwk.vertex_attr_names <- vertex_attr_names(ntwk.ig)
+ntwk.edge_attr_names <- edge_attr_names(ntwk.ig)
+ntwk.names <- V(ntwk.ig)$name
+ntwk.dyad_census <- igraph::dyad.census(ntwk.ig)
+ntwk.triad_census <- igraph::triad_census(ntwk.ig)
+ntwk.global_clustering_coef <- transitivity(ntwk.ig, type = "global")
+ntwk.local_avg_clustering_coef <- transitivity(ntwk.ig, type = "average")
+ntwk.avg_path_length <- average.path.length(ntwk.ig, directed = T)
+ntwk.component_names <- names(igraph::components(ntwk.ig))
+ntwk.components_no <- igraph::components(ntwk.ig)$no
+ntwk.components_csize <- igraph::components(ntwk.ig)$csize
+
+# distances(ntwk.ig,"Acciaiuoli","Strozzi", weights=NA)
+
+ntwk.graph_density <- graph.density(ntwk.ig)
+ntwk.graph_density_noloops <- graph.density(ntwk.ig, loops = TRUE)
+
+ntwk.avg_degree <- igraph::degree(ntwk.ig)
+
+# Get the degree info and make the data frame
+
+ntwk.nodes <- data.frame(
+  name = V(ntwk.ig)$name, 
+  degree = igraph::degree(ntwk.ig),
+  indegrees = igraph::degree(ntwk.ig, mode = "in", loops = FALSE),
+  outdegrees = igraph::degree(ntwk.ig, mode = "out", loops = FALSE)
+  )
+# ntwk.nodes[ntwk.nodes$name %in% c("Medici", "Strozzi"),]
+
+# Get degree centralization
+
+ntwk.indegree_centralization <- 
+  centr_degree(ntwk.ig, loops = FALSE, mode = "in")$centralization
+ntwk.outdegree_centralization <- 
+  centr_degree(ntwk.ig, loops = FALSE, mode = "out")$centralization
+ntwk.total_centralization <- 
+  centr_degree(ntwk.ig, loops = FALSE, mode = "total")$centralization
+```
+
+Building on [last week's look](../ps753-hw3/index.html) at basic network centrality attributes in the Florentine Wedding dataset, we're going to look at two new measurements of centrality: brokerage and betweenness.
+
+One of the under-the-hood consequences of this is that we must switch from iGraph to Statnet for this analysis, as brokerage is only found in Stanet.
+
+```{r}
+# statnet version
+climinfl.nodes <- data.frame(
+    name      = climinfl.stat %v% "vertex.names",
+    totdegree = sna::degree(climinfl.stat),
+    indegree  = sna::degree(climinfl.stat, cmode = "indegree"),
+    outdegree = sna::degree(climinfl.stat, cmode = "outdegree"),
+    eigen     = sna::evcent(climinfl.stat, ignore.eval = TRUE),
+    bonanich  = sna::bonpow(climinfl.stat),
+    centr_clo = sna::closeness(climinfl.stat, gmode = "graph"),
+    centr_btw = sna::betweenness(climinfl.stat, gmode = "graph")
+)
+# Network-level measures:
+#   closeness centralization
+climinfl.centr_clo = centralization(climinfl.stat, FUN = "closeness", mode = "graph")
+#   betweenness centralization
+climinfl.centr_btw = centralization(climinfl.stat, FUN = "betweenness", mode = "graph")
+
+# Statnet-only: Gould-Fernandez Brokerage
+temp <- data.frame(brokerage(climinfl.stat, cl = climinfl.nodes$orgtype5)$z.nli)
+climinfl.nodes <- climinfl.nodes %>%
+  mutate(broker.tot = temp$t,
+         broker.coord = temp$w_I,
+         broker.itin = temp$w_O,
+         broker.rep = temp$b_IO,
+         broker.gate = temp$b_OI,
+         broker.lia = temp$b_O)
+```
+
