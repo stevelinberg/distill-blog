@@ -1,0 +1,34 @@
+---
+title: "Homework 5: Brokerage and Betweenness in the Florentine Wedding dataset"
+description: |
+  Examining additional centrality measures in the Florentine network
+author:
+  - name: Steve Linberg
+    url: {}
+date: 2022-02-16
+output:
+  distill::distill_article:
+    self_contained: false
+    code_folding: true
+    toc: true
+categories:
+  - r
+  - social networks
+---
+
+<p style="background: #eee">
+[<i class="fas fa-home"></i>](/) &gt; Academics &gt; [PS753](../ps753/index.html)
+&gt; `r rmarkdown::metadata$title`
+</p>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	fig.height = 8,
+	message = FALSE,
+	warning = FALSE
+)
+library(network)
+library(igraph)
+library(tidyverse)
+```
