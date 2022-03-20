@@ -587,8 +587,8 @@ climinfl.nodes <- data.frame(
     totdegree = sna::degree(climinfl.stat),
     indegree  = sna::degree(climinfl.stat, cmode = "indegree"),
     outdegree = sna::degree(climinfl.stat, cmode = "outdegree"),
-    eigen     = evcent(climinfl.stat, ignore.eval = TRUE),
-    bonanich  = bonpow(climinfl.stat),
+    eigen     = sna::evcent(climinfl.stat, ignore.eval = TRUE),
+    bonanich  = sna::bonpow(climinfl.stat),
     centr_clo = sna::closeness(climinfl.stat, gmode = "graph"),
     centr_btw = sna::betweenness(climinfl.stat, gmode = "graph")
 )
