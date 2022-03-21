@@ -34,7 +34,7 @@
       <pubDate>Sat, 19 Feb 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>Homework 5: Brokerage and Betweenness in the Florentine Wedding dataset</title>
+      <title>Homework 5: Constraint and Brokerage in the Florentine Wedding dataset</title>
       <dc:creator>Steve Linberg</dc:creator>
       <link>https://slinberg.net/academics/ps753-hw5</link>
       <description>Examining additional centrality measures in the Florentine network</description>
@@ -42,6 +42,7 @@
       <category>social networks</category>
       <guid>https://slinberg.net/academics/ps753-hw5</guid>
       <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://slinberg.net/academics/ps753-hw5/ps753-hw5_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="1536"/>
     </item>
     <item>
       <title>Homework 3: The Florentine Wedding dataset</title>

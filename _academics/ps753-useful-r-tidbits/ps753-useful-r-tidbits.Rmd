@@ -589,14 +589,15 @@ climinfl.nodes <- data.frame(
     outdegree = sna::degree(climinfl.stat, cmode = "outdegree"),
     eigen     = sna::evcent(climinfl.stat, ignore.eval = TRUE),
     bonanich  = sna::bonpow(climinfl.stat),
-    centr_clo = sna::closeness(climinfl.stat, gmode = "graph"),
+    centr_clo = sna::closeness(climinfl.stat, gmode = "graph",
+                               cmode = "suminvundir"),
     centr_btw = sna::betweenness(climinfl.stat, gmode = "graph")
 )
 # Network-level measures:
 #   closeness centralization
-climinfl.centr_clo = centralization(climinfl.stat, FUN = "closeness", mode = "graph")
+climinfl.centr_clo = centralization(climinfl.stat, sna::closeness, mode = "graph")
 #   betweenness centralization
-climinfl.centr_btw = centralization(climinfl.stat, FUN = "betweenness", mode = "graph")
+climinfl.centr_btw = centralization(climinfl.stat, sna::betweenness, mode = "graph")
 
 # Statnet-only: Gould-Fernandez Brokerage
 temp <- data.frame(brokerage(climinfl.stat, cl = climinfl.nodes$orgtype5)$z.nli)
