@@ -43,7 +43,7 @@ ntwk_ig <- graph_from_adjacency_matrix(flo)
 
 ```
 
-Building on [last week's look](../ps753-hw3/index.html) at basic network centrality attributes in the Florentine Wedding dataset, we're going to look at two new measurements of centrality: brokerage and constraints.
+Building on [last week's look](../ps753-hw4/index.html) at basic network centrality attributes in the Florentine Wedding dataset, we're going to look at two new measurements of centrality: brokerage and constraints.
 
 (Note: these two concepts begin to break the "use either one" conclusion when choosing statnet or igraph; brokerage is a function of statnet, and constraints are a function of igraph.)
 
