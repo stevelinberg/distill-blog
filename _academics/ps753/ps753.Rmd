@@ -29,3 +29,4 @@ Work and assignments from this class will be added here as we go. (This part has
 - [Homework 3](../ps753-hw3/index.html) for the course: a network analysis of the Florentine Wedding data.
 - [Homework 4](../ps753-hw4/index.html) for the course: a centrality analysis of the Florentine Wedding data.
 - [Homework 5](../ps753-hw5/index.html) for the course: constraint and brokerage analysis of the Florentine Wedding data.
+- [Homework 6](../ps753-hw6/index.html) for the course: clustering and blockmodel analysis of the Florentine Wedding data.
