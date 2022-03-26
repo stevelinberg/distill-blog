@@ -345,9 +345,26 @@ igraph shows the node names, statnet doesn't.
 Getting the degree of a particular set of nodes in `igraph`:
 
 ```r
-igraph::degree(trade2007.ig, v = V(trade2007.ig)[c("China", "Canada", "United Kingdom", "Denmark")])
+> igraph::degree(trade2007.ig, v = V(trade2007.ig)[c("China", "Canada", "United Kingdom", "Denmark")])
          China         Canada United Kingdom        Denmark 
            364            364            364            362 
+```
+
+This can also be done by index, as in:
+
+```r
+> igraph::degree(flo_ig, v = 1:3)
+Acciaiuoli    Albizzi  Barbadori 
+         2          6          4 
+```
+
+Statnet degrees aren't named:
+
+```r
+> sna::degree(flo_stat)
+ [1]  2  6  4  6  6  2  8  2 12  2  6  0  6  4  8  6
+> which(sna::degree(flo_stat) == 0)
+[1] 12
 ```
 
 ### *Indegree* and *outdegree* calculations
@@ -390,6 +407,8 @@ average.path.length(gotbook.ig,directed=F)
 ```
 
 Component structure and membership
+
+*Note*: a graph is fully connected if its number of components is 1. igraph returns this as the `no` parameter of `igraph::components()`; it appears that statnet has no parallel function, but if the number of isolates is 0, the graph is connected (`sna::isolates()`).
 
 ```r
 # What element are returned by components
@@ -600,7 +619,9 @@ climinfl.centr_clo = centralization(climinfl.stat, sna::closeness, mode = "graph
 climinfl.centr_btw = centralization(climinfl.stat, sna::betweenness, mode = "graph")
 
 # Statnet-only: Gould-Fernandez Brokerage
-temp <- data.frame(brokerage(climinfl.stat, cl = climinfl.nodes$orgtype5)$z.nli)
+# replace ATTR with the vector of the desired attribute, such as
+# `climinfl.nodes$orgtype5`
+temp <- data.frame(brokerage(climinfl.stat, cl = ATTR)$z.nli)
 climinfl.nodes <- climinfl.nodes %>%
   mutate(broker.tot = temp$t,
          broker.coord = temp$w_I,
@@ -619,6 +640,11 @@ climinfl.nodes <- climinfl.nodes %>%
 
 mat_climinfl <- as.matrix(as_adjacency_matrix(climinfl.ig))  # not " attr='weight'"
 mat_climinfl_sq <- t(mat_climinfl) %*% mat_climinfl
+# alternately:
+mat_climinfl <- as.matrix.network(climinfl.stat, attr = "weight")
+diag(mat_climinfl) <- 0
+mat_climinfl_sq <- mat_climinfl %*% mat_climinfl
+
 climinfl.nodes$rc <- diag(mat_climinfl_sq) / rowSums(mat_climinfl_sq)
 # replace missing values with 0
 climinfl.nodes$rc <- ifelse(is.nan(climinfl.nodes$rc), 0, climinfl.nodes$rc)
@@ -700,7 +726,7 @@ constraint(climinfl.ig)
 
 From `?brokerage()`: "Gould and Fernandez (following Marsden and others) describe brokerage as the role played by a social actor who mediates contact between two alters."
 
-Requires a directed network with a vertex attribute used for grouping. Returns a structure with a lot of information is returned; tutorial refers mainly to `znli` containing the following roles:
+Requires a directed network with a vertex attribute used for grouping. Returns a structure with a lot of information; tutorial refers mainly to `znli` containing the following roles:
 
 |prefix|Role|Action|Path|
 |---|---|---|---|
@@ -714,3 +740,38 @@ Requires a directed network with a vertex attribute used for grouping. Returns a
 ```r
 brokerage(climinfl.stat, cl = climinfl.nodes$orgtype5)
 ```
+
+## Week 6
+
+(All statnet unless otherwise specified)
+
+Calculating structural equivalence ("SE clusters"): look for nodes that have the same pattern of ties with the same neighbors, like siblings of a parent. Unexplained distance functions include "hamming", "correlation", "gamma". The `sedist()` function ignores edge values (weights?). 
+
+```r
+flomarr.se <- equiv.clust(flomarr.stat, equiv.fun = "sedist", method = "hamming", mode = "graph")
+```
+
+The output of `equiv.clust()` can be plotted as a "Cluster Dendogram":
+
+```r
+flomarr.se <- equiv.clust(flomarriage, equiv.fun = "sedist", method = "hamming", mode = "graph")
+plot(flomarr.se,labels = flomarr.se$glabels)
+```
+
+Annoyingly, the different `cluster.method`s "single, average, or ward.D" are not explained in the tutorial. The default is "complete".
+
+`rect.hclust()` (visually) "cuts" the diagram at a given height, making separate clusters:
+
+```r
+plot(flomarr.se, labels = flomarr.se$glabels)
+rect.hclust(flomarr.se$cluster, h = 9)
+```
+
+```r
+flomarr.se <- equiv.clust(flomarriage, equiv.fun = "sedist", cluster.method = "single",
+                          method = "hamming", mode = "graph")
+plot(flomarr.se,labels = flomarr.se$glabels)
+
+
+```
+

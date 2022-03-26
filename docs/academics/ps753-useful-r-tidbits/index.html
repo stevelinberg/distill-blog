@@ -2445,7 +2445,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.13/header-attrs.js"></script>
   <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2560,10 +2560,12 @@ Academics
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#prelude-finding-data-to-play-with">Prelude: finding data to play with</a></li>
+<li><a href="#prelude-finding-data-to-play-with">Prelude: finding data
+to play with</a></li>
 <li><a href="#week-1-tutorial-cheatsheet">Week 1 tutorial cheatsheet</a>
 <ul>
-<li><a href="#getting-the-basic-network-descriptors">Getting the basic network descriptors</a></li>
+<li><a href="#getting-the-basic-network-descriptors">Getting the basic
+network descriptors</a></li>
 </ul></li>
 <li><a href="#week-2-cheatsheet">Week 2 cheatsheet</a>
 <ul>
@@ -2571,36 +2573,61 @@ Academics
 </ul></li>
 <li><a href="#degree">Degree</a>
 <ul>
-<li><a href="#indegree-and-outdegree-calculations"><em>Indegree</em> and <em>outdegree</em> calculations</a></li>
+<li><a href="#indegree-and-outdegree-calculations"><em>Indegree</em> and
+<em>outdegree</em> calculations</a></li>
 </ul></li>
 <li><a href="#components">Components</a></li>
 <li><a href="#graph-density">Graph density</a></li>
-<li><a href="#network-degree-centralization">Network degree centralization</a>
+<li><a href="#network-degree-centralization">Network degree
+centralization</a>
 <ul>
-<li><a href="#eigenvector-centralization">Eigenvector centralization</a></li>
-<li><a href="#bonacich-power-centrality">Bonacich Power Centrality</a></li>
-<li><a href="#derived-and-reflected-centrality">Derived and Reflected Centrality</a></li>
+<li><a href="#eigenvector-centralization">Eigenvector
+centralization</a></li>
+<li><a href="#bonacich-power-centrality">Bonacich Power
+Centrality</a></li>
+<li><a href="#derived-and-reflected-centrality">Derived and Reflected
+Centrality</a></li>
 </ul></li>
-<li><a href="#week-5-big-block-of-basic-code">Week 5: Big Block of Basic Code</a>
+<li><a href="#week-5-big-block-of-basic-code">Week 5: Big Block of Basic
+Code</a>
 <ul>
 <li><a href="#closeness-centrailty">Closeness centrailty</a></li>
-<li><a href="#closeness-centralization">Closeness centralization</a></li>
+<li><a href="#closeness-centralization">Closeness
+centralization</a></li>
 <li><a href="#betweenness-centrality">Betweenness centrality</a></li>
-<li><a href="#betweenness-centralization">Betweenness centralization</a></li>
-<li><a href="#burts-network-constraint">(Burt’s) network constraint</a></li>
-<li><a href="#gould-fernandez-brokerage">Gould-Fernandez Brokerage</a></li>
+<li><a href="#betweenness-centralization">Betweenness
+centralization</a></li>
+<li><a href="#burts-network-constraint">(Burt’s) network
+constraint</a></li>
+<li><a href="#gould-fernandez-brokerage">Gould-Fernandez
+Brokerage</a></li>
 </ul></li>
+<li><a href="#week-6">Week 6</a></li>
 </ul>
 </nav>
 </div>
 <p style="background: #eee">
-<a href="/"><i class="fas fa-home"></i></a> &gt; Academics &gt; <a href="../ps753/index.html">PS753</a> &gt; Useful R tidbits
+<a href="/"><i class="fas fa-home"></i></a> &gt; Academics &gt; <a
+href="../ps753/index.html">PS753</a> &gt; Useful R tidbits
 </p>
-<p>This document contains R snippets pertaining to work in the <a href="../ps753/index.html">Social Networks class</a>. There is also one for the <a href="../ms797-useful-r-tidbits/index.html">Machine Learning class</a>.</p>
-<h2 id="prelude-finding-data-to-play-with">Prelude: finding data to play with</h2>
-<p>Since in the class tutorials, the network objects are pre-loaded in the web-based runtime environments, we don’t actually see how to load some of the data sets that the exercises are based on, for running outside of this environment.</p>
-<p>There are gazillions of ways to get data into R, but for the purposes of playing with networks, there are some packages with pre-existing network data that can be easily loaded. Two of these are <code>igraphdata</code>, which contains igraph-formatted network datasets, and <code>ergm</code>, which contains statnet-compatible network datasets.</p>
-<p>The datasets in each can be listed with the <code>data</code> command:</p>
+<p>This document contains R snippets pertaining to work in the <a
+href="../ps753/index.html">Social Networks class</a>. There is also one
+for the <a href="../ms797-useful-r-tidbits/index.html">Machine Learning
+class</a>.</p>
+<h2 id="prelude-finding-data-to-play-with">Prelude: finding data to play
+with</h2>
+<p>Since in the class tutorials, the network objects are pre-loaded in
+the web-based runtime environments, we don’t actually see how to load
+some of the data sets that the exercises are based on, for running
+outside of this environment.</p>
+<p>There are gazillions of ways to get data into R, but for the purposes
+of playing with networks, there are some packages with pre-existing
+network data that can be easily loaded. Two of these are
+<code>igraphdata</code>, which contains igraph-formatted network
+datasets, and <code>ergm</code>, which contains statnet-compatible
+network datasets.</p>
+<p>The datasets in each can be listed with the <code>data</code>
+command:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">data</span>(<span class="at">package =</span> <span class="st">&quot;igraphdata&quot;</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Data sets <span class="cf">in</span> package ‘igraphdata’<span class="sc">:</span></span>
@@ -2658,11 +2685,16 @@ Academics
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>                         within a monastery as a <span class="st">&quot;network&quot;</span> object</span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">samplk3</span> (samplk)         Longitudinal networks of positive affection</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>                         within a monastery as a <span class="st">&quot;network&quot;</span> object</span></code></pre></div>
-<p>To load the statnet “florentine” data from the <code>ergm</code> package:</p>
+<p>To load the statnet “florentine” data from the <code>ergm</code>
+package:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">data</span>(<span class="st">&quot;florentine&quot;</span>, <span class="at">package =</span> <span class="st">&quot;ergm&quot;</span>)</span></code></pre></div>
-<p>This creates the objects <code>flobusiness</code> and <code>flomarriage</code>, both from this dataset, ready to go in statnet. Note that another version of this dataset is found in the <code>network</code> package <code>flo</code>:</p>
+<p>This creates the objects <code>flobusiness</code> and
+<code>flomarriage</code>, both from this dataset, ready to go in
+statnet. Note that another version of this dataset is found in the
+<code>network</code> package <code>flo</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;flo&quot;</span>, <span class="at">package =</span> <span class="st">&quot;network&quot;</span>)</span></code></pre></div>
-<p>This loads the very simple data into a matrix, but it is not yet a network object. To convert it to an igraph object:</p>
+<p>This loads the very simple data into a matrix, but it is not yet a
+network object. To convert it to an igraph object:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(network)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2712,14 +2744,21 @@ Academics
 </table>
 <dl>
 <dt>vertex attribute</dt>
-<dd>vector of additional information about nodes in a network
+<dd>
+vector of additional information about nodes in a network
 </dd>
 <dt>edge attribute</dt>
-<dd>vector of additional information about the edges in a network
+<dd>
+vector of additional information about the edges in a network
 </dd>
 </dl>
 <p>Q: how to get missing edge count in igraph?</p>
 <table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -2740,14 +2779,19 @@ Academics
 </tr>
 </tbody>
 </table>
-<p>In igraph, attributes are accessed via <code>$</code>, using the <code>V</code> and <code>E</code> functions, as in:</p>
+<p>In igraph, attributes are accessed via <code>$</code>, using the
+<code>V</code> and <code>E</code> functions, as in:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(karate.ig)<span class="sc">$</span>name</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(karate.ig)<span class="sc">$</span>weight</span></code></pre></div>
-<p>In statnet, they are accessed via the <code>%v%</code> and <code>%e%</code> mechanisms, as in:</p>
+<p>In statnet, they are accessed via the <code>%v%</code> and
+<code>%e%</code> mechanisms, as in:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>karate.stat <span class="sc">%v%</span> <span class="st">&quot;vertex.names&quot;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>karate.stat <span class="sc">%e%</span> <span class="st">&quot;weight&quot;</span></span></code></pre></div>
-<h3 id="getting-the-basic-network-descriptors">Getting the basic network descriptors</h3>
-<p>First look at any network is to examine the network <em>size</em>, <em>type</em> (un/directed, un/weighted, bipartite) and available <em>attributes of vertices and edges</em>.</p>
+<h3 id="getting-the-basic-network-descriptors">Getting the basic network
+descriptors</h3>
+<p>First look at any network is to examine the network <em>size</em>,
+<em>type</em> (un/directed, un/weighted, bipartite) and available
+<em>attributes of vertices and edges</em>.</p>
 <h4 id="igraph">igraph</h4>
 <p>Basic descriptors first:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vcount</span>(climpref.ig)</span>
@@ -2779,7 +2823,8 @@ Academics
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(climpref.ig)<span class="sc">$</span>weight <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.69</span> <span class="fl">0.08</span> <span class="fl">0.04</span> <span class="fl">0.18</span> <span class="fl">0.42</span> <span class="fl">0.21</span></span></code></pre></div>
 <h4 id="statnet">statnet</h4>
-<p>The basic descriptors in statnet are all <em>shown</em> by print():</p>
+<p>The basic descriptors in statnet are all <em>shown</em> by
+print():</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">print</span>(flobusiness)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> Network attributes<span class="sc">:</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  vertices <span class="ot">=</span> <span class="dv">16</span> </span>
@@ -2796,7 +2841,9 @@ Academics
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    priorates totalties vertex.names wealth </span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>No edge attributes</span></code></pre></div>
-<p>It appears, though it’s thinly documented, that these attributes are programmatically accessible through the <code>$gal</code> attribute, as in <code>is_directed &lt;- flobusiness$gal$directed</code>:</p>
+<p>It appears, though it’s thinly documented, that these attributes are
+programmatically accessible through the <code>$gal</code> attribute, as
+in <code>is_directed &lt;- flobusiness$gal$directed</code>:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> flobusiness<span class="sc">$</span>gal</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>n</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">16</span></span>
@@ -2819,7 +2866,9 @@ Academics
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>bipartite</span>
 <span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">FALSE</span></span></code></pre></div>
 <h2 id="week-2-cheatsheet">Week 2 cheatsheet</h2>
-<p>A dyad census will count the reciprocal (<code>mut</code>), asymmetric (<code>asym</code>) and absent (<code>null</code>) dyads, based on directed graphs. In igraph:</p>
+<p>A dyad census will count the reciprocal (<code>mut</code>),
+asymmetric (<code>asym</code>) and absent (<code>null</code>) dyads,
+based on directed graphs. In igraph:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">dyad.census</span>(trade2007.ig)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>mut</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">11444</span></span>
@@ -2842,11 +2891,26 @@ Academics
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>,] <span class="dv">6225</span> <span class="dv">13655</span> <span class="dv">26489</span> <span class="dv">4225</span> <span class="dv">4657</span> <span class="dv">4821</span> <span class="dv">34812</span> <span class="dv">23635</span> <span class="dv">4374</span>  <span class="dv">537</span> <span class="dv">97088</span> <span class="dv">15073</span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>     120U  120C    <span class="dv">210</span>    <span class="dv">300</span></span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>,] <span class="dv">7947</span> <span class="dv">14249</span> <span class="dv">136169</span> <span class="dv">283855</span></span></code></pre></div>
-<p>Note that the <code>statnet</code> version gives us information about the types of triads as column names in the matrix it returns. The <code>igraph</code> version also breaks them into the 16 categories, but returns them in a fixed order not detailed in its return value (described in its help documentation).</p>
-<p>The total number of possible triads in a 298 vertex network is (298 x 297 x 296) / (3 x 2 x 1) - the 3 countdown comes from “triad”. Quads would be (298 x 297 x 296 x 295) / (4 x 3 x 2 x 1).</p>
+<p>Note that the <code>statnet</code> version gives us information about
+the types of triads as column names in the matrix it returns. The
+<code>igraph</code> version also breaks them into the 16 categories, but
+returns them in a fixed order not detailed in its return value
+(described in its help documentation).</p>
+<p>The total number of possible triads in a 298 vertex network is (298 x
+297 x 296) / (3 x 2 x 1) - the 3 countdown comes from “triad”. Quads
+would be (298 x 297 x 296 x 295) / (4 x 3 x 2 x 1).</p>
 <h3 id="transitivity">Transitivity</h3>
-<p>Transitivity is the percentage of potential connected triads - how many are complete. Basic way in igraph is <code>transitivity()</code>. The statnet version is <code>gtrans()</code>, but it only works in directed networks. <code>print()</code> will say whether the network is directed. (Note: in the tutorial, we see that the climate network IS directed, but it returns a different result than igraph: 0.627 vs 0.724. Not clear why. “it is calculating a transitivity score based on an understanding of network structure rooted in hierarchy”)</p>
-<p>Local transitivity is the <code>local clustering coefficient</code> - how many nodes of an ego are connected to each other. Have to unpack this, but the magic is:</p>
+<p>Transitivity is the percentage of potential connected triads - how
+many are complete. Basic way in igraph is <code>transitivity()</code>.
+The statnet version is <code>gtrans()</code>, but it only works in
+directed networks. <code>print()</code> will say whether the network is
+directed. (Note: in the tutorial, we see that the climate network IS
+directed, but it returns a different result than igraph: 0.627 vs 0.724.
+Not clear why. “it is calculating a transitivity score based on an
+understanding of network structure rooted in hierarchy”)</p>
+<p>Local transitivity is the <code>local clustering coefficient</code> -
+how many nodes of an ego are connected to each other. Have to unpack
+this, but the magic is:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">transitivity</span>(gotbook.ig, <span class="at">type=</span><span class="st">&quot;local&quot;</span>, </span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">vids=</span><span class="fu">V</span>(gotbook.ig)[</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&quot;Petyr Baelish&quot;</span>,<span class="st">&quot;Jon Snow&quot;</span>, <span class="st">&quot;Tyrion Lannister&quot;</span>)]) </span></code></pre></div>
@@ -2891,13 +2955,29 @@ Academics
 </tbody>
 </table>
 <h2 id="degree">Degree</h2>
-<p><code>igraph::degree()</code> and <code>statnet::degree()</code>, and once again they give different results; igraph includes loops, statnet doesn’t. Force igraph to ignore them with <code>loops = FALSE</code>. “Note that setting <code>diag=TRUE</code> in <code>sna::degree</code> does not guarantee equivalence as statnet only single counts the loops in a directed network, while igraph double-counts the loops.”</p>
+<p><code>igraph::degree()</code> and <code>statnet::degree()</code>, and
+once again they give different results; igraph includes loops, statnet
+doesn’t. Force igraph to ignore them with <code>loops = FALSE</code>.
+“Note that setting <code>diag=TRUE</code> in <code>sna::degree</code>
+does not guarantee equivalence as statnet only single counts the loops
+in a directed network, while igraph double-counts the loops.”</p>
 <p>igraph shows the node names, statnet doesn’t.</p>
-<p>Getting the degree of a particular set of nodes in <code>igraph</code>:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">v =</span> <span class="fu">V</span>(trade2007.ig)[<span class="fu">c</span>(<span class="st">&quot;China&quot;</span>, <span class="st">&quot;Canada&quot;</span>, <span class="st">&quot;United Kingdom&quot;</span>, <span class="st">&quot;Denmark&quot;</span>)])</span>
+<p>Getting the degree of a particular set of nodes in
+<code>igraph</code>:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">v =</span> <span class="fu">V</span>(trade2007.ig)[<span class="fu">c</span>(<span class="st">&quot;China&quot;</span>, <span class="st">&quot;Canada&quot;</span>, <span class="st">&quot;United Kingdom&quot;</span>, <span class="st">&quot;Denmark&quot;</span>)])</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>         China         Canada United Kingdom        Denmark </span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>           <span class="dv">364</span>            <span class="dv">364</span>            <span class="dv">364</span>            <span class="dv">362</span> </span></code></pre></div>
-<h3 id="indegree-and-outdegree-calculations"><em>Indegree</em> and <em>outdegree</em> calculations</h3>
+<p>This can also be done by index, as in:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> igraph<span class="sc">::</span><span class="fu">degree</span>(flo_ig, <span class="at">v =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Acciaiuoli    Albizzi  Barbadori </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>         <span class="dv">2</span>          <span class="dv">6</span>          <span class="dv">4</span> </span></code></pre></div>
+<p>Statnet degrees aren’t named:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> sna<span class="sc">::</span><span class="fu">degree</span>(flo_stat)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>]  <span class="dv">2</span>  <span class="dv">6</span>  <span class="dv">4</span>  <span class="dv">6</span>  <span class="dv">6</span>  <span class="dv">2</span>  <span class="dv">8</span>  <span class="dv">2</span> <span class="dv">12</span>  <span class="dv">2</span>  <span class="dv">6</span>  <span class="dv">0</span>  <span class="dv">6</span>  <span class="dv">4</span>  <span class="dv">8</span>  <span class="dv">6</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">which</span>(sna<span class="sc">::</span><span class="fu">degree</span>(flo_stat) <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">12</span></span></code></pre></div>
+<h3 id="indegree-and-outdegree-calculations"><em>Indegree</em> and
+<em>outdegree</em> calculations</h3>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -2924,234 +3004,319 @@ Academics
 </tr>
 </tbody>
 </table>
-<p>Code from the tutorial to create <code>data.frame</code>s with degree statistics:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#igraph:</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>trade2007.nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">V</span>(trade2007.ig)<span class="sc">$</span>name,</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">totdegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">loops =</span> <span class="cn">FALSE</span>),</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">indegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">mode =</span> <span class="st">&quot;in&quot;</span>, <span class="at">loops =</span> <span class="cn">FALSE</span>),</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">outdegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">mode =</span> <span class="st">&quot;out&quot;</span>, <span class="at">loops =</span> <span class="cn">FALSE</span>))</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">#statnet version:</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>trade2007.nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> trade2007.stat<span class="sc">%v%</span><span class="st">&quot;vertex.names&quot;</span>,</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">totdegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(trade2007.stat),</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">indegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(trade2007.stat, <span class="at">cmode =</span> <span class="st">&quot;indegree&quot;</span>),</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">outdegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(trade2007.stat, <span class="at">cmode =</span> <span class="st">&quot;outdegree&quot;</span>))</span></code></pre></div>
-<h2 id="components">Components</h2>
-<p>Shortest path length between 2 nodes: igraph <code>distances()</code> does this.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distances</span>(gotbook.ig,<span class="st">&quot;Petyr Baelish&quot;</span>,<span class="st">&quot;Robb Stark&quot;</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate distance using unweighted edges</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">distances</span>(gotbook.ig,<span class="st">&quot;Petyr Baelish&quot;</span>,<span class="st">&quot;Robb Stark&quot;</span>, <span class="at">weights=</span><span class="cn">NA</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># list shortest paths between 2 nodes</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">all_shortest_paths</span>(gotbook.ig,<span class="st">&quot;Bronn&quot;</span>,<span class="st">&quot;Varys&quot;</span>, <span class="at">weights=</span><span class="cn">NA</span>)<span class="sc">$</span>res</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#find average shortest path for network</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">average.path.length</span>(gotbook.ig,<span class="at">directed=</span>F)</span></code></pre></div>
-<p>Component structure and membership</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What element are returned by components</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(igraph<span class="sc">::</span><span class="fu">components</span>(gotbook.ig))</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of components</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">components</span>(gotbook.ig)<span class="sc">$</span>no </span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Size of each component</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">components</span>(gotbook.ig)<span class="sc">$</span>csize </span>
+<p>Code from the tutorial to create <code>data.frame</code>s with degree
+statistics:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#igraph:</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>trade2007.nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">V</span>(trade2007.ig)<span class="sc">$</span>name,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">totdegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">loops =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">indegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">mode =</span> <span class="st">&quot;in&quot;</span>, <span class="at">loops =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">outdegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(trade2007.ig, <span class="at">mode =</span> <span class="st">&quot;out&quot;</span>, <span class="at">loops =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">#statnet version:</span></span>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve the index of isolate nodes</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co"># (nodes with component count of 1 from &quot;components&quot; above)</span></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="fu">isolates</span>(gotbook.stat)</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="co"># There is no direct command in igraph, but we can do this:</span></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of the degree of each node in the network</span></span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>deg_counts <span class="ot">&lt;-</span> igraph<span class="sc">::</span><span class="fu">degree</span>(gotbook.ig, <span class="at">loops =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="co"># filter and count the nodes with 0 degrees (or any other quantity of interest)</span></span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(deg_counts[deg_counts <span class="sc">==</span> <span class="dv">0</span>])</span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="co"># subset vertex.names attribute to get names of isolates</span></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="fu">as.vector</span>(gotbook.stat <span class="sc">%v%</span> <span class="st">&#39;vertex.names&#39;</span>)[<span class="fu">c</span>(<span class="fu">isolates</span>(gotbook.stat))] <span class="sc">%&gt;%</span></span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a><span class="do">##   [1] &quot;Aegon Frey (Jinglebell)&quot;         &quot;Alebelly&quot;                       </span></span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="do">##   [3] &quot;Alfyn&quot;                           &quot;Allar Deem&quot;                     </span></span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a><span class="do">##   [5] &quot;Antario Jast&quot;                    &quot;Balman Byrch&quot;    </span></span></code></pre></div>
-<h2 id="graph-density">Graph density</h2>
-<p>Note: <code>network.density()</code> (statnet) ignores edge values “at present”.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get network density: igraph</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">graph.density</span>(climate.ig)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.4117647</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#get network density: statnet</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">network.density</span>(climate.stat)</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.399654</span></span></code></pre></div>
-<p>Adding <code>loops = TRUE</code> to <code>graph.density()</code> appears to fix the problem and gets the two packages to agree:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get network density without loops: igraph</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">graph.density</span>(climate.ig, <span class="at">loops=</span><span class="cn">TRUE</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>trade2007.nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> trade2007.stat<span class="sc">%v%</span><span class="st">&quot;vertex.names&quot;</span>,</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">totdegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(trade2007.stat),</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">indegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(trade2007.stat, <span class="at">cmode =</span> <span class="st">&quot;indegree&quot;</span>),</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">outdegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(trade2007.stat, <span class="at">cmode =</span> <span class="st">&quot;outdegree&quot;</span>))</span></code></pre></div>
+<h2 id="components">Components</h2>
+<p>Shortest path length between 2 nodes: igraph <code>distances()</code>
+does this.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distances</span>(gotbook.ig,<span class="st">&quot;Petyr Baelish&quot;</span>,<span class="st">&quot;Robb Stark&quot;</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate distance using unweighted edges</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">distances</span>(gotbook.ig,<span class="st">&quot;Petyr Baelish&quot;</span>,<span class="st">&quot;Robb Stark&quot;</span>, <span class="at">weights=</span><span class="cn">NA</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># list shortest paths between 2 nodes</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">all_shortest_paths</span>(gotbook.ig,<span class="st">&quot;Bronn&quot;</span>,<span class="st">&quot;Varys&quot;</span>, <span class="at">weights=</span><span class="cn">NA</span>)<span class="sc">$</span>res</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#find average shortest path for network</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">average.path.length</span>(gotbook.ig,<span class="at">directed=</span>F)</span></code></pre></div>
+<p>Component structure and membership</p>
+<p><em>Note</em>: a graph is fully connected if its number of components
+is 1. igraph returns this as the <code>no</code> parameter of
+<code>igraph::components()</code>; it appears that statnet has no
+parallel function, but if the number of isolates is 0, the graph is
+connected (<code>sna::isolates()</code>).</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What element are returned by components</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(igraph<span class="sc">::</span><span class="fu">components</span>(gotbook.ig))</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.399654</span></span></code></pre></div>
-<p><em>SO</em>, it’s safest to always do either: - <code>graph.density(climate.ig, loops=TRUE)</code> (igraph), OR - <code>network.density(climate.stat)</code> (statnet)</p>
-<p>In statnet, we can get network density with loops (nodes connecting to themselves) omitted:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get network density without loops: statnet</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gden</span>(climate.stat, <span class="at">diag=</span><span class="cn">FALSE</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of components</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">components</span>(gotbook.ig)<span class="sc">$</span>no </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Size of each component</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">components</span>(gotbook.ig)<span class="sc">$</span>csize </span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve the index of isolate nodes</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co"># (nodes with component count of 1 from &quot;components&quot; above)</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="fu">isolates</span>(gotbook.stat)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co"># There is no direct command in igraph, but we can do this:</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of the degree of each node in the network</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>deg_counts <span class="ot">&lt;-</span> igraph<span class="sc">::</span><span class="fu">degree</span>(gotbook.ig, <span class="at">loops =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="co"># filter and count the nodes with 0 degrees (or any other quantity of interest)</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(deg_counts[deg_counts <span class="sc">==</span> <span class="dv">0</span>])</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="co"># subset vertex.names attribute to get names of isolates</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="fu">as.vector</span>(gotbook.stat <span class="sc">%v%</span> <span class="st">&#39;vertex.names&#39;</span>)[<span class="fu">c</span>(<span class="fu">isolates</span>(gotbook.stat))] <span class="sc">%&gt;%</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="do">##   [1] &quot;Aegon Frey (Jinglebell)&quot;         &quot;Alebelly&quot;                       </span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a><span class="do">##   [3] &quot;Alfyn&quot;                           &quot;Allar Deem&quot;                     </span></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a><span class="do">##   [5] &quot;Antario Jast&quot;                    &quot;Balman Byrch&quot;    </span></span></code></pre></div>
+<h2 id="graph-density">Graph density</h2>
+<p>Note: <code>network.density()</code> (statnet) ignores edge values
+“at present”.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get network density: igraph</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">graph.density</span>(climate.ig)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.3921569</span></span></code></pre></div>
-<h2 id="network-degree-centralization">Network degree centralization</h2>
-<p>In <code>statnet</code>, call <code>centralization()</code> with the <code>degree</code> function and appropriate parameters for <code>degree</code> in the <code>cmode</code> argument:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centralization</span>(climate.stat, degree, <span class="at">cmode=</span><span class="st">&quot;indegree&quot;</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">centralization</span>(climate.stat, degree, <span class="at">cmode=</span><span class="st">&quot;outdegree&quot;</span>)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">centralization</span>(climate.stat, degree, <span class="at">cmode=</span><span class="st">&quot;freeman&quot;</span>) <span class="co"># default</span></span></code></pre></div>
-<p>Could also call it with other <code>sna</code> functions like <code>betweenness</code>, <code>closeness</code></p>
-<p>The <code>igraph</code> version uses <code>centr_degree()</code> and returns an object with several components, of which <code>centralization</code> is one:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(climate.ig, <span class="at">loops =</span> <span class="cn">FALSE</span>, <span class="at">mode =</span> <span class="st">&quot;in&quot;</span>)<span class="sc">$</span>centralization</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(climate.ig, <span class="at">loops =</span> <span class="cn">FALSE</span>, <span class="at">mode =</span> <span class="st">&quot;out&quot;</span>)<span class="sc">$</span>centralization</span></code></pre></div>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.4117647</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">#get network density: statnet</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">network.density</span>(climate.stat)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.399654</span></span></code></pre></div>
+<p>Adding <code>loops = TRUE</code> to <code>graph.density()</code>
+appears to fix the problem and gets the two packages to agree:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get network density without loops: igraph</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">graph.density</span>(climate.ig, <span class="at">loops=</span><span class="cn">TRUE</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.399654</span></span></code></pre></div>
+<p><em>SO</em>, it’s safest to always do either: -
+<code>graph.density(climate.ig, loops=TRUE)</code> (igraph), OR -
+<code>network.density(climate.stat)</code> (statnet)</p>
+<p>In statnet, we can get network density with loops (nodes connecting
+to themselves) omitted:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get network density without loops: statnet</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gden</span>(climate.stat, <span class="at">diag=</span><span class="cn">FALSE</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.3921569</span></span></code></pre></div>
+<h2 id="network-degree-centralization">Network degree
+centralization</h2>
+<p>In <code>statnet</code>, call <code>centralization()</code> with the
+<code>degree</code> function and appropriate parameters for
+<code>degree</code> in the <code>cmode</code> argument:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centralization</span>(climate.stat, degree, <span class="at">cmode=</span><span class="st">&quot;indegree&quot;</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">centralization</span>(climate.stat, degree, <span class="at">cmode=</span><span class="st">&quot;outdegree&quot;</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">centralization</span>(climate.stat, degree, <span class="at">cmode=</span><span class="st">&quot;freeman&quot;</span>) <span class="co"># default</span></span></code></pre></div>
+<p>Could also call it with other <code>sna</code> functions like
+<code>betweenness</code>, <code>closeness</code></p>
+<p>The <code>igraph</code> version uses <code>centr_degree()</code> and
+returns an object with several components, of which
+<code>centralization</code> is one:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(climate.ig, <span class="at">loops =</span> <span class="cn">FALSE</span>, <span class="at">mode =</span> <span class="st">&quot;in&quot;</span>)<span class="sc">$</span>centralization</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">centr_degree</span>(climate.ig, <span class="at">loops =</span> <span class="cn">FALSE</span>, <span class="at">mode =</span> <span class="st">&quot;out&quot;</span>)<span class="sc">$</span>centralization</span></code></pre></div>
 <h3 id="eigenvector-centralization">Eigenvector centralization</h3>
-<p><code>statnet</code> uses <code>evcent()</code> to calculate the eigenvalue centrality score for each node in the network:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evcent</span>(imf2014.stat, <span class="at">ignore.eval=</span><span class="cn">TRUE</span>)<span class="er">)</span></span></code></pre></div>
+<p><code>statnet</code> uses <code>evcent()</code> to calculate the
+eigenvalue centrality score for each node in the network:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evcent</span>(imf2014.stat, <span class="at">ignore.eval=</span><span class="cn">TRUE</span>)<span class="er">)</span></span></code></pre></div>
 <p>Eigenvector centrality index for the network:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centralization</span>(imf2014.stat, evcent)</span></code></pre></div>
-<p>In <code>igraph</code>, a set of eigenvector-related information is created with <code>centr_eigen()</code>:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If the network is directed, specify &quot;directed - T&quot; - will not auto-detect</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>eigen_info <span class="ot">&lt;-</span> <span class="fu">centr_eigen</span>(imf2014.ig, <span class="at">directed =</span> T)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Centrality score for node 3:</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>eigen_info[<span class="dv">3</span>]<span class="sc">$</span>vector</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Eigenveector centrality index for the network:</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>eigen_info<span class="sc">$</span>centralization</span></code></pre></div>
-<p><strong>The scores calculated by <code>igraph</code> and <code>statnet</code> are different. We aren’t sure why.</strong> It appears that igraph <a href="https://stackoverflow.com/questions/21035598/what-is-evcent-returning-for-directed-graphs">counts incoming ties to calculate eigenvector centrality</a>, and statnet <a href="http://mailman13.u.washington.edu/pipermail/statnet_help/2015/002170.html">recommends using Bonachic power instead for directed networks</a>.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">centralization</span>(imf2014.stat, evcent)</span></code></pre></div>
+<p>In <code>igraph</code>, a set of eigenvector-related information is
+created with <code>centr_eigen()</code>:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If the network is directed, specify &quot;directed - T&quot; - will not auto-detect</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>eigen_info <span class="ot">&lt;-</span> <span class="fu">centr_eigen</span>(imf2014.ig, <span class="at">directed =</span> T)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Centrality score for node 3:</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>eigen_info[<span class="dv">3</span>]<span class="sc">$</span>vector</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Eigenveector centrality index for the network:</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>eigen_info<span class="sc">$</span>centralization</span></code></pre></div>
+<p><strong>The scores calculated by <code>igraph</code> and
+<code>statnet</code> are different. We aren’t sure why.</strong> It
+appears that igraph <a
+href="https://stackoverflow.com/questions/21035598/what-is-evcent-returning-for-directed-graphs">counts
+incoming ties to calculate eigenvector centrality</a>, and statnet <a
+href="http://mailman13.u.washington.edu/pipermail/statnet_help/2015/002170.html">recommends
+using Bonachic power instead for directed networks</a>.</p>
 <h3 id="bonacich-power-centrality">Bonacich Power Centrality</h3>
 <p><code>igraph</code>:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">power_centrality</span>(imf2014.ig)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">power_centrality</span>(imf2014.ig)</span></code></pre></div>
 <p><code>statnet</code>:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bonpow</span>(imf2014.stat)</span></code></pre></div>
-<p>Again, there appear to be some inconsistency between <code>igraph</code> and <code>statnet</code> in the calculations, with statnet apparently not incorporating weights and failing on singular matrices.</p>
-<h3 id="derived-and-reflected-centrality">Derived and Reflected Centrality</h3>
-<p>There are no library routines for these calculations. Convert the data to a matrix first:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>mat2014 <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">as_adjacency_matrix</span>(imf2014.ig, <span class="at">attr=</span><span class="st">&quot;weight&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bonpow</span>(imf2014.stat)</span></code></pre></div>
+<p>Again, there appear to be some inconsistency between
+<code>igraph</code> and <code>statnet</code> in the calculations, with
+statnet apparently not incorporating weights and failing on singular
+matrices.</p>
+<h3 id="derived-and-reflected-centrality">Derived and Reflected
+Centrality</h3>
+<p>There are no library routines for these calculations. Convert the
+data to a matrix first:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>mat2014 <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">as_adjacency_matrix</span>(imf2014.ig, <span class="at">attr=</span><span class="st">&quot;weight&quot;</span>))</span></code></pre></div>
 <blockquote>
-<p>To calculate the proportion of centrality that is received, we first square the adjacency matrix. The diagonal of the adjacency matrix is equal to the the square of node degree. We then divide this diagonal (sqared degree) by total sqaured indegree (calculated by rowSums) to get the proportion of received centrality.</p>
+<p>To calculate the proportion of centrality that is received, we first
+square the adjacency matrix. The diagonal of the adjacency matrix is
+equal to the the square of node degree. We then divide this diagonal
+(sqared degree) by total sqaured indegree (calculated by rowSums) to get
+the proportion of received centrality.</p>
 </blockquote>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># square the adjacency matrix</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>mat2014sq <span class="ot">&lt;-</span> <span class="fu">t</span>(mat2014) <span class="sc">%*%</span> mat2014</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the proportion of reflected centrality.</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>imf2014.nodes<span class="sc">$</span>rc <span class="ot">&lt;-</span> <span class="fu">diag</span>(mat2014sq) <span class="sc">/</span> <span class="fu">rowSums</span>(mat2014sq)</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co"># freplace missing values with 0</span></span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>imf2014.nodes<span class="sc">$</span>rc <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.nan</span>(imf2014.nodes<span class="sc">$</span>rc), <span class="dv">0</span>, imf2014.nodes<span class="sc">$</span>rc)</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate received eigenvalue centrality</span></span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>imf2014.nodes<span class="sc">$</span>eigen.rc <span class="ot">&lt;-</span> imf2014.nodes<span class="sc">$</span>eigen <span class="sc">*</span> imf2014.nodes<span class="sc">$</span>rc</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># square the adjacency matrix</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>mat2014sq <span class="ot">&lt;-</span> <span class="fu">t</span>(mat2014) <span class="sc">%*%</span> mat2014</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the proportion of reflected centrality.</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>imf2014.nodes<span class="sc">$</span>rc <span class="ot">&lt;-</span> <span class="fu">diag</span>(mat2014sq) <span class="sc">/</span> <span class="fu">rowSums</span>(mat2014sq)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co"># freplace missing values with 0</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>imf2014.nodes<span class="sc">$</span>rc <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.nan</span>(imf2014.nodes<span class="sc">$</span>rc), <span class="dv">0</span>, imf2014.nodes<span class="sc">$</span>rc)</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate received eigenvalue centrality</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>imf2014.nodes<span class="sc">$</span>eigen.rc <span class="ot">&lt;-</span> imf2014.nodes<span class="sc">$</span>eigen <span class="sc">*</span> imf2014.nodes<span class="sc">$</span>rc</span></code></pre></div>
 <blockquote>
-<p>If total centraltiy is 1, then derived centrality is simply 1 - the proportion of eigenvector centrality due to received centrality.</p>
+<p>If total centraltiy is 1, then derived centrality is simply 1 - the
+proportion of eigenvector centrality due to received centrality.</p>
 </blockquote>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the proportion of derived centrality.</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>imf2014.nodes<span class="sc">$</span>dc <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">diag</span>(mat2014sq) <span class="sc">/</span> <span class="fu">rowSums</span>(mat2014sq)</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># replace missing values with 0</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>imf2014.nodes<span class="sc">$</span>dc <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.nan</span>(imf2014.nodes<span class="sc">$</span>dc), <span class="dv">1</span>, imf2014.nodes<span class="sc">$</span>dc)</span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate received eigenvalue centrality</span></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>imf2014.nodes<span class="sc">$</span>eigen.dc <span class="ot">&lt;-</span> imf2014.nodes<span class="sc">$</span>eigen <span class="sc">*</span> imf2014.nodes<span class="sc">$</span>dc</span></code></pre></div>
-<h2 id="week-5-big-block-of-basic-code">Week 5: Big Block of Basic Code</h2>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the proportion of derived centrality.</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>imf2014.nodes<span class="sc">$</span>dc <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">diag</span>(mat2014sq) <span class="sc">/</span> <span class="fu">rowSums</span>(mat2014sq)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># replace missing values with 0</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>imf2014.nodes<span class="sc">$</span>dc <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.nan</span>(imf2014.nodes<span class="sc">$</span>dc), <span class="dv">1</span>, imf2014.nodes<span class="sc">$</span>dc)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate received eigenvalue centrality</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>imf2014.nodes<span class="sc">$</span>eigen.dc <span class="ot">&lt;-</span> imf2014.nodes<span class="sc">$</span>eigen <span class="sc">*</span> imf2014.nodes<span class="sc">$</span>dc</span></code></pre></div>
+<h2 id="week-5-big-block-of-basic-code">Week 5: Big Block of Basic
+Code</h2>
 <p>Big Blocks of Basic Code to get a bunch of measures of a network:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the basic stuff we can do all at once with igraph</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>climinfl.nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">name      =</span> <span class="fu">V</span>(climinfl.ig)<span class="sc">$</span>name,</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">totdegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(climinfl.ig, <span class="at">loops=</span><span class="cn">FALSE</span>),</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">indegree  =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(climinfl.ig, <span class="at">mode=</span><span class="st">&quot;in&quot;</span>, <span class="at">loops=</span><span class="cn">FALSE</span>),</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">outdegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(climinfl.ig, <span class="at">mode=</span><span class="st">&quot;out&quot;</span>, <span class="at">loops=</span><span class="cn">FALSE</span>),</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">eigen     =</span> <span class="fu">centr_eigen</span>(climinfl.ig, <span class="at">directed =</span> T)<span class="sc">$</span>vector,</span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">bonanich  =</span> <span class="fu">power_centrality</span>(climinfl.ig),</span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">centr_clo =</span> igraph<span class="sc">::</span><span class="fu">closeness</span>(climinfl.ig),</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">centr_btw =</span> igraph<span class="sc">::</span><span class="fu">betweenness</span>(climinfl.ig, <span class="at">directed =</span> <span class="cn">FALSE</span>),</span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># igraph only</span></span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">burt      =</span> <span class="fu">constraint</span>(climinfl.ig)</span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Network-level measures:</span></span>
-<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   closeness centralization</span></span>
-<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>climinfl.centr_clo <span class="ot">=</span> <span class="fu">centr_clo</span>(climpref.ig)<span class="sc">$</span>centralization</span>
-<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   betweenness centralization</span></span>
-<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>climinfl.centr_btw <span class="ot">=</span> <span class="fu">centr_betw</span>(climpref.ig, <span class="at">directed =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>centralization</span>
-<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a><span class="co"># statnet version</span></span>
-<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>climinfl.nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">name      =</span> climinfl.stat <span class="sc">%v%</span> <span class="st">&quot;vertex.names&quot;</span>,</span>
-<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">totdegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(climinfl.stat),</span>
-<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">indegree  =</span> sna<span class="sc">::</span><span class="fu">degree</span>(climinfl.stat, <span class="at">cmode =</span> <span class="st">&quot;indegree&quot;</span>),</span>
-<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">outdegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(climinfl.stat, <span class="at">cmode =</span> <span class="st">&quot;outdegree&quot;</span>),</span>
-<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">eigen     =</span> sna<span class="sc">::</span><span class="fu">evcent</span>(climinfl.stat, <span class="at">ignore.eval =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">bonanich  =</span> sna<span class="sc">::</span><span class="fu">bonpow</span>(climinfl.stat),</span>
-<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">centr_clo =</span> sna<span class="sc">::</span><span class="fu">closeness</span>(climinfl.stat, <span class="at">gmode =</span> <span class="st">&quot;graph&quot;</span>),</span>
-<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">centr_btw =</span> sna<span class="sc">::</span><span class="fu">betweenness</span>(climinfl.stat, <span class="at">gmode =</span> <span class="st">&quot;graph&quot;</span>)</span>
-<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Network-level measures:</span></span>
-<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a><span class="co">#   closeness centralization</span></span>
-<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a>climinfl.centr_clo <span class="ot">=</span> <span class="fu">centralization</span>(climinfl.stat, <span class="at">FUN =</span> <span class="st">&quot;closeness&quot;</span>, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span>
-<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a><span class="co">#   betweenness centralization</span></span>
-<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a>climinfl.centr_btw <span class="ot">=</span> <span class="fu">centralization</span>(climinfl.stat, <span class="at">FUN =</span> <span class="st">&quot;betweenness&quot;</span>, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span>
-<span id="cb37-36"><a href="#cb37-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Statnet-only: Gould-Fernandez Brokerage</span></span>
-<span id="cb37-38"><a href="#cb37-38" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">brokerage</span>(climinfl.stat, <span class="at">cl =</span> climinfl.nodes<span class="sc">$</span>orgtype5)<span class="sc">$</span>z.nli)</span>
-<span id="cb37-39"><a href="#cb37-39" aria-hidden="true" tabindex="-1"></a>climinfl.nodes <span class="ot">&lt;-</span> climinfl.nodes <span class="sc">%&gt;%</span></span>
-<span id="cb37-40"><a href="#cb37-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">broker.tot =</span> temp<span class="sc">$</span>t,</span>
-<span id="cb37-41"><a href="#cb37-41" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.coord =</span> temp<span class="sc">$</span>w_I,</span>
-<span id="cb37-42"><a href="#cb37-42" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.itin =</span> temp<span class="sc">$</span>w_O,</span>
-<span id="cb37-43"><a href="#cb37-43" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.rep =</span> temp<span class="sc">$</span>b_IO,</span>
-<span id="cb37-44"><a href="#cb37-44" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.gate =</span> temp<span class="sc">$</span>b_OI,</span>
-<span id="cb37-45"><a href="#cb37-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.lia =</span> temp<span class="sc">$</span>b_O)</span>
-<span id="cb37-46"><a href="#cb37-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-47"><a href="#cb37-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculated measures not specific to igraph or statnet:</span></span>
-<span id="cb37-48"><a href="#cb37-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the derived and reflected centrality (dc/rc) measures</span></span>
-<span id="cb37-49"><a href="#cb37-49" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;To calculate the proportion of centrality that is received, we first</span></span>
-<span id="cb37-50"><a href="#cb37-50" aria-hidden="true" tabindex="-1"></a><span class="co"># square the adjacency matrix. The diagonal of the adjacency matrix is</span></span>
-<span id="cb37-51"><a href="#cb37-51" aria-hidden="true" tabindex="-1"></a><span class="co"># equal to the the square of node degree. We then divide this diagonal</span></span>
-<span id="cb37-52"><a href="#cb37-52" aria-hidden="true" tabindex="-1"></a><span class="co"># (squared degree) by total squared indegree (calculated by rowSums) to get</span></span>
-<span id="cb37-53"><a href="#cb37-53" aria-hidden="true" tabindex="-1"></a><span class="co"># the proportion of received centrality.&quot;</span></span>
-<span id="cb37-54"><a href="#cb37-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-55"><a href="#cb37-55" aria-hidden="true" tabindex="-1"></a>mat_climinfl <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">as_adjacency_matrix</span>(climinfl.ig))  <span class="co"># not &quot; attr=&#39;weight&#39;&quot;</span></span>
-<span id="cb37-56"><a href="#cb37-56" aria-hidden="true" tabindex="-1"></a>mat_climinfl_sq <span class="ot">&lt;-</span> <span class="fu">t</span>(mat_climinfl) <span class="sc">%*%</span> mat_climinfl</span>
-<span id="cb37-57"><a href="#cb37-57" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>rc <span class="ot">&lt;-</span> <span class="fu">diag</span>(mat_climinfl_sq) <span class="sc">/</span> <span class="fu">rowSums</span>(mat_climinfl_sq)</span>
-<span id="cb37-58"><a href="#cb37-58" aria-hidden="true" tabindex="-1"></a><span class="co"># replace missing values with 0</span></span>
-<span id="cb37-59"><a href="#cb37-59" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>rc <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.nan</span>(climinfl.nodes<span class="sc">$</span>rc), <span class="dv">0</span>, climinfl.nodes<span class="sc">$</span>rc)</span>
-<span id="cb37-60"><a href="#cb37-60" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>dc <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> climinfl.nodes<span class="sc">$</span>rc</span>
-<span id="cb37-61"><a href="#cb37-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-62"><a href="#cb37-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the derived and reflected eigenvector measures</span></span>
-<span id="cb37-63"><a href="#cb37-63" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>eigen.rc <span class="ot">&lt;-</span> climinfl.nodes<span class="sc">$</span>eigen <span class="sc">*</span> climinfl.nodes<span class="sc">$</span>rc</span>
-<span id="cb37-64"><a href="#cb37-64" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>eigen.dc <span class="ot">&lt;-</span> climinfl.nodes<span class="sc">$</span>eigen <span class="sc">*</span> climinfl.nodes<span class="sc">$</span>dc</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the basic stuff we can do all at once with igraph</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>climinfl.nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">name      =</span> <span class="fu">V</span>(climinfl.ig)<span class="sc">$</span>name,</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">totdegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(climinfl.ig, <span class="at">loops=</span><span class="cn">FALSE</span>),</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">indegree  =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(climinfl.ig, <span class="at">mode=</span><span class="st">&quot;in&quot;</span>, <span class="at">loops=</span><span class="cn">FALSE</span>),</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">outdegree =</span> igraph<span class="sc">::</span><span class="fu">degree</span>(climinfl.ig, <span class="at">mode=</span><span class="st">&quot;out&quot;</span>, <span class="at">loops=</span><span class="cn">FALSE</span>),</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">eigen     =</span> <span class="fu">centr_eigen</span>(climinfl.ig, <span class="at">directed =</span> T)<span class="sc">$</span>vector,</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">bonanich  =</span> <span class="fu">power_centrality</span>(climinfl.ig),</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">centr_clo =</span> igraph<span class="sc">::</span><span class="fu">closeness</span>(climinfl.ig),</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">centr_btw =</span> igraph<span class="sc">::</span><span class="fu">betweenness</span>(climinfl.ig, <span class="at">directed =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># igraph only</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">burt      =</span> <span class="fu">constraint</span>(climinfl.ig)</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Network-level measures:</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   closeness centralization</span></span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>climinfl.centr_clo <span class="ot">=</span> <span class="fu">centr_clo</span>(climpref.ig)<span class="sc">$</span>centralization</span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   betweenness centralization</span></span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>climinfl.centr_btw <span class="ot">=</span> <span class="fu">centr_betw</span>(climpref.ig, <span class="at">directed =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>centralization</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a><span class="co"># statnet version</span></span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>climinfl.nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">name      =</span> climinfl.stat <span class="sc">%v%</span> <span class="st">&quot;vertex.names&quot;</span>,</span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">totdegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(climinfl.stat),</span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">indegree  =</span> sna<span class="sc">::</span><span class="fu">degree</span>(climinfl.stat, <span class="at">cmode =</span> <span class="st">&quot;indegree&quot;</span>),</span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">outdegree =</span> sna<span class="sc">::</span><span class="fu">degree</span>(climinfl.stat, <span class="at">cmode =</span> <span class="st">&quot;outdegree&quot;</span>),</span>
+<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">eigen     =</span> sna<span class="sc">::</span><span class="fu">evcent</span>(climinfl.stat, <span class="at">ignore.eval =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">bonanich  =</span> sna<span class="sc">::</span><span class="fu">bonpow</span>(climinfl.stat),</span>
+<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">centr_clo =</span> sna<span class="sc">::</span><span class="fu">closeness</span>(climinfl.stat, <span class="at">gmode =</span> <span class="st">&quot;graph&quot;</span>,</span>
+<span id="cb39-29"><a href="#cb39-29" aria-hidden="true" tabindex="-1"></a>                               <span class="at">cmode =</span> <span class="st">&quot;suminvundir&quot;</span>),</span>
+<span id="cb39-30"><a href="#cb39-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">centr_btw =</span> sna<span class="sc">::</span><span class="fu">betweenness</span>(climinfl.stat, <span class="at">gmode =</span> <span class="st">&quot;graph&quot;</span>)</span>
+<span id="cb39-31"><a href="#cb39-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-32"><a href="#cb39-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Network-level measures:</span></span>
+<span id="cb39-33"><a href="#cb39-33" aria-hidden="true" tabindex="-1"></a><span class="co">#   closeness centralization</span></span>
+<span id="cb39-34"><a href="#cb39-34" aria-hidden="true" tabindex="-1"></a>climinfl.centr_clo <span class="ot">=</span> <span class="fu">centralization</span>(climinfl.stat, sna<span class="sc">::</span>closeness, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span>
+<span id="cb39-35"><a href="#cb39-35" aria-hidden="true" tabindex="-1"></a><span class="co">#   betweenness centralization</span></span>
+<span id="cb39-36"><a href="#cb39-36" aria-hidden="true" tabindex="-1"></a>climinfl.centr_btw <span class="ot">=</span> <span class="fu">centralization</span>(climinfl.stat, sna<span class="sc">::</span>betweenness, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span>
+<span id="cb39-37"><a href="#cb39-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-38"><a href="#cb39-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Statnet-only: Gould-Fernandez Brokerage</span></span>
+<span id="cb39-39"><a href="#cb39-39" aria-hidden="true" tabindex="-1"></a><span class="co"># replace ATTR with the vector of the desired attribute, such as</span></span>
+<span id="cb39-40"><a href="#cb39-40" aria-hidden="true" tabindex="-1"></a><span class="co"># `climinfl.nodes$orgtype5`</span></span>
+<span id="cb39-41"><a href="#cb39-41" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">brokerage</span>(climinfl.stat, <span class="at">cl =</span> ATTR)<span class="sc">$</span>z.nli)</span>
+<span id="cb39-42"><a href="#cb39-42" aria-hidden="true" tabindex="-1"></a>climinfl.nodes <span class="ot">&lt;-</span> climinfl.nodes <span class="sc">%&gt;%</span></span>
+<span id="cb39-43"><a href="#cb39-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">broker.tot =</span> temp<span class="sc">$</span>t,</span>
+<span id="cb39-44"><a href="#cb39-44" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.coord =</span> temp<span class="sc">$</span>w_I,</span>
+<span id="cb39-45"><a href="#cb39-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.itin =</span> temp<span class="sc">$</span>w_O,</span>
+<span id="cb39-46"><a href="#cb39-46" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.rep =</span> temp<span class="sc">$</span>b_IO,</span>
+<span id="cb39-47"><a href="#cb39-47" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.gate =</span> temp<span class="sc">$</span>b_OI,</span>
+<span id="cb39-48"><a href="#cb39-48" aria-hidden="true" tabindex="-1"></a>         <span class="at">broker.lia =</span> temp<span class="sc">$</span>b_O)</span>
+<span id="cb39-49"><a href="#cb39-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-50"><a href="#cb39-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculated measures not specific to igraph or statnet:</span></span>
+<span id="cb39-51"><a href="#cb39-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the derived and reflected centrality (dc/rc) measures</span></span>
+<span id="cb39-52"><a href="#cb39-52" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;To calculate the proportion of centrality that is received, we first</span></span>
+<span id="cb39-53"><a href="#cb39-53" aria-hidden="true" tabindex="-1"></a><span class="co"># square the adjacency matrix. The diagonal of the adjacency matrix is</span></span>
+<span id="cb39-54"><a href="#cb39-54" aria-hidden="true" tabindex="-1"></a><span class="co"># equal to the the square of node degree. We then divide this diagonal</span></span>
+<span id="cb39-55"><a href="#cb39-55" aria-hidden="true" tabindex="-1"></a><span class="co"># (squared degree) by total squared indegree (calculated by rowSums) to get</span></span>
+<span id="cb39-56"><a href="#cb39-56" aria-hidden="true" tabindex="-1"></a><span class="co"># the proportion of received centrality.&quot;</span></span>
+<span id="cb39-57"><a href="#cb39-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-58"><a href="#cb39-58" aria-hidden="true" tabindex="-1"></a>mat_climinfl <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">as_adjacency_matrix</span>(climinfl.ig))  <span class="co"># not &quot; attr=&#39;weight&#39;&quot;</span></span>
+<span id="cb39-59"><a href="#cb39-59" aria-hidden="true" tabindex="-1"></a>mat_climinfl_sq <span class="ot">&lt;-</span> <span class="fu">t</span>(mat_climinfl) <span class="sc">%*%</span> mat_climinfl</span>
+<span id="cb39-60"><a href="#cb39-60" aria-hidden="true" tabindex="-1"></a><span class="co"># alternately:</span></span>
+<span id="cb39-61"><a href="#cb39-61" aria-hidden="true" tabindex="-1"></a>mat_climinfl <span class="ot">&lt;-</span> <span class="fu">as.matrix.network</span>(climinfl.stat, <span class="at">attr =</span> <span class="st">&quot;weight&quot;</span>)</span>
+<span id="cb39-62"><a href="#cb39-62" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(mat_climinfl) <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb39-63"><a href="#cb39-63" aria-hidden="true" tabindex="-1"></a>mat_climinfl_sq <span class="ot">&lt;-</span> mat_climinfl <span class="sc">%*%</span> mat_climinfl</span>
+<span id="cb39-64"><a href="#cb39-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-65"><a href="#cb39-65" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>rc <span class="ot">&lt;-</span> <span class="fu">diag</span>(mat_climinfl_sq) <span class="sc">/</span> <span class="fu">rowSums</span>(mat_climinfl_sq)</span>
+<span id="cb39-66"><a href="#cb39-66" aria-hidden="true" tabindex="-1"></a><span class="co"># replace missing values with 0</span></span>
+<span id="cb39-67"><a href="#cb39-67" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>rc <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.nan</span>(climinfl.nodes<span class="sc">$</span>rc), <span class="dv">0</span>, climinfl.nodes<span class="sc">$</span>rc)</span>
+<span id="cb39-68"><a href="#cb39-68" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>dc <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> climinfl.nodes<span class="sc">$</span>rc</span>
+<span id="cb39-69"><a href="#cb39-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-70"><a href="#cb39-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the derived and reflected eigenvector measures</span></span>
+<span id="cb39-71"><a href="#cb39-71" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>eigen.rc <span class="ot">&lt;-</span> climinfl.nodes<span class="sc">$</span>eigen <span class="sc">*</span> climinfl.nodes<span class="sc">$</span>rc</span>
+<span id="cb39-72"><a href="#cb39-72" aria-hidden="true" tabindex="-1"></a>climinfl.nodes<span class="sc">$</span>eigen.dc <span class="ot">&lt;-</span> climinfl.nodes<span class="sc">$</span>eigen <span class="sc">*</span> climinfl.nodes<span class="sc">$</span>dc</span></code></pre></div>
 <h3 id="closeness-centrailty">Closeness centrailty</h3>
-<p>From text: “The closeness centrality of a node is defined as the sum of the geodesic distances between that node and all other nodes in a network.”</p>
-<p>Both are called in the above blocks, with <code>sna::closeness()</code> or <code>igraph::closeness()</code> on the respective network object.</p>
-<p>From igraph::closeness help: “Closeness centrality measures how many steps is required to access every other vertex from a given vertex.”</p>
-<p>igraph and statnet have very different implementations, with options that have to be carefully set.</p>
+<p>From text: “The closeness centrality of a node is defined as the sum
+of the geodesic distances between that node and all other nodes in a
+network.”</p>
+<p>Both are called in the above blocks, with
+<code>sna::closeness()</code> or <code>igraph::closeness()</code> on the
+respective network object.</p>
+<p>From igraph::closeness help: “Closeness centrality measures how many
+steps is required to access every other vertex from a given vertex.”</p>
+<p>igraph and statnet have very different implementations, with options
+that have to be carefully set.</p>
 <h4 id="igraph-1">igraph</h4>
 <p>igraph uses inverse closeness.</p>
-<p>For directed networks, use <code>mode=("in", "out", "all", "total")</code>, describing the path type; <code>in</code> is paths <em>to</em> a vertex, <code>out</code> is paths <em>from</em> a vertex. Undirected networks ignore this parameter. It will use the “weight” edge attribute automatically if it’s there, or can be overriden with something else.</p>
+<p>For directed networks, use
+<code>mode=("in", "out", "all", "total")</code>, describing the path
+type; <code>in</code> is paths <em>to</em> a vertex, <code>out</code> is
+paths <em>from</em> a vertex. Undirected networks ignore this parameter.
+It will use the “weight” edge attribute automatically if it’s there, or
+can be overriden with something else.</p>
 <h4 id="statnet-1">statnet</h4>
-<p>Must specify <code>gmode</code> (type of graph) as <code>graph</code> (undirected) or <code>digraph</code> (directed, default). <code>cmode</code> (type of closeness centrality being measured) is one of: <code>directed</code>, <code>undirected</code> (both standard closeness), <code>suminvdir</code> (directed case) and <code>suminvundir</code> (undirected case), and <code>gil-schmidt</code> for that. The <code>suminv</code> options correspond to igraph’s default inversion, though they’re still calculated slightly differently, so they’re generally preferred.</p>
-<p>statnet ignores the edge weights by default; <code>ignore.eval = FALSE</code> to use them, according to the documentation, but the results appear not to use them.</p>
+<p>Must specify <code>gmode</code> (type of graph) as <code>graph</code>
+(undirected) or <code>digraph</code> (directed, default).
+<code>cmode</code> (type of closeness centrality being measured) is one
+of: <code>directed</code>, <code>undirected</code> (both standard
+closeness), <code>suminvdir</code> (directed case) and
+<code>suminvundir</code> (undirected case), and <code>gil-schmidt</code>
+for that. The <code>suminv</code> options correspond to igraph’s default
+inversion, though they’re still calculated slightly differently, so
+they’re generally preferred.</p>
+<p>statnet ignores the edge weights by default;
+<code>ignore.eval = FALSE</code> to use them, according to the
+documentation, but the results appear not to use them.</p>
 <p><code>sna::closeness(climpref.stat, gmode="graph", cmode="suminvundir", ignore.eval=FALSE))</code></p>
 <h3 id="closeness-centralization">Closeness centralization</h3>
-<p>Closeness centralization is the network-level measure of the <em>closeness centrality</em> node-level measure.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>climinfl.centr_clo <span class="ot">=</span> <span class="fu">centr_clo</span>(climpref.ig)<span class="sc">$</span>centralization</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>climinfl.centr_clo <span class="ot">=</span> <span class="fu">centralization</span>(climinfl.stat, <span class="at">FUN =</span> <span class="st">&quot;closeness&quot;</span>, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span></code></pre></div>
+<p>Closeness centralization is the network-level measure of the
+<em>closeness centrality</em> node-level measure.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>climinfl.centr_clo <span class="ot">=</span> <span class="fu">centr_clo</span>(climpref.ig)<span class="sc">$</span>centralization</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>climinfl.centr_clo <span class="ot">=</span> <span class="fu">centralization</span>(climinfl.stat, <span class="at">FUN =</span> <span class="st">&quot;closeness&quot;</span>, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span></code></pre></div>
 <h3 id="betweenness-centrality">Betweenness centrality</h3>
-<p>Betweenness centrality is the node-level measure of the number of geodesics (shortest path between two nodes) on which a node sits. A high betweenness centrality measure means a node is on many shortest-paths, suggesting a measure of influence or power.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">betweenness</span>(climpref.ig, <span class="at">directed =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>sna<span class="sc">::</span><span class="fu">betweenness</span>(climpref.ig, <span class="at">gmode =</span> <span class="st">&quot;graph&quot;</span>)</span></code></pre></div>
-<p>The igraph version <code>directed</code> argument, for whether or not direction should be considered, defaults to <code>TRUE</code>; it might be wondered why it doesn’t read the directedness of the graph as a default, but oh well.</p>
-<p>The statnet version would use <code>gmode</code> of <code>digraph</code> for a directed network, and <code>cmode</code> for a variant undirected form; see <code>?sna::betweenness</code> for more. Statnet appears to use weights by default; <code>weights = NA</code> disables weights in igraph.</p>
+<p>Betweenness centrality is the node-level measure of the number of
+geodesics (shortest path between two nodes) on which a node sits. A high
+betweenness centrality measure means a node is on many shortest-paths,
+suggesting a measure of influence or power.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">betweenness</span>(climpref.ig, <span class="at">directed =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>sna<span class="sc">::</span><span class="fu">betweenness</span>(climpref.ig, <span class="at">gmode =</span> <span class="st">&quot;graph&quot;</span>)</span></code></pre></div>
+<p>The igraph version <code>directed</code> argument, for whether or not
+direction should be considered, defaults to <code>TRUE</code>; it might
+be wondered why it doesn’t read the directedness of the graph as a
+default, but oh well.</p>
+<p>The statnet version would use <code>gmode</code> of
+<code>digraph</code> for a directed network, and <code>cmode</code> for
+a variant undirected form; see <code>?sna::betweenness</code> for more.
+Statnet appears to use weights by default; <code>weights = NA</code>
+disables weights in igraph.</p>
 <h3 id="betweenness-centralization">Betweenness centralization</h3>
-<p>The network-level measure of betweenness centralization represents <a href="https://en.wikipedia.org/wiki/Centrality#Freeman_centralization">Freeman centralization</a>, at least according to the statnet documentation.</p>
-<p>This is a “a measure of how central its most central node is in relation to how central all the other nodes are”.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>climinfl.centr_btw <span class="ot">=</span> <span class="fu">centr_betw</span>(climpref.ig, <span class="at">directed =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>centralization</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>climinfl.centr_btw <span class="ot">=</span> <span class="fu">centralization</span>(climpref.stat, <span class="at">FUN =</span> <span class="st">&quot;betweenness&quot;</span>, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span></code></pre></div>
+<p>The network-level measure of betweenness centralization represents <a
+href="https://en.wikipedia.org/wiki/Centrality#Freeman_centralization">Freeman
+centralization</a>, at least according to the statnet documentation.</p>
+<p>This is a “a measure of how central its most central node is in
+relation to how central all the other nodes are”.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>climinfl.centr_btw <span class="ot">=</span> <span class="fu">centr_betw</span>(climpref.ig, <span class="at">directed =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>centralization</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>climinfl.centr_btw <span class="ot">=</span> <span class="fu">centralization</span>(climpref.stat, <span class="at">FUN =</span> <span class="st">&quot;betweenness&quot;</span>, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span></code></pre></div>
 <h3 id="burts-network-constraint">(Burt’s) network constraint</h3>
-<p>igraph-only function measuring a node’s connection redundancy from 0 (none) to 1. Uses weights.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">constraint</span>(climinfl.ig)</span></code></pre></div>
+<p>igraph-only function measuring a node’s connection redundancy from 0
+(none) to 1. Uses weights.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">constraint</span>(climinfl.ig)</span></code></pre></div>
 <h3 id="gould-fernandez-brokerage">Gould-Fernandez Brokerage</h3>
 <p>(Statnet-only)</p>
-<p>From <code>?brokerage()</code>: “Gould and Fernandez (following Marsden and others) describe brokerage as the role played by a social actor who mediates contact between two alters.”</p>
-<p>Requires a directed network with a vertex attribute used for grouping. Returns a structure with a lot of information is returned; tutorial refers mainly to <code>znli</code> containing the following roles:</p>
+<p>From <code>?brokerage()</code>: “Gould and Fernandez (following
+Marsden and others) describe brokerage as the role played by a social
+actor who mediates contact between two alters.”</p>
+<p>Requires a directed network with a vertex attribute used for
+grouping. Returns a structure with a lot of information; tutorial refers
+mainly to <code>znli</code> containing the following roles:</p>
 <table>
 <colgroup>
 <col style="width: 25%" />
@@ -3171,31 +3336,36 @@ Academics
 <tr class="odd">
 <td>w_I</td>
 <td>Coordinator</td>
-<td>mediates contact between two individuals from his or her own group.</td>
+<td>mediates contact between two individuals from his or her own
+group.</td>
 <td>A -&gt; A -&gt; A</td>
 </tr>
 <tr class="even">
 <td>w_O</td>
 <td>Itinerant broker</td>
-<td>mediates contact between two individuals from a single group to which he or she does not belong.</td>
+<td>mediates contact between two individuals from a single group to
+which he or she does not belong.</td>
 <td>A -&gt; B -&gt; A</td>
 </tr>
 <tr class="odd">
 <td>b_{OI}</td>
 <td>Gatekeeper</td>
-<td>mediates an incoming contact from an out-group member to an in-group member.</td>
+<td>mediates an incoming contact from an out-group member to an in-group
+member.</td>
 <td>A -&gt; B -&gt; B</td>
 </tr>
 <tr class="even">
 <td>b_{IO}</td>
 <td>Representative</td>
-<td>mediates an outgoing contact from an in-group member to an out-group member.</td>
+<td>mediates an outgoing contact from an in-group member to an out-group
+member.</td>
 <td>A -&gt; A -&gt; B</td>
 </tr>
 <tr class="odd">
 <td>b_O</td>
 <td>Liaison</td>
-<td>mediates contact between two individuals from different groups, neither of which is the group to which he or she belongs.</td>
+<td>mediates contact between two individuals from different groups,
+neither of which is the group to which he or she belongs.</td>
 <td>A -&gt; B -&gt; C</td>
 </tr>
 <tr class="even">
@@ -3206,8 +3376,32 @@ Academics
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brokerage</span>(climinfl.stat, <span class="at">cl =</span> climinfl.nodes<span class="sc">$</span>orgtype5)</span></code></pre></div>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brokerage</span>(climinfl.stat, <span class="at">cl =</span> climinfl.nodes<span class="sc">$</span>orgtype5)</span></code></pre></div>
+<h2 id="week-6">Week 6</h2>
+<p>(All statnet unless otherwise specified)</p>
+<p>Calculating structural equivalence (“SE clusters”): look for nodes
+that have the same pattern of ties with the same neighbors, like
+siblings of a parent. Unexplained distance functions include “hamming”,
+“correlation”, “gamma”. The <code>sedist()</code> function ignores edge
+values (weights?).</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>flomarr.se <span class="ot">&lt;-</span> <span class="fu">equiv.clust</span>(flomarr.stat, <span class="at">equiv.fun =</span> <span class="st">&quot;sedist&quot;</span>, <span class="at">method =</span> <span class="st">&quot;hamming&quot;</span>, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span></code></pre></div>
+<p>The output of <code>equiv.clust()</code> can be plotted as a “Cluster
+Dendogram”:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>flomarr.se <span class="ot">&lt;-</span> <span class="fu">equiv.clust</span>(flomarriage, <span class="at">equiv.fun =</span> <span class="st">&quot;sedist&quot;</span>, <span class="at">method =</span> <span class="st">&quot;hamming&quot;</span>, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(flomarr.se,<span class="at">labels =</span> flomarr.se<span class="sc">$</span>glabels)</span></code></pre></div>
+<p>Annoyingly, the different <code>cluster.method</code>s “single,
+average, or ward.D” are not explained in the tutorial. The default is
+“complete”.</p>
+<p><code>rect.hclust()</code> (visually) “cuts” the diagram at a given
+height, making separate clusters:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(flomarr.se, <span class="at">labels =</span> flomarr.se<span class="sc">$</span>glabels)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rect.hclust</span>(flomarr.se<span class="sc">$</span>cluster, <span class="at">h =</span> <span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>flomarr.se <span class="ot">&lt;-</span> <span class="fu">equiv.clust</span>(flomarriage, <span class="at">equiv.fun =</span> <span class="st">&quot;sedist&quot;</span>, <span class="at">cluster.method =</span> <span class="st">&quot;single&quot;</span>,</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">method =</span> <span class="st">&quot;hamming&quot;</span>, <span class="at">mode =</span> <span class="st">&quot;graph&quot;</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(flomarr.se,<span class="at">labels =</span> flomarr.se<span class="sc">$</span>glabels)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">

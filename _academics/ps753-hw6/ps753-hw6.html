@@ -1792,7 +1792,7 @@ partition from the data:</p>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>flo_stat.bm</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/sna/man/blockmodel.html'>blockmodel</a></span><span class='op'>(</span><span class='va'>flo_stat</span>, <span class='va'>flo_stat.se</span>, h <span class='op'>=</span> <span class='fl'>8</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>flo_stat.bm</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/sna/man/blockmodel.html'>blockmodel</a></span><span class='op'>(</span><span class='va'>flo_stat</span>, <span class='va'>flo_stat.se</span>, h <span class='op'>=</span> <span class='fl'>8</span>, mode <span class='op'>=</span> <span class='st'>"graph"</span><span class='op'>)</span>
 <span class='va'>flo_stat.bm</span>
 </code></pre>
 </div>
@@ -1841,6 +1841,27 @@ Show code
 </details>
 <p><img src="ps753-hw6_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
 </div>
+<p>THe four clusters are indicated by the dotted horizontal lines in the
+diagram; each black box is a connection between the nodes along the left
+and top axes. The more filled-in a partition is, the more similar the
+clustered elements are to each other; this is also indicated numerically
+in the chart above with measures closer to 1.</p>
+<p>The most obvious observations to make here are:</p>
+<ol type="1">
+<li><p>The cluster with the highest inner similarity rating is 2, with a
+numeric rate of 0.83 (on a scale of 0 to 1). This can be interpreted to
+mean that the Peruzzi, Strozzi, Bischeri and Castallani familes mostly
+intermarried among each other. (Cousins!)</p></li>
+<li><p>The grouping returned by <code>rect.hclust</code> with the same
+<code>h</code> parameter of 8 does not match the grouping returned by
+<code>blockmodel</code> with the same value. It gets the first three
+groups correct, but all of the remaining nodes are packed together into
+the fourth group. I suspect this may be a bug in the blockmodel code,
+related to the fact that there were 4 clusters in the
+<code>rect.hclust</code> code that had data, and 2 without, but
+blockmodel considered the empty ones as valid, and then stopped at 4.
+This will need to be investigated.</p></li>
+</ol>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <section class="footnotes footnotes-end-of-document"
