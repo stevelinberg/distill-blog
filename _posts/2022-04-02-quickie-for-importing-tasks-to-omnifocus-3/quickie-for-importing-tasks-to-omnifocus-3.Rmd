@@ -21,9 +21,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 I've been an [OmniFocus](https://www.omnigroup.com/omnifocus/) user since version 1.0.
 
-Well, sort of. I used it a ton in version 1.0 and then eventually stopped. Then I used it again a ton wehen version 2 came out, and then eventually stopped. It worked well when I really forced myself to use it, but eventually I'd run out of gas, and it always bugged me a bit that I couldn't get a handle on why. I read David Allen's "[Getting Things Done](https://gettingthingsdone.com/)", which it was inspired by, and it all made sense, but it still just had a lot of friction to keep using.
+Well, sort of. I used it a ton in version 1.0 and then eventually stopped. Then I used it again a ton when version 2 came out, and then eventually stopped. It worked well when I really forced myself to use it, but eventually I'd run out of gas, and it always bugged me a bit that I couldn't get a handle on why. I read David Allen's "[Getting Things Done](https://gettingthingsdone.com/)", which it was inspired by, and it all made sense, but it still just had a lot of friction to keep using.
 
-One of the problems, I now realize, was the notion of *contexts* - each to-do list could be assigned one, *and only one*, context, like "online" or "supermarket" or "home", describing the setting where a task could be done. The problem was that there were many tasks that could be done in multiple contexts, but no way to mark them as such. One user I talked with on one of the forums explained that the way to think about it was that I myself could be in multiple simultaneous contexts, like "home" and "online", and that tasks that matched either of those would appear. It sort of made sense, but it still never felt natural and I eventually dropped it again.
+One of the problems, I now realize, was the notion of *contexts* - each to-do item could be assigned to one, *and only one*, context, like "online" or "supermarket" or "home", describing the setting where a task could be done. The problem was that there were many tasks that could be done in multiple contexts, but no way to mark them as such. One user I talked with on one of the forums explained that the way to think about it was that I myself could be in multiple simultaneous contexts, like "home" and "online", and that tasks that matched either of those would appear. It sort of made sense, but it still never felt natural and I eventually dropped it again.
 
 I checked it out again in version 3, and the problem has been solved: contexts are gone, replaced by the much more versatile and familiar concept of *tags*. Tags can be freely defined, and any item can have as many tags as you want. So now I'm using it again and finding it much easier to get along with.
 
@@ -38,7 +38,7 @@ It's full of really nice little interface touches that are almost invisible but 
 So my full list was:
 
 ```
-- (ch 3) Simple linear regression @tags(Machine Learning, Homework) @projects(Machine Learning) @due(2022-04-02 23:59)
+- (ch 3) Simple linear regression @tags(Machine Learning, Homework) @due(2022-04-02 23:59)
 - (ch 3) Multiple linear regression @tags(Machine Learning, Homework) @due(2022-04-03 23:59)
 - (ch 4) Logistic regression @tags(Machine Learning, Homework) @due(2022-04-04 23:59)
 - (ch 4) Multiple logistic regression @tags(Machine Learning, Homework) @due(2022-04-05 23:59)
