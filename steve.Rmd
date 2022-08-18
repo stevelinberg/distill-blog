@@ -18,35 +18,37 @@ output:
  
 ## Bio
 
-I am a Masters student in the [DACSS program](https://www.umass.edu/sbs/data-analytics-and-computational-social-science-program) at the University of Massachusetts, Amherst; anticipated graduation Summer 2022. The day job is Senior Systems and Analytics Engineer at the [Gandara Center](https://www.gandaracenter.org/) in West Springfield, MA.
+In summer 2022, I completed the [Data Analytics and Computational Social Science (DACSS) Masters program](https://www.umass.edu/sbs/data-analytics-and-computational-social-science-program) at the [University of Massachusetts, Amherst](https://umass.edu). My present position is Senior Systems and Analytics Engineer at the [Gandara Center](https://www.gandaracenter.org/) in West Springfield, MA.
 
 This site contains my academic [blog](index.html) with ruminations on computational social science, my own learning processes and discoveries, and related technical topics and snippets. 
 
 ## Education
 
-**Hampshire College** | Amherst, MA
+*MS, Data Analytics and Computational Social Science* | 2022
 
-BA, Social Science, 1990-3
+University of Massachusetts, Amherst | Amherst, MA
 
-**University of Massachusetts, Amherst** | Amherst, MA
+*BA, Social Science* | 1992
 
-M.S, Data Analytics and Computational Social Science | Anticipated graduation summer 2022
+Hampshire College | Amherst, MA
 
 ## Experience
 
-**Gandara Center** | Senior Systems and Analytics Engineer / CIO / IT Director | 2005 - Present
+**Gandara Center**, West Springfield, MA | Senior Systems and Analytics Engineer / CIO / IT Director | 2005 - Present
 
-**Silicon Goblin Technologies** | Owner / Programmer | 1999 - 2015
+**Silicon Goblin Technologies**, Amherst, MA | Owner / Programmer | 1999 - 2015
 
-**National Center on Adult Literacy**, University of Pennsylvania Graduate School of Education | Systems Programmer | 1997-1999
+**Rojo Networks**, San Francisco, CA | Systems Administrator and Customer Service Lead | 2006-2008
 
-**Holyoke Public Schools** | Literacy and GED Instructor | 1994-1997
+**National Center on Adult Literacy**, University of Pennsylvania Graduate School of Education, Philadelphia, PA | Systems Programmer and Lead Web Developer | 1997-1999
 
-**Unicom, Inc.** | Systems Programmer and Technical Writer | 1983-1997
+**Holyoke Public Schools**, Holyoke, MA | Literacy and GED Instructor | 1994-1997
+
+**Unicom, Inc.**, Providence, RI | Systems Programmer and Technical Writer | 1983-1997
 
 ## Interests
 
-- Data analytics and statistics
-- Programming languages
-- The state of the world
+- Data analytics, statistics, machine learning
+- Software engineering
+- Politics, culture and the state of the world
 - Drawing, painting, guitar, motorcycles, baking, gaming
